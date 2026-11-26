@@ -31,7 +31,7 @@ def magnitude(value):
     return text.rstrip("0").rstrip(".") if "." in text else text
 
 
-def publish(database, days):
+def publish(database, days, *, before_commit=None):
     if days not in (3, 7):
         raise ValueError("supported coverage lengths are 3 and 7 UTC days")
     manifest = reconcile.MANIFEST
@@ -89,6 +89,8 @@ def publish(database, days):
                             for r in rows))
         db.execute("""INSERT INTO current_publication VALUES (1,?)
                       ON CONFLICT(singleton) DO UPDATE SET publication=excluded.publication""", (publication,))
+        if before_commit is not None:
+            before_commit(publication)
     return publication
 
 
