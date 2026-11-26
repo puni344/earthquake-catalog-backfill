@@ -1,6 +1,12 @@
 # D2 · Restartable earthquake catalog backfill
 
-This checkout also contains D2. Its planned offline demo interrupts a USGS backfill, resumes it, checks every recovered row against an independent reference and retrieves the previous and new publications by ID. The integrated crash-and-publication demo is **NOT RUN**.
+Run the offline demonstration from this checkout on the Windows build laptop:
+
+```powershell
+python -m earthquake.verify
+```
+
+Expect `Live acquisition agreement: PASS`, `Frozen restart correctness: PASS` and `M08 PASS` with elapsed time and exit status 0. The demo uses one disposable local SQLite database. It publishes October 1–3, kills the October 4 ingestion worker before commit, resumes the week and checks both publication IDs against the frozen whole-week response. [Recorded laptop run](docs/evidence/quake-verify.txt)
 
 Today a reviewer with GNU Make and Python 3.10 can run `make docs-check` from the checkout root, inspect the three accepted decisions and compare the saved USGS responses. [D2 documentation](docs/00-index.md) · [Evidence](docs/evidence/README.md)
 

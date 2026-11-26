@@ -14,4 +14,4 @@
 | A real daily USGS snapshot was captured | [Capture log](quake-capture.txt) and [raw snapshot](usgs/20261125T182355423124Z.geojson) |
 | The selected event has two superseded-query origin versions reporting the same magnitude | [Query output](quake-detail.txt), [ordinary detail](usgs/detail.json) and [superseded response](usgs/superseded.json) |
 
-Integrated offline verification is **NOT RUN**.
+The [integrated offline demonstration](quake-verify.txt) passed. The [M08 transcript and regression checks](M08-verify.txt) document the same invocation.

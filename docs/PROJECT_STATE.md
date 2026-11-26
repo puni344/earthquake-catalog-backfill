@@ -26,4 +26,4 @@ M01 passed local review.
 
 On 26 November 2026 the orphan rerun passed. Resuming the named acquisition reused the verified whole response and fetched seven outstanding daily responses. Final M07 register totals are **10 PASS, 0 FAIL, 0 NOT RUN**. The original benchmark supplies the publication measurements. [Remediation evidence](evidence/M07-orphan-remediation.txt)
 
-M08, M09 and hosted CI are **NOT RUN**. Next decision is M07 review.
+M08 passed on 26 November 2026. The default offline command completed in 3.349 s on one disposable database. Three checkpoints survived the worker kill, October 4 replayed and all 2,569 recovered rows agreed with the reference. All 23 current reads and both final historical lookups verified. [Integrated transcript](evidence/quake-verify.txt) and [regression evidence](evidence/M08-verify.txt). M09 clean-clone verification and hosted CI remain **NOT RUN**.
