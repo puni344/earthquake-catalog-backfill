@@ -1,0 +1,23 @@
+2026-11-25T23:53:55.6130383+05:30
+feed_count=225 bytes=159943 id=us6000udd1
+https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/us6000udd1.geojson
+
+Hash : 49E06BCE310ED700C1C322C171D2DC2B49ABF31B1184B6300AE9B789504E098A
+
+event=us6000udd1 mag=5.9 updated=1795578219941
+
+source code          updateTime magnitude
+------ ----          ---------- ---------
+us     us6000udd1 1795573858040 5.9
+
+https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventid=us6000udd1&includesuperseded=true
+
+Hash : E09534FD6BF74AA26B08C27F923F90DF6F35F5E29815C115FDC7815506E13DB7
+
+event=us6000udd1 mag=5.9 updated=1795578219941
+
+source code          updateTime magnitude
+------ ----          ---------- ---------
+us     us6000udd1 1795573858040 5.9
+us     us6000udd1 1795571415040 5.9
+

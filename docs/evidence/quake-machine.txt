@@ -1,0 +1,92 @@
+2026-11-25T23:52:46.4345072+05:30
+
+TotalPhysicalMemory : 16835268608
+HypervisorPresent   : True
+
+
+Name                          : 12th Gen Intel(R) Core(TM) i5-1235U
+NumberOfCores                 : 10
+NumberOfLogicalProcessors     : 12
+VirtualizationFirmwareEnabled : False
+
+
+Caption            : Microsoft Windows 11 Home Single Language
+Version            : 10.0.26300
+BuildNumber        : 26300
+FreePhysicalMemory : 3532244
+
+
+Name : C
+Free : 240972947456
+Used : 269695094784
+
+
+BiosFirmwareType : Uefi
+
+
+Access is denied.
+MethodException: 
+Line |
+  10 |  … st --verbose | Out-String | ForEach-Object { $_.Replace([char]0,'') }
+     |                                                 ~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot convert argument "newChar", with value: "", for "Replace" to type "System.Char": "Cannot convert value "" to type "System.Char". Error: "String must be exactly one character long.""
+Python 3.10.11
+Docker version 29.8.2, build 7fc2dff
+Docker Compose version v5.6.0
+daemon= os=
+failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+
+
+  NAME              STATE           VERSION
+
+* docker-desktop    Stopped         2
+
+
+
+✓ Starting Docker Desktop
+daemon=29.8.2 os=linux
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+4f55086f7dd0: Pulling fs layer
+4f55086f7dd0: Download complete
+4f55086f7dd0: Pull complete
+d5e71e642bf5: Download complete
+Digest: sha256:1e4c05b897a751332ce85c7e9449da2d93514ea2dea6dbb0e2753c9e949b2bfa
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+container_exit=0
+
+DiskNumber PartitionNumber Type     GptType                                        Size
+---------- --------------- ----     -------                                        ----
+         0               1 System   {c12a7328-f81f-11d2-ba4b-00a0c93ec93b}    272629760
+         0               2 Reserved {e3c9e316-0b5c-4db8-817d-f92df00215ae}     16777216
+         0               3 Basic    {ebd0a0a2-b9e5-4433-87c0-68b6b72699c7} 510668046336
+         0               4 Recovery {de94bba4-06d1-4d40-a16a-bfd50179d6ac}   1145044992
+
+  NAME              STATE           VERSION
+
+* docker-desktop    Running         2
+
+
+
