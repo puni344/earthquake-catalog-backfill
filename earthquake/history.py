@@ -31,7 +31,7 @@ def magnitude(value):
     return text.rstrip("0").rstrip(".") if "." in text else text
 
 
-def publish(database, days, *, before_commit=None):
+def publish(database, days, *, before_commit=None, before_pointer=None):
     if days not in (3, 7):
         raise ValueError("supported coverage lengths are 3 and 7 UTC days")
     manifest = reconcile.MANIFEST
@@ -87,6 +87,8 @@ def publish(database, days, *, before_commit=None):
             db.executemany("INSERT INTO members VALUES (?,?,?,?,?)",
                            ((publication, r["event_id"], r["event_time"], r["source_updated"], r["magnitude"])
                             for r in rows))
+        if before_pointer is not None:
+            before_pointer(publication)
         db.execute("""INSERT INTO current_publication VALUES (1,?)
                       ON CONFLICT(singleton) DO UPDATE SET publication=excluded.publication""", (publication,))
         if before_commit is not None:

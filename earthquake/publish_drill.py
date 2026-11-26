@@ -9,6 +9,7 @@ import sys
 import tempfile
 import threading
 import time
+from contextlib import nullcontext
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
@@ -46,12 +47,12 @@ def check(document, expected):
     return dict(id=publication, count=len(rows), digest=checksum, status="success" if matches else "mismatch")
 
 
-def observe(db, reader, args, expected):
+def observe(db, reader, args, expected, track=nullcontext):
     cmd = [sys.executable, "-m", "earthquake.history", "--db", str(db), *args]
     entry = dict(reader=reader, command=subprocess.list2cmdline(cmd), start_utc=acquire.now(),
                  start_ns=time.perf_counter_ns(), exit=None, id=None, count=None, digest=None, error=None)
     try:
-        with subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as process:
+        with subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE) as process, track(process):
             entry["pid"] = process.pid
             try:
                 output, err = process.communicate(timeout=10)
@@ -74,7 +75,7 @@ def observe(db, reader, args, expected):
     return entry
 
 
-def paused_publisher(db, channel):
+def paused_publisher(db, channel, boundary):
     def barrier(publication):
         channel.send(publication)
         if not channel.poll(45):
@@ -82,10 +83,10 @@ def paused_publisher(db, channel):
         channel.recv()
         raise RuntimeError("publisher barrier released unexpectedly")
     with channel:
-        history.publish(db, 7, before_commit=barrier)
+        history.publish(db, 7, **{boundary: barrier})
 
 
-def incident(db, old, new):
+def incident(db, old, new, boundary="before_commit"):
     expected = {p["id"]: p for p in (old, new)}
     observations = []
     condition = threading.Condition()
@@ -114,7 +115,7 @@ def incident(db, old, new):
 
     ctx = multiprocessing.get_context("spawn")
     parent, child = ctx.Pipe()
-    publisher = ctx.Process(target=paused_publisher, args=(db, child))
+    publisher = ctx.Process(target=paused_publisher, args=(db, child, boundary))
     try:
         with ThreadPoolExecutor(max_workers=4) as pool:
             mark("baseline")

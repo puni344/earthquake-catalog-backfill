@@ -1,0 +1,11 @@
+# M07 Windows publication-load protocol
+
+Fixed before timing. Run offline with the pinned M01 interpreter, fixture 20261126T064859Z-1bf43bf1e07e and a fresh local SQLite store per trial. Use 1, 2 and 4 independent closed-loop readers to cover a single client, an intermediate level and the four-reader M06 workload. Run three repetitions per level in ascending level order. Each loop makes eight timed reads. No think time.
+
+Ingest and publish the three-day extract before timing. Perform one verified untimed current read per loop. Leave OS caches alone. Release all timed loops at one barrier. After every loop has completed its first old-publication read, launch the normal seven-day publication while the loops continue. Record actual read/publish interval intersections. Require a successful old and new read and overlap in every trial. This workload measures a normal commit; M06 supplies separate crash evidence.
+
+Measure elapsed time from coordinated release to the last verified response. Throughput is successful reads divided by elapsed seconds. End-to-end latency includes creating the CLI process, SQLite query, JSON output, parsing and M06 ID-specific digest verification. Report conventional median and nearest-rank p95 of all attempted read durations. For the per-level summary pool the latencies and divide total successes by summed trial time.
+
+Sample Windows working-set bytes for the harness (including publisher, verifier and sampling threads) and active CLI children approximately every 20 ms. Sum simultaneous samples, then report their maximum. Shared resident pages can be counted in several processes; brief peaks can fall between samples. Record actual sample times, participant PIDs and sizes. The project RAM estimate is 672 MiB and the M01 75%-of-visible-RAM ceiling was 12,041.52 MiB. Use 672 MiB as the stricter run stop; M01 preflight must also pass. Record fresh capacity at start.
+
+Each CLI has the M06 ten-second timeout. Use bounded 20-second coordination waits. Stop advancing trials on a sampled budget breach, unavailable measurement, error, timeout, oracle mismatch, failed publication or absent required coverage. Save diagnostic observations and retain failed runs if a repair requires repeating the fixed protocol. The final passing level establishes only the highest tested concurrency.
