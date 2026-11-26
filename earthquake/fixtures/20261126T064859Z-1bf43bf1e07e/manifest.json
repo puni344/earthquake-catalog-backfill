@@ -1,0 +1,222 @@
+{
+  "schema": 1,
+  "complete": true,
+  "responses": [
+    {
+      "role": "whole",
+      "start": "2026-10-01T00:00:00.000Z",
+      "end_exclusive": "2026-10-08T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-01T00:00:00.000Z",
+        "endtime": "2026-10-07T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-01T00%3A00%3A00.000Z&endtime=2026-10-07T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:01.615Z",
+      "http_status": 200,
+      "size": 1839817,
+      "sha256": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373",
+      "features": 2569,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:48:59.502Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-01T00%3A00%3A00.000Z&endtime=2026-10-07T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:01.615Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-01T00:00:00.000Z",
+      "end_exclusive": "2026-10-02T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-01T00:00:00.000Z",
+        "endtime": "2026-10-01T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-01T00%3A00%3A00.000Z&endtime=2026-10-01T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:02.781Z",
+      "http_status": 200,
+      "size": 292351,
+      "sha256": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e",
+      "features": 407,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:01.617Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-01T00%3A00%3A00.000Z&endtime=2026-10-01T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:02.781Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-02T00:00:00.000Z",
+      "end_exclusive": "2026-10-03T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-02T00:00:00.000Z",
+        "endtime": "2026-10-02T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-02T00%3A00%3A00.000Z&endtime=2026-10-02T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:03.901Z",
+      "http_status": 200,
+      "size": 252531,
+      "sha256": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3",
+      "features": 352,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:02.783Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-02T00%3A00%3A00.000Z&endtime=2026-10-02T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:03.901Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-03T00:00:00.000Z",
+      "end_exclusive": "2026-10-04T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-03T00:00:00.000Z",
+        "endtime": "2026-10-03T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-03T00%3A00%3A00.000Z&endtime=2026-10-03T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:04.979Z",
+      "http_status": 200,
+      "size": 237365,
+      "sha256": "825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20",
+      "features": 331,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:03.903Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-03T00%3A00%3A00.000Z&endtime=2026-10-03T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:04.979Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-04T00:00:00.000Z",
+      "end_exclusive": "2026-10-05T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-04T00:00:00.000Z",
+        "endtime": "2026-10-04T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-04T00%3A00%3A00.000Z&endtime=2026-10-04T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:06.376Z",
+      "http_status": 200,
+      "size": 274029,
+      "sha256": "0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b",
+      "features": 383,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:04.981Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-04T00%3A00%3A00.000Z&endtime=2026-10-04T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:06.376Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-05T00:00:00.000Z",
+      "end_exclusive": "2026-10-06T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-05T00:00:00.000Z",
+        "endtime": "2026-10-05T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-05T00%3A00%3A00.000Z&endtime=2026-10-05T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:07.451Z",
+      "http_status": 200,
+      "size": 226272,
+      "sha256": "8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0",
+      "features": 315,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:06.378Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-05T00%3A00%3A00.000Z&endtime=2026-10-05T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:07.451Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-06T00:00:00.000Z",
+      "end_exclusive": "2026-10-07T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-06T00:00:00.000Z",
+        "endtime": "2026-10-06T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-06T00%3A00%3A00.000Z&endtime=2026-10-06T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:08.857Z",
+      "http_status": 200,
+      "size": 257299,
+      "sha256": "7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8",
+      "features": 359,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:07.455Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-06T00%3A00%3A00.000Z&endtime=2026-10-06T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:08.857Z"
+        }
+      ]
+    },
+    {
+      "role": "daily",
+      "start": "2026-10-07T00:00:00.000Z",
+      "end_exclusive": "2026-10-08T00:00:00.000Z",
+      "parameters": {
+        "format": "geojson",
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "starttime": "2026-10-07T00:00:00.000Z",
+        "endtime": "2026-10-07T23:59:59.999Z"
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-07T00%3A00%3A00.000Z&endtime=2026-10-07T23%3A59%3A59.999Z",
+      "acquired_utc": "2026-11-26T06:49:10.279Z",
+      "http_status": 200,
+      "size": 302302,
+      "sha256": "7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a",
+      "features": 422,
+      "attempts": [
+        {
+          "number": 1,
+          "requested_utc": "2026-11-26T06:49:08.860Z",
+          "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-07T00%3A00%3A00.000Z&endtime=2026-10-07T23%3A59%3A59.999Z",
+          "http_status": 200,
+          "finished_utc": "2026-11-26T06:49:10.279Z"
+        }
+      ]
+    }
+  ]
+}

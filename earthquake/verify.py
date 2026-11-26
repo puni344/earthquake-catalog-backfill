@@ -1,13 +1,20 @@
 """Local D2 verification drills."""
 import argparse
 
-from . import preflight
+from pathlib import Path
+
+from . import acquire, preflight
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--drill", required=True, choices=["preflight"])
-    parser.parse_args(argv)
+    parser.add_argument("--drill", required=True, choices=["preflight", "acquire"])
+    parser.add_argument("--offline", type=Path, metavar="MANIFEST")
+    args = parser.parse_args(argv)
+    if args.drill == "acquire":
+        return acquire.run(args.offline)
+    if args.offline is not None:
+        parser.error("--offline requires --drill acquire")
     return preflight.run()
 
 
