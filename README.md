@@ -18,6 +18,8 @@ Run `python -m earthquake.verify --drill reconcile` to compare the accepted week
 
 Run `python -m earthquake.verify --drill restart` on the Windows build laptop to create fresh local databases and kill the ingestion worker on each side of commit. The drill compares recovered rows with the frozen whole-week reference. [Crash observations](docs/evidence/M04-restart.txt) · [Combined reconciliation verdicts](docs/evidence/quake-reconcile.txt)
 
+Run `python -m earthquake.verify --drill publish` for the M06 publisher crash and four-reader recovery drill on a disposable local database. [Reader observations](docs/evidence/quake-publish.txt) · [Incident report](docs/postmortems/m06-publisher-crash.md)
+
 ### Read published catalogs
 
 From the checkout root on the Windows build laptop, the history drill creates a fresh database in local state. These PowerShell commands use the database from that run:

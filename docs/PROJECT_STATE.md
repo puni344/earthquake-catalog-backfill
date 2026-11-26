@@ -20,4 +20,6 @@ M01 passed local review.
 
 [MEASURED – M05, 26 November 2026, Windows laptop] History drill **PASS**. Both publications were complete for their declared UTC scopes. Independent reference checks passed for current and explicit IDs. After the 2,569-row publication became current, the older ID still returned its original 1,090 rows and digest. Empty history, unknown ID, incomplete candidate and altered staging checks passed. [Publication IDs and history evidence](evidence/M05-history.txt)
 
-Publisher crash and concurrent reads (M06), later drills and hosted CI are **NOT RUN**. Next decision is M05 review.
+[MEASURED – M06, Windows laptop, 26 November 2026] Publisher crash drill **PASS**. Four CLI reader loops made 36 current reads across one forced pre-commit publisher exit and retry. All returned complete known publications. The first verified new read finished 935.782 ms after kill initiation and 317.162 ms after retry began. Both historical IDs remained readable. [Per-read evidence](evidence/quake-publish.txt) · [Postmortem](postmortems/m06-publisher-crash.md)
+
+M07 through M09 and hosted CI are **NOT RUN**. Next decision is M06 review.

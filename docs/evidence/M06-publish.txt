@@ -1,0 +1,396 @@
+M06 offline publisher crash drill
+2026-11-26T18:01:18.5919188+05:30
+Machine: local-user | AMD64 | Windows 10.0.26300.0
+Checkout: C:\Users\local-user\workspace\catalog
+$ python -m earthquake.verify --drill publish
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4664.72 MiB; logical processors 12; free disk 231727.25 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+fixture=20261126T064859Z-1bf43bf1e07e database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\publish-bo78_lab\catalog.sqlite
+monotonic_ns markers: kill immediately before terminate; retry immediately before publish; recovered after publish returns; read finish after CLI exit, parsing and digest verification.
+Oracle days=3 id=ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 count=1090 digest=9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3
+Oracle days=7 id=0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15 count=2569 digest=e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24
+MARK baseline ns=14915796000000 utc=2026-11-26T12:31:19.534Z
+MARK open ns=14916968000000 utc=2026-11-26T12:31:20.719Z
+MARK kill ns=14917453000000 utc=2026-11-26T12:31:21.190Z
+MARK down ns=14917453000000 utc=2026-11-26T12:31:21.198Z
+publisher_pid=21448 exit=-15 method=TerminateProcess
+MARK retry ns=14918062000000 utc=2026-11-26T12:31:21.806Z
+MARK recovered ns=14918390000000 utc=2026-11-26T12:31:22.136Z
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:19.534Z", "start_ns": 14915796000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 23840, "status": "success", "finish_ns": 14916250000000, "finish_utc": "2026-11-26T12:31:19.991Z", "phase": "baseline"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:19.536Z", "start_ns": 14915796000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20732, "status": "success", "finish_ns": 14916250000000, "finish_utc": "2026-11-26T12:31:20.001Z", "phase": "baseline"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:19.536Z", "start_ns": 14915796000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 22816, "status": "success", "finish_ns": 14916265000000, "finish_utc": "2026-11-26T12:31:20.002Z", "phase": "baseline"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:19.535Z", "start_ns": 14915796000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 15532, "status": "success", "finish_ns": 14916265000000, "finish_utc": "2026-11-26T12:31:20.006Z", "phase": "baseline"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:19.991Z", "start_ns": 14916250000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 6976, "status": "success", "finish_ns": 14916640000000, "finish_utc": "2026-11-26T12:31:20.389Z", "phase": "baseline"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.007Z", "start_ns": 14916265000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 3424, "status": "success", "finish_ns": 14916671000000, "finish_utc": "2026-11-26T12:31:20.424Z", "phase": "baseline"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.006Z", "start_ns": 14916265000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 22896, "status": "success", "finish_ns": 14916687000000, "finish_utc": "2026-11-26T12:31:20.425Z", "phase": "baseline"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.002Z", "start_ns": 14916265000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 17964, "status": "success", "finish_ns": 14916687000000, "finish_utc": "2026-11-26T12:31:20.425Z", "phase": "baseline"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.390Z", "start_ns": 14916640000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 3520, "status": "success", "finish_ns": 14917046000000, "finish_utc": "2026-11-26T12:31:20.786Z", "phase": "baseline"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.425Z", "start_ns": 14916687000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 14772, "status": "success", "finish_ns": 14917078000000, "finish_utc": "2026-11-26T12:31:20.816Z", "phase": "baseline"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.426Z", "start_ns": 14916687000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 19016, "status": "success", "finish_ns": 14917078000000, "finish_utc": "2026-11-26T12:31:20.821Z", "phase": "baseline"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.425Z", "start_ns": 14916687000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 17740, "status": "success", "finish_ns": 14917078000000, "finish_utc": "2026-11-26T12:31:20.826Z", "phase": "baseline"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.786Z", "start_ns": 14917046000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 18812, "status": "success", "finish_ns": 14917406000000, "finish_utc": "2026-11-26T12:31:21.146Z", "phase": "open"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.817Z", "start_ns": 14917078000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 6160, "status": "success", "finish_ns": 14917421000000, "finish_utc": "2026-11-26T12:31:21.173Z", "phase": "open"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.826Z", "start_ns": 14917078000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 17592, "status": "success", "finish_ns": 14917437000000, "finish_utc": "2026-11-26T12:31:21.189Z", "phase": "open"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:20.825Z", "start_ns": 14917078000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 23744, "status": "success", "finish_ns": 14917453000000, "finish_utc": "2026-11-26T12:31:21.190Z", "phase": "open"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.147Z", "start_ns": 14917406000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 8804, "status": "success", "finish_ns": 14917750000000, "finish_utc": "2026-11-26T12:31:21.492Z", "phase": "open"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.174Z", "start_ns": 14917437000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 3180, "status": "success", "finish_ns": 14917750000000, "finish_utc": "2026-11-26T12:31:21.502Z", "phase": "open"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.190Z", "start_ns": 14917453000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20192, "status": "success", "finish_ns": 14917781000000, "finish_utc": "2026-11-26T12:31:21.520Z", "phase": "down"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.190Z", "start_ns": 14917453000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20620, "status": "success", "finish_ns": 14917781000000, "finish_utc": "2026-11-26T12:31:21.523Z", "phase": "down"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.493Z", "start_ns": 14917750000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 24656, "status": "success", "finish_ns": 14918046000000, "finish_utc": "2026-11-26T12:31:21.797Z", "phase": "down"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.502Z", "start_ns": 14917750000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 16060, "status": "success", "finish_ns": 14918062000000, "finish_utc": "2026-11-26T12:31:21.805Z", "phase": "down"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.523Z", "start_ns": 14917781000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20580, "status": "success", "finish_ns": 14918140000000, "finish_utc": "2026-11-26T12:31:21.888Z", "phase": "down"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.523Z", "start_ns": 14917781000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 24404, "status": "success", "finish_ns": 14918156000000, "finish_utc": "2026-11-26T12:31:21.894Z", "phase": "down"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.797Z", "start_ns": 14918046000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 13568, "status": "success", "finish_ns": 14918453000000, "finish_utc": "2026-11-26T12:31:22.197Z", "phase": "down"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.806Z", "start_ns": 14918062000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 8304, "status": "success", "finish_ns": 14918468000000, "finish_utc": "2026-11-26T12:31:22.208Z", "phase": "retry"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.888Z", "start_ns": 14918140000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 4452, "status": "success", "finish_ns": 14918578000000, "finish_utc": "2026-11-26T12:31:22.316Z", "phase": "retry"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:21.895Z", "start_ns": 14918156000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 17252, "status": "success", "finish_ns": 14918546000000, "finish_utc": "2026-11-26T12:31:22.287Z", "phase": "retry"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.207Z", "start_ns": 14918468000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 21068, "status": "success", "finish_ns": 14918796000000, "finish_utc": "2026-11-26T12:31:22.548Z", "phase": "recovered"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.209Z", "start_ns": 14918468000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 5244, "status": "success", "finish_ns": 14918828000000, "finish_utc": "2026-11-26T12:31:22.565Z", "phase": "recovered"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.288Z", "start_ns": 14918546000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 9800, "status": "success", "finish_ns": 14918906000000, "finish_utc": "2026-11-26T12:31:22.656Z", "phase": "recovered"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.316Z", "start_ns": 14918578000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 25248, "status": "success", "finish_ns": 14918906000000, "finish_utc": "2026-11-26T12:31:22.657Z", "phase": "recovered"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.549Z", "start_ns": 14918812000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 22820, "status": "success", "finish_ns": 14919156000000, "finish_utc": "2026-11-26T12:31:22.897Z", "phase": "recovered"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.565Z", "start_ns": 14918828000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 17732, "status": "success", "finish_ns": 14919171000000, "finish_utc": "2026-11-26T12:31:22.910Z", "phase": "recovered"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.658Z", "start_ns": 14918921000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 9384, "status": "success", "finish_ns": 14919234000000, "finish_utc": "2026-11-26T12:31:22.981Z", "phase": "recovered"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:22.658Z", "start_ns": 14918921000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 18328, "status": "success", "finish_ns": 14919265000000, "finish_utc": "2026-11-26T12:31:23.006Z", "phase": "recovered"}
+COUNTS (phase at start) {"baseline": {"attempts": 12, "success": 12, "error": 0, "timeout": 0, "mismatch": 0}, "open": {"attempts": 6, "success": 6, "error": 0, "timeout": 0, "mismatch": 0}, "kill": {"attempts": 0, "success": 0, "error": 0, "timeout": 0, "mismatch": 0}, "down": {"attempts": 7, "success": 7, "error": 0, "timeout": 0, "mismatch": 0}, "retry": {"attempts": 3, "success": 3, "error": 0, "timeout": 0, "mismatch": 0}, "recovered": {"attempts": 8, "success": 8, "error": 0, "timeout": 0, "mismatch": 0}}
+COVERAGE baseline: VERIFIED
+COVERAGE open: VERIFIED
+COVERAGE down: VERIFIED
+COVERAGE recovered: VERIFIED
+kill-to-first-verified-new-read=1000.000 ms; retry-start-to-first-verified-new-read=391.000 ms
+Current CLI observation latency, nearest rank (ms): {50: 360.0, 95: 469.0}
+FINAL {"reader": "historical", "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite get ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "start_utc": "2026-11-26T12:31:23.009Z", "start_ns": 14919265000000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 3612, "status": "success", "finish_ns": 14919484000000, "finish_utc": "2026-11-26T12:31:23.224Z"}
+FINAL {"reader": "historical", "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-bo78_lab\\catalog.sqlite get 0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "start_utc": "2026-11-26T12:31:23.225Z", "start_ns": 14919484000000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 5104, "status": "success", "finish_ns": 14919703000000, "finish_utc": "2026-11-26T12:31:23.440Z"}
+PASS: publisher process crash, outage reads, retry and both historical IDs verified
+exit=0
+
+Repeated with perf_counter_ns to distinguish kill and confirmed exit on Windows.
+M06 reported run with high-resolution monotonic clock
+2026-11-26T18:01:57.5949014+05:30
+Machine: local-user | AMD64 | Windows 10.0.26300.0
+Checkout: C:\Users\local-user\workspace\catalog
+$ python -m earthquake.verify --drill publish
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4828.42 MiB; logical processors 12; free disk 231712.46 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+fixture=20261126T064859Z-1bf43bf1e07e database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\publish-eomsg1b6\catalog.sqlite
+Monotonic perf_counter resolution=1e-07 seconds
+perf_counter_ns markers: kill immediately before terminate; retry immediately before publish; recovered after publish returns; read finish after CLI exit, parsing and digest verification.
+Oracle days=3 id=ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 count=1090 digest=9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3
+Oracle days=7 id=0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15 count=2569 digest=e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24
+MARK baseline ns=14954448466200 utc=2026-11-26T12:31:58.164Z
+MARK open ns=14955397231000 utc=2026-11-26T12:31:59.113Z
+MARK kill ns=14955876876400 utc=2026-11-26T12:31:59.592Z
+MARK down ns=14955886878800 utc=2026-11-26T12:31:59.603Z
+publisher_pid=22440 exit=-15 method=TerminateProcess
+MARK retry ns=14956495496900 utc=2026-11-26T12:32:00.211Z
+MARK recovered ns=14956691859300 utc=2026-11-26T12:32:00.407Z
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.165Z", "start_ns": 14954449628700, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 15436, "status": "success", "finish_ns": 14954756013800, "finish_utc": "2026-11-26T12:31:58.472Z", "phase": "baseline"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.165Z", "start_ns": 14954450192000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20876, "status": "success", "finish_ns": 14954749828100, "finish_utc": "2026-11-26T12:31:58.466Z", "phase": "baseline"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.166Z", "start_ns": 14954450690200, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 16780, "status": "success", "finish_ns": 14954756731800, "finish_utc": "2026-11-26T12:31:58.473Z", "phase": "baseline"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.167Z", "start_ns": 14954451415900, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 5400, "status": "success", "finish_ns": 14954764551200, "finish_utc": "2026-11-26T12:31:58.481Z", "phase": "baseline"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.472Z", "start_ns": 14954756449700, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 12068, "status": "success", "finish_ns": 14955116204900, "finish_utc": "2026-11-26T12:31:58.832Z", "phase": "baseline"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.473Z", "start_ns": 14954757049200, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 16092, "status": "success", "finish_ns": 14955101260700, "finish_utc": "2026-11-26T12:31:58.817Z", "phase": "baseline"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.473Z", "start_ns": 14954757343100, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 23148, "status": "success", "finish_ns": 14955108884100, "finish_utc": "2026-11-26T12:31:58.824Z", "phase": "baseline"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.481Z", "start_ns": 14954765358100, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 23076, "status": "success", "finish_ns": 14955112854000, "finish_utc": "2026-11-26T12:31:58.828Z", "phase": "baseline"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.817Z", "start_ns": 14955101640800, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 25444, "status": "success", "finish_ns": 14955469617900, "finish_utc": "2026-11-26T12:31:59.185Z", "phase": "baseline"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.828Z", "start_ns": 14955112448800, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 10636, "status": "success", "finish_ns": 14955501194700, "finish_utc": "2026-11-26T12:31:59.216Z", "phase": "baseline"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.832Z", "start_ns": 14955116019200, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 21176, "status": "success", "finish_ns": 14955500465800, "finish_utc": "2026-11-26T12:31:59.216Z", "phase": "baseline"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:58.832Z", "start_ns": 14955116613500, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 25268, "status": "success", "finish_ns": 14955500712000, "finish_utc": "2026-11-26T12:31:59.216Z", "phase": "baseline"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.185Z", "start_ns": 14955469982300, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 24496, "status": "success", "finish_ns": 14955828276500, "finish_utc": "2026-11-26T12:31:59.543Z", "phase": "open"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.216Z", "start_ns": 14955500905100, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 24444, "status": "success", "finish_ns": 14955860257800, "finish_utc": "2026-11-26T12:31:59.575Z", "phase": "open"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.216Z", "start_ns": 14955501053700, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20200, "status": "success", "finish_ns": 14955876442900, "finish_utc": "2026-11-26T12:31:59.592Z", "phase": "open"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.217Z", "start_ns": 14955501517300, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 2272, "status": "success", "finish_ns": 14955864524900, "finish_utc": "2026-11-26T12:31:59.580Z", "phase": "open"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.544Z", "start_ns": 14955828710400, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 7080, "status": "success", "finish_ns": 14956174690200, "finish_utc": "2026-11-26T12:31:59.890Z", "phase": "open"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.579Z", "start_ns": 14955864229100, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 19988, "status": "success", "finish_ns": 14956193650500, "finish_utc": "2026-11-26T12:31:59.910Z", "phase": "open"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.580Z", "start_ns": 14955864744400, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 23460, "status": "success", "finish_ns": 14956201751100, "finish_utc": "2026-11-26T12:31:59.918Z", "phase": "open"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.592Z", "start_ns": 14955876792100, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 6420, "status": "success", "finish_ns": 14956204584700, "finish_utc": "2026-11-26T12:31:59.921Z", "phase": "open"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.890Z", "start_ns": 14956174997500, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 20348, "status": "success", "finish_ns": 14956460452300, "finish_utc": "2026-11-26T12:32:00.176Z", "phase": "down"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.910Z", "start_ns": 14956193934600, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 10036, "status": "success", "finish_ns": 14956489151800, "finish_utc": "2026-11-26T12:32:00.205Z", "phase": "down"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.921Z", "start_ns": 14956204962200, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 2376, "status": "success", "finish_ns": 14956495018300, "finish_utc": "2026-11-26T12:32:00.210Z", "phase": "down"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:31:59.921Z", "start_ns": 14956205099700, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 788, "status": "success", "finish_ns": 14956482332200, "finish_utc": "2026-11-26T12:32:00.198Z", "phase": "down"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.177Z", "start_ns": 14956460858900, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 25120, "status": "success", "finish_ns": 14956812658600, "finish_utc": "2026-11-26T12:32:00.529Z", "phase": "down"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.198Z", "start_ns": 14956482631500, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 20248, "status": "success", "finish_ns": 14956813199000, "finish_utc": "2026-11-26T12:32:00.529Z", "phase": "down"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.206Z", "start_ns": 14956489898100, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 3860, "status": "success", "finish_ns": 14956818156400, "finish_utc": "2026-11-26T12:32:00.534Z", "phase": "down"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.211Z", "start_ns": 14956495424200, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 15264, "status": "success", "finish_ns": 14956823349000, "finish_utc": "2026-11-26T12:32:00.539Z", "phase": "down"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.534Z", "start_ns": 14956817587700, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 14700, "status": "success", "finish_ns": 14957121065100, "finish_utc": "2026-11-26T12:32:00.837Z", "phase": "recovered"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.534Z", "start_ns": 14956817941300, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 13536, "status": "success", "finish_ns": 14957137234000, "finish_utc": "2026-11-26T12:32:00.853Z", "phase": "recovered"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.534Z", "start_ns": 14956818404800, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 9752, "status": "success", "finish_ns": 14957181851500, "finish_utc": "2026-11-26T12:32:00.898Z", "phase": "recovered"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.540Z", "start_ns": 14956823616000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 8308, "status": "success", "finish_ns": 14957122453000, "finish_utc": "2026-11-26T12:32:00.838Z", "phase": "recovered"}
+READ {"reader": 1, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.837Z", "start_ns": 14957121953000, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 17644, "status": "success", "finish_ns": 14957532944400, "finish_utc": "2026-11-26T12:32:01.248Z", "phase": "recovered"}
+READ {"reader": 3, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.852Z", "start_ns": 14957136122200, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 14992, "status": "success", "finish_ns": 14957572729300, "finish_utc": "2026-11-26T12:32:01.288Z", "phase": "recovered"}
+READ {"reader": 4, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.854Z", "start_ns": 14957138239200, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 22488, "status": "success", "finish_ns": 14957531759800, "finish_utc": "2026-11-26T12:32:01.247Z", "phase": "recovered"}
+READ {"reader": 2, "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite current", "start_utc": "2026-11-26T12:32:00.898Z", "start_ns": 14957182475300, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 24452, "status": "success", "finish_ns": 14957573913900, "finish_utc": "2026-11-26T12:32:01.289Z", "phase": "recovered"}
+COUNTS (phase at start) {"baseline": {"attempts": 12, "success": 12, "error": 0, "timeout": 0, "mismatch": 0}, "open": {"attempts": 8, "success": 8, "error": 0, "timeout": 0, "mismatch": 0}, "kill": {"attempts": 0, "success": 0, "error": 0, "timeout": 0, "mismatch": 0}, "down": {"attempts": 8, "success": 8, "error": 0, "timeout": 0, "mismatch": 0}, "retry": {"attempts": 0, "success": 0, "error": 0, "timeout": 0, "mismatch": 0}, "recovered": {"attempts": 8, "success": 8, "error": 0, "timeout": 0, "mismatch": 0}}
+COVERAGE baseline: VERIFIED
+COVERAGE open: VERIFIED
+COVERAGE down: VERIFIED
+COVERAGE recovered: VERIFIED
+kill-to-first-verified-new-read=935.782 ms; retry-start-to-first-verified-new-read=317.162 ms
+Current CLI observation latency, nearest rank (ms): {50: 344.212, 95: 410.991}
+FINAL {"reader": "historical", "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite get ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "start_utc": "2026-11-26T12:32:01.292Z", "start_ns": 14957577227000, "exit": 0, "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "count": 1090, "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "error": null, "pid": 25424, "status": "success", "finish_ns": 14957823655500, "finish_utc": "2026-11-26T12:32:01.540Z"}
+FINAL {"reader": "historical", "command": "C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\publish-eomsg1b6\\catalog.sqlite get 0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "start_utc": "2026-11-26T12:32:01.540Z", "start_ns": 14957824374900, "exit": 0, "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "count": 2569, "digest": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "error": null, "pid": 16900, "status": "success", "finish_ns": 14958069425700, "finish_utc": "2026-11-26T12:32:01.785Z"}
+PASS: publisher process crash, outage reads, retry and both historical IDs verified
+exit=0
+
+2026-11-26T18:02:40.2462007+05:30
+Offline regressions with disposable local databases
+$ python -m unittest -v earthquake.test_publish earthquake.test_history earthquake.test_restart earthquake.test_reconcile earthquake.test_acquire earthquake.test_preflight
+test_old_rows_labelled_with_new_id_fail (earthquake.test_publish.ReaderOracleTests) ... ok
+test_damaged_staging_cannot_change_published_values (earthquake.test_history.HistoryTests) ... ok
+test_empty_history (earthquake.test_history.HistoryTests) ... ok
+test_incomplete_window_blocks_pointer_change (earthquake.test_history.HistoryTests) ... ok
+test_older_lookup_after_new_publication (earthquake.test_history.HistoryTests) ... ok
+test_unknown_id (earthquake.test_history.HistoryTests) ... ok
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4824.50 MiB; logical processors 12; free disk 231669.46 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Fresh database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\tmp__1kyj1a\case.sqlite fixture=20261126T064859Z-1bf43bf1e07e boundary=after
+pid=16700 boundary=after target=2026-10-04 method=TerminateProcess exit=-15 events=[["attempt", "2026-10-01"], ["ack", "2026-10-01"], ["attempt", "2026-10-02"], ["ack", "2026-10-02"], ["attempt", "2026-10-03"], ["ack", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-after", "2026-10-04"]]
+Pre-resume checkpoints=['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04'] rows={'2026-10-01': 407, '2026-10-02': 352, '2026-10-03': 331, '2026-10-04': 383} target_checkpoint=True target_rows=383
+pid=19468 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+Resume attempted=['2026-10-05', '2026-10-06', '2026-10-07'] replayed=[] skipped=['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04']
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+pid=16740 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["skip", "2026-10-05"], ["skip", "2026-10-06"], ["skip", "2026-10-07"], ["done", ""]]
+test_after_commit_before_ack (earthquake.test_restart.RecoveryTests) ... ok
+Completed rerun: all seven skipped; exact ordered checkpoint and observation tuples unchanged
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4813.73 MiB; logical processors 12; free disk 231667.45 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Fresh database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\tmpmutvykt4\case.sqlite fixture=20261126T064859Z-1bf43bf1e07e boundary=before
+pid=17020 boundary=before target=2026-10-04 method=TerminateProcess exit=-15 events=[["attempt", "2026-10-01"], ["ack", "2026-10-01"], ["attempt", "2026-10-02"], ["ack", "2026-10-02"], ["attempt", "2026-10-03"], ["ack", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-before", "2026-10-04"]]
+Pre-resume checkpoints=['2026-10-01', '2026-10-02', '2026-10-03'] rows={'2026-10-01': 407, '2026-10-02': 352, '2026-10-03': 331} target_checkpoint=False target_rows=0
+pid=13624 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["ack", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+Resume attempted=['2026-10-04', '2026-10-05', '2026-10-06', '2026-10-07'] replayed=['2026-10-04'] skipped=['2026-10-01', '2026-10-02', '2026-10-03']
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+pid=24516 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["skip", "2026-10-05"], ["skip", "2026-10-06"], ["skip", "2026-10-07"], ["done", ""]]
+test_before_commit (earthquake.test_restart.RecoveryTests) ... ok
+test_foreign_checkpoints_cannot_skip_window (earthquake.test_restart.RecoveryTests) ... ok
+test_changed_magnitude (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_cross_file_duplicate (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_equal_count_replacement (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_extra_id (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_invalid_manifest_fails_closed (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_omission (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_damaged_body_blocks_seal (earthquake.test_acquire.AcquisitionFaults) ... ok
+Completed rerun: all seven skipped; exact ordered checkpoint and observation tuples unchanged
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4806.14 MiB; logical processors 12; free disk 231665.43 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+test_changed_magnitude {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [{"daily": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 3, "row": 1, "source_updated": 1791912940905}], "field": "magnitude", "id": "aka2026tkfzmc", "reference": [{"event_time": 1790812821945, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}]}], "missing": {}}
+test_cross_file_duplicate {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2570, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tmcdbt": [{"event_time": 1790899429208, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": "1.5", "row": 408, "source_updated": 1792448153355}, {"event_time": 1790899429208, "file": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson", "magnitude": "1.5", "row": 1, "source_updated": 1792448153355}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+test_equal_count_replacement {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2569, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tkfzmc": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}, {"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 407, "source_updated": 1791912940905}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": false,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 1,
+      "excess": 1,
+      "raw": 2569,
+      "unique": 2568
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {
+      "aka2026tkfzmc": [
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 1,
+          "source_updated": 1791912940905
+        },
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 407,
+          "source_updated": 1791912940905
+        }
+      ]
+    },
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {
+    "uw714114281": [
+      {
+        "event_time": 1790898462960,
+        "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson",
+        "magnitude": "1.03",
+        "row": 407,
+        "source_updated": 1790913790190
+      }
+    ]
+  }
+}
+Missing IDs=1; extra IDs=0; field mismatches=0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_extra_id {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2570, "unique": 2570}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {"aka2026tkfzmc-controlled-extra": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 408, "source_updated": 1791912940905}]}, "mismatches": [], "missing": {}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+Fixture error: expected 8 responses; got 0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_omission {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2568, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpm8bfv7q1\state\20261126T123246Z-96473d2b371b
+attempt 1: injected disconnect
+attempt 2: injected disconnect
+attempt 3: injected disconnect
+test_interrupted_read_never_exports (earthquake.test_acquire.AcquisitionFaults) ... ok
+test_available_ram (earthquake.test_preflight.PreflightFailures) ... ok
+test_disk_budget (earthquake.test_preflight.PreflightFailures) ... ok
+test_python_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+test_ram_fraction (earthquake.test_preflight.PreflightFailures) ... ok
+test_repository_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_resolved_onedrive_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_sqlite_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 5.792s
+
+OK
+controlled exit=1 | FAIL: available RAM 671.00 MiB; design requires 672 MiB
+controlled exit=1 | FAIL: free disk 895.00 MiB on C:\Users\local-user\AppData\Local\Temp\tmp7njzzv47\local\D2\state; design requires 896 MiB
+controlled exit=1 | FAIL: Python 3.11.0; ADR-0003 requires 3.10.11
+controlled exit=1 | FAIL: visible RAM 800.00 MiB; 672 MiB exceeds the 75% ceiling
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpkhpx3jqo\repo\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpkhpx3jqo\repo
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpbz00lysn\OneDrive\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpbz00lysn\OneDrive
+controlled exit=1 | FAIL: SQLite 3.40.0; ADR-0003 requires 3.40.1
+exit=0
+
+2026-11-26T18:04:27.8509591+05:30
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 37 docs checked; both indexes current; 3 ADRs valid
+exit=0
+
+2026-11-26T18:04:28.3523905+05:30
+$ make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-g_arii3_'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:27: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-g_arii3_'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-g_arii3_'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-g_arii3_'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-g_arii3_'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-g_arii3_'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0

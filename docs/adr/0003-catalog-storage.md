@@ -54,4 +54,4 @@ Run `python -m earthquake.verify --drill publish` with concurrent readers. For e
 
 [MEASURED – M05, 26 November 2026] Fresh reader processes retrieved the 1,090-row earlier and 2,569-row current publications. A missing daily checkpoint and altered staging values each blocked publication while the earlier extract remained current. [History and failure tests](../evidence/M05-history.txt)
 
-Publisher crash and concurrent-reader validation **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.
+[MEASURED – M06, 26 November 2026] After the uncommitted pointer update, all four readers completed old-publication reads, then repeated them after the publisher exited. After retry committed, fresh reads returned the seven-day publication. All 36 current observations and both final named lookups matched the independently expected row digest for the reported ID. [Publisher crash proof](../evidence/quake-publish.txt). The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.

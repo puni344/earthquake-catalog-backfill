@@ -9,6 +9,8 @@
 - [Earthquake catalog technology choices](TECH-CHOICES.md)
 - [Earthquake catalog failure register](failure-register.md)
 - [Earthquake operations runbooks](runbooks/README.md)
+- [Recover a stopped catalog publisher](runbooks/publisher-recovery.md)
+- [Interrupted publication of the seven-day catalog](postmortems/m06-publisher-crash.md)
 - [Earthquake incident records](postmortems/README.md)
 - [Earthquake benchmarks](benchmarks/README.md)
 - [Earthquake catalog threat model](security/THREAT-MODEL.md)
