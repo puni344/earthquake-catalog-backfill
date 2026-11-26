@@ -1,0 +1,85 @@
+127.0.0.1 - - [26/Nov/2026 19:21:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:56] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:56] "GET /app.js HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:56] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:56] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [26/Nov/2026 19:21:57] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:57] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:57] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:57] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:57] "GET /edition/d8a701c87dc04943ac36518a7b210b49/current HTTP/1.1" 200 -
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4135.54 MiB; logical processors 12; free disk 231297.50 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\presentation-rknh7ulc\catalog.sqlite pid=9752 boundary=before target=2026-10-04 method=TerminateProcess exit=-15 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-before", "2026-10-04"]]
+127.0.0.1 - - [26/Nov/2026 19:21:58] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:58] "GET /edition/d8a701c87dc04943ac36518a7b210b49/current HTTP/1.1" 200 -
+Paused, fresh current read ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 1090 Worker terminated before commit · 3 checkpoints survived · 0 target rows
+127.0.0.1 - - [26/Nov/2026 19:21:58] "POST /start HTTP/1.1" 409 -
+127.0.0.1 - - [26/Nov/2026 19:21:58] "POST /continue/d8a701c87dc04943ac36518a7b210b49 HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:58] "GET /state HTTP/1.1" 200 -
+database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\presentation-rknh7ulc\catalog.sqlite pid=8308 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["ack", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+127.0.0.1 - - [26/Nov/2026 19:21:58] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:59] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:59] "GET /edition/d8a701c87dc04943ac36518a7b210b49/current HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:59] "GET /edition/d8a701c87dc04943ac36518a7b210b49/current HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:59] "GET /edition/d8a701c87dc04943ac36518a7b210b49/ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 HTTP/1.1" 200 -
+Recovered 0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15 2569 older lookup ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 1090 2569
+Rows
+0
+Missing
+0
+Extra
+0
+Duplicate rows
+0
+Field differences
+127.0.0.1 - - [26/Nov/2026 19:21:59] "POST /start HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:59] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:21:59] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:22:00] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:22:00] "GET /edition/0ccd466003744dca94ccb88d1a118dd3/current HTTP/1.1" 200 -
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\presentation-mon46i0l\catalog.sqlite pid=23924 boundary=before target=2026-10-04 method=TerminateProcess exit=-15 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-before", "2026-10-04"]]
+127.0.0.1 - - [26/Nov/2026 19:22:00] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:22:00] "POST /continue/0ccd466003744dca94ccb88d1a118dd3 HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:22:00] "GET /state HTTP/1.1" 200 -
+database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\presentation-mon46i0l\catalog.sqlite pid=22948 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["ack", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+127.0.0.1 - - [26/Nov/2026 19:22:01] "GET /state HTTP/1.1" 200 -
+127.0.0.1 - - [26/Nov/2026 19:22:01] "GET /state HTTP/1.1" 200 -
+PASS browser flow, duplicate start 409, paging and fresh rerun. Chromium 158.0.4370.33
+127.0.0.1 - - [26/Nov/2026 19:22:01] "GET /edition/0ccd466003744dca94ccb88d1a118dd3/current HTTP/1.1" 200 -
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0

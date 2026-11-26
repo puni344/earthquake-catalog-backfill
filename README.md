@@ -4,6 +4,10 @@ A stopped backfill can leave an earthquake report missing events even when its r
 Analysts comparing reports and engineers recovering the pipeline need to reproduce the exact extract a reader saw.<br>
 This offline demo kills the ingestion worker, verifies the recovered week against a separate USGS capture and retrieves both published extracts by ID.
 
+**Launch the visual walkthrough:** run `python -m earthquake.dashboard` from the checkout root and open [http://127.0.0.1:8765](http://127.0.0.1:8765). Click **Run crash demo**, then **Query current** while the worker is down. Click **Continue recovery** and select the shorter edition from **Publication history**. The server keeps the database for inspection until a rerun or orderly shutdown (Ctrl+C). [Paused screen](docs/evidence/dashboard-interruption.png) · [Recovered screen](docs/evidence/dashboard-history.png)
+
+**Present live:** [Four-minute script](docs/DEFENCE.md#four-minute-recording-script) · [Prerequisites and offline demo](#run-from-a-local-clone-in-five-minutes) · [Inspect both publications](#read-published-catalogs)
+
 ```text
 USGS whole-week response ──► independent reference reader ────────────────┐
 Seven daily responses ────► SQLite rows + per-day checkpoints ───────────┤ compare
@@ -54,16 +58,21 @@ The reference establishes agreement between two query paths for one captured wee
 
 ### Read published catalogs
 
-From the checkout root on the Windows build laptop, the history drill creates a fresh database in local state. These PowerShell commands use the database from that run:
+The integrated verifier removes its disposable database when it exits. For a live walkthrough, run the following from the checkout root in a new PowerShell after installing the prerequisites above. The history drill creates a separate database under local state and prints its path. The final commands show the actual number of returned rows without printing thousands of events.
 
 ```powershell
-python -m earthquake.verify --drill history | Tee-Object -Variable historyRun
+$demo = make verify
+if ($LASTEXITCODE) { throw 'Integrated demo failed' }
+$demo | Select-String 'paused-before|Surviving checkpoints|WITNESS|Current reader outcomes|agreement:|correctness:|M08 PASS'
+
+$historyRun = python -m earthquake.verify --drill history
+if ($LASTEXITCODE) { throw 'History drill failed' }
 $db = ($historyRun | Select-String 'history database=(.+) fixture=').Matches[0].Groups[1].Value
-python -m earthquake.history --db $db list
-python -m earthquake.history --db $db current
 $publications = python -m earthquake.history --db $db list | ConvertFrom-Json
-python -m earthquake.history --db $db get $publications[0].id
-python -m earthquake.history --db $db get $publications[1].id
+$publications | Select-Object id,start,end_exclusive,count
+$current = python -m earthquake.history --db $db current | ConvertFrom-Json
+$older = python -m earthquake.history --db $db get $publications[0].id | ConvertFrom-Json
+$current,$older | Select-Object id,@{Name='ReturnedRows';Expression={$_.rows.Count}}
 ```
 
 Listing returns metadata in first-publication order. Current and named reads return JSON containing the ID, half-open UTC coverage, source hashes and event rows. An empty catalog lists as `[]`. Reading current before the first publication or requesting an unknown ID writes a diagnostic to stderr and exits 2.
