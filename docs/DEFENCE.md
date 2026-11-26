@@ -39,3 +39,16 @@
 18. **Why did a correct orphan hash initially fail the drill?** After the raw rename, verified request metadata existed only in memory. Restart fetched the same intact whole response once, transferring another 1,839,817 bytes. The bandwidth requirement allowed zero. [Original failure](evidence/M07-failures.txt)
 19. **How does restart now authenticate an orphan?** Before promotion, it installs a receipt binding acquisition, query, attempts, size and SHA-256. The same-run restart checked retained bytes, transferred zero whole bytes and fetched the outstanding daily bodies. Corruption failed closed and absent provenance required refetch. [Repair evidence](evidence/M07-orphan-remediation.txt)
 20. **Where does the evidence stop?** One historical week on a local Windows volume, one writer, worker/publisher process termination and at most four measured reader loops. Power cuts, sustained overload and multi-host failover would require separate experiments. [Failure register](failure-register.md) · [Benchmark](benchmarks/README.md)
+
+## Final evidence-based score · 79/100
+
+Local review, 26 November 2026. The six scores are engineering judgments. The caps and evidence for lifting each conditional cap are explicit below.
+
+| Dimension | Score | Evidence and deduction |
+|---|---:|---|
+| Relevance | 17/20 | Real USGS responses lift the synthetic-data cap of 12. Independent completeness checks and named history serve a plausible reporting workflow. Adoption by an analyst team remains unverified. [Acquisition](evidence/M02-acquire.txt) |
+| Depth | 16/20 | Separate pre-commit and post-commit kills distinguish rollback from durable skip. The independent oracle checks fields as well as identity. One storage engine and one event projection limit the technical scope. [Restart drill](evidence/M04-restart.txt) |
+| Production readiness | 13/20 | The load test and injected publisher incident satisfy both conditions for exceeding 12. The operator has a runbook and a measured recovery time. Hosted CI, power loss and long-duration operation remain unverified. [Load](benchmarks/README.md) · [Incident](postmortems/m06-publisher-crash.md) |
+| Differentiation | 11/15 | Measured recovery with correct historical rows lifts the unmeasured-signature cap of 8. The failed orphan test and verified zero-byte retry add a concrete acquisition lesson. External comparison with other systems is absent. [Integrated demo](evidence/quake-verify.txt) · [Remediation](evidence/M07-orphan-remediation.txt) |
+| Demonstrability | 13/15 | One command exposes the actual crash, observations and final named reads. The script guides a reviewer through the verbose transcript. A recorded video and independent reviewer walkthrough remain unverified. [Clean clone](evidence/M09-clean-clone.txt) |
+| Cost and reproducibility | 9/10 | A free per-user Make installation and a successful one-command local clone lift the 5-point cap. The pinned native runtime and one tested Windows laptop limit portability. [Fresh-shell evidence](evidence/M09-clean-clone.txt) |

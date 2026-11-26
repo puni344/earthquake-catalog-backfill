@@ -48,6 +48,7 @@ Measurements below are from local-user, Windows 11, i5-1235U, 12 logical process
 | [M06 publisher crash](docs/evidence/quake-publish.txt) | Four reader loops, 36 verified current reads. Forced exit after the pointer update and before commit. First verified new read took 935.782 ms from kill and 317.162 ms from retry. |
 | [M07 normal publication under load](docs/benchmarks/README.md) | Three trials each at 1, 2 and 4 reader loops, eight timed CLI reads per loop. All 168 passed. Four loops delivered 12.73 reads/s, pooled p95 335.77 ms, peak sampled summed working set 125.22 MiB. |
 | [M07 acquisition repair](docs/evidence/M07-orphan-remediation.txt) | After a worker kill, restarting the intact whole response went from one redundant request (1,839,817 bytes) to zero. All ten register entries passed after remediation. |
+| [M09 clean clone](docs/evidence/M09-clean-clone.txt) | Candidate `a39b613`, fresh Windows PowerShell. Make exited 0 in 3.754 s wall time, including 3.283 s inside the verifier. All 24 current reads and both final lookups verified. |
 
 The reference establishes agreement between two query paths for one captured week. The two publications cover different dates. Revision history of individual earthquakes, power-loss durability, multi-host failover, saturation and sustained throughput remain unverified. Hosted CI is **NOT RUN**. [Accepted ADRs](docs/adr/README.md) · [Failure register](docs/failure-register.md) · [Interview materials and score](docs/DEFENCE.md) · [Project state](docs/PROJECT_STATE.md)
 
