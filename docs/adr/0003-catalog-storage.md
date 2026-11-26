@@ -50,4 +50,6 @@ Run `python -m earthquake.verify --drill publish` with concurrent readers. For e
 
 [MEASURED – Windows laptop, 26 November 2026] M01 verified both accepted pins in the executing interpreter and reopened a committed SQLite row under the resolved local state directory. [Preflight evidence](../evidence/M01-preflight.txt)
 
-Publisher crash, concurrent-reader and recovery validation **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.
+[MEASURED – M04, 26 November 2026] Each window transaction binds its checkpoint to the canonical fixture manifest digest, UTC window start date and source body SHA-256. The pre-commit kill rolled back both rows and checkpoint. The post-commit kill preserved both before acknowledgment. Verification covers forced ingestion-worker termination on this Windows laptop. Power-loss and disk-failure durability are unverified. [Crash transcript](../evidence/M04-restart.txt)
+
+Publisher crash and concurrent-reader validation **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.

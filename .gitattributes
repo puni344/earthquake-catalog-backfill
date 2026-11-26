@@ -1,3 +1,4 @@
 # Preserve the exact downloaded bytes on Windows and Linux checkouts.
 docs/evidence/usgs/* -text
 earthquake/fixtures/**/blobs/*.geojson -text
+docs/evidence/M04-restart.json -text

@@ -1,0 +1,41 @@
+2026-11-26T12:37:08.0907934+05:30
+Machine: local-user | Windows 10.0.26300.0
+$ python -m earthquake.verify --drill reconcile
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": true,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {},
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {}
+}
+Missing IDs=0; extra IDs=0; field mismatches=0
+Live acquisition agreement: PASS
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+exit=0
