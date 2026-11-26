@@ -1,0 +1,815 @@
+2026-11-26T18:22:05.9673859+05:30 local-user | pre-fix b0faa80a1eb25ab134b192e217fb3e008bcc46c0 | offline Replay, frozen response bodies
+Python 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+python -m earthquake.failure_drill orphan-raw
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-83fbr8uw\state\20261126T125206Z-e3450af19ab0
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4519.53 MiB; logical processors 12; free disk 230811.92 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+TerminateProcess exit -15 interrupted path C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-83fbr8uw\exports\20261126T125206Z-e3450af19ab0\blobs\ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+residue bytes 1839817 sha256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-83fbr8uw\state\20261126T125207Z-1760ae677343
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-83fbr8uw\exports\20261126T125207Z-1760ae677343\manifest.json
+recovered whole SHA-256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 expected ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 whole requests after restart 1 total 8
+FAIL orphan-raw: restart fetched the already verified orphan
+exit=1
+Staging: C:\Users\local-user\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{304314b5-2e94-46de-a9ed-5b3d5202b158}\Temp\tmpdnhe86p0\state\20261126T125228Z-693226cdd770
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+TerminateProcess exit -15 interrupted path C:\Users\local-user\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{304314b5-2e94-46de-a9ed-5b3d5202b158}\Temp\tmpdnhe86p0\exports\20261126T125228Z-693226cdd770\blobs\ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+residue bytes 1839817 sha256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373
+Staging: C:\Users\local-user\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{304314b5-2e94-46de-a9ed-5b3d5202b158}\Temp\tmpdnhe86p0\state\20261126T125228Z-68cdc2cca5ab
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{304314b5-2e94-46de-a9ed-5b3d5202b158}\Temp\tmpdnhe86p0\exports\20261126T125228Z-68cdc2cca5ab\manifest.json
+E
+recovered whole SHA-256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 expected ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 whole requests after restart 1 total 8
+======================================================================
+ERROR: test_crash_after_blob_install (earthquake.test_acquire.RetainedResponse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\local-user\workspace\catalog\earthquake\test_acquire.py", line 57, in test_crash_after_blob_install
+    acquisition_restart(Path(folder), "orphan-raw")
+  File "C:\Users\local-user\workspace\catalog\earthquake\failure_drill.py", line 108, in acquisition_restart
+    restart.require(calls[first] == 0, "restart fetched the already verified orphan")
+  File "C:\Users\local-user\workspace\catalog\earthquake\restart.py", line 19, in require
+    raise ValueError(reason)
+ValueError: restart fetched the already verified orphan
+
+----------------------------------------------------------------------
+Ran 1 test in 1.348s
+
+FAILED (errors=1)
+red regression exit=1
+2026-11-26T18:24:11.0633656+05:30 python -m earthquake.failure_drill orphan-raw
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-2src60zl\state\20261126T125411Z-0b05dfb0bd05
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4490.55 MiB; logical processors 12; free disk 230685.57 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+TerminateProcess exit -15 interrupted path C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-2src60zl\exports\20261126T125411Z-0b05dfb0bd05\blobs\ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+residue bytes 1839817 sha256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-2src60zl\state\20261126T125411Z-0b05dfb0bd05
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-2src60zl\exports\20261126T125411Z-0b05dfb0bd05\manifest.json
+initial whole requests 1 whole bytes 1839817 all requests 1 all bytes 1839817
+restart whole requests 0 whole bytes 0 all requests 7 all bytes 1842149
+recovered whole SHA-256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 expected ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 whole requests after restart 0 total 7
+PASS orphan-raw
+exit=0
+2026-11-26T18:24:12.5221019+05:30 python -m earthquake.failure_drill interrupted-fetch
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-67xqo8bx\state\20261126T125413Z-a4c355679511
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4466.37 MiB; logical processors 12; free disk 230685.12 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+TerminateProcess exit -15 interrupted path C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-67xqo8bx\state\20261126T125413Z-a4c355679511\4962b6fa93d74dea99348c9cfc392134\whole-2026-10-01-1.body
+residue bytes 512 sha256 d437c355730b613a30e9b0fe137cb93ebbd33180f5574b57d36de408ba23bfa9
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-67xqo8bx\state\20261126T125413Z-a4c355679511
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-67xqo8bx\exports\20261126T125413Z-a4c355679511\manifest.json
+initial whole requests 1 whole bytes 512 all requests 1 all bytes 512
+restart whole requests 1 whole bytes 1839817 all requests 8 all bytes 3681966
+recovered whole SHA-256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 expected ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 whole requests after restart 1 total 8
+PASS interrupted-fetch
+exit=0
+2026-11-26T18:24:13.9423034+05:30 python -m earthquake.failure_drill throttle
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4466.94 MiB; logical processors 12; free disk 230684.78 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-mzufcgic\state\20261126T125414Z-b23a06683b07
+attempt 1: <urlopen error retryable HTTP 429>
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=2
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-mzufcgic\exports\20261126T125414Z-b23a06683b07\manifest.json
+attempts [{'number': 1, 'requested_utc': '2026-11-26T12:54:14.286Z', 'url': 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-01T00%3A00%3A00.000Z&endtime=2026-10-07T23%3A59%3A59.999Z', 'http_status': 429, 'error': '<urlopen error retryable HTTP 429>', 'finished_utc': '2026-11-26T12:54:14.287Z', 'backoff_seconds': 3}, {'number': 2, 'requested_utc': '2026-11-26T12:54:17.289Z', 'url': 'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time-asc&starttime=2026-10-01T00%3A00%3A00.000Z&endtime=2026-10-07T23%3A59%3A59.999Z', 'http_status': 200, 'finished_utc': '2026-11-26T12:54:17.349Z'}] elapsed seconds 3.002037600001131 final hash ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373
+verified completion manifest C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-mzufcgic\exports\20261126T125414Z-b23a06683b07\manifest.json responses 8
+PASS throttle
+exit=0
+2026-11-26T18:24:18.0937076+05:30 python -m earthquake.failure_drill disk
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4448.20 MiB; logical processors 12; free disk 230683.79 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\fault-yu7ew2og\state\20261126T125418Z-c28e9457f144
+staging error PermissionError(13, 'injected staging-write denial') errno 13
+manifest digest before/after 44df54d5ec7839b85958bd4e0436186107f515ca8a01a335330b9927f768a0c8 44df54d5ec7839b85958bd4e0436186107f515ca8a01a335330b9927f768a0c8 read {'reader': 'disk', 'command': 'C:\\Users\\local-user\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\local-user\\AppData\\Local\\D2EarthquakeCatalog\\state\\fault-yu7ew2og\\catalog.sqlite current', 'start_utc': '2026-11-26T12:54:18.702Z', 'start_ns': 16294986147200, 'exit': 0, 'id': 'ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451', 'count': 1090, 'digest': '9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3', 'error': None, 'pid': 20420, 'status': 'success', 'finish_ns': 16295158184900, 'finish_utc': '2026-11-26T12:54:18.874Z'}
+PASS disk
+exit=0
+python -m unittest discover -v
+tests.test_properties (unittest.loader._FailedTest) ... ERROR
+
+======================================================================
+ERROR: tests.test_properties (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: tests.test_properties
+Traceback (most recent call last):
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\local-user\workspace\catalog\tests\test_properties.py", line 14, in <module>
+    from hypothesis import given, settings
+ModuleNotFoundError: No module named 'hypothesis'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)
+exit=1
+2026-11-26T18:24:43.8811688+05:30 python -m unittest discover -s earthquake -v (D2 suite)
+test_damaged_body_blocks_seal (test_acquire.AcquisitionFaults) ... ok
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpdyurbm7v\state\20261126T125444Z-d09b5c7e958b
+attempt 1: injected disconnect
+attempt 2: injected disconnect
+attempt 3: injected disconnect
+test_interrupted_read_never_exports (test_acquire.AcquisitionFaults) ... ok
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp1mhnbpjr\state\20261126T125444Z-75a698602cba
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp1mhnbpjr\state\20261126T125444Z-75a698602cba
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmp1mhnbpjr\exports\20261126T125444Z-75a698602cba\manifest.json
+before-receipt None: verified; whole requests=1 bytes=1839817
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpv49608ne\state\20261126T125445Z-1cdefebbfd00
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpv49608ne\state\20261126T125445Z-1cdefebbfd00
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpv49608ne\exports\20261126T125445Z-1cdefebbfd00\manifest.json
+after-receipt None: verified; whole requests=0 bytes=0
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp5i53wyda\state\20261126T125446Z-f61b12c880b7
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp5i53wyda\state\20261126T125446Z-f61b12c880b7
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmp5i53wyda\exports\20261126T125446Z-f61b12c880b7\manifest.json
+before-manifest None: verified; whole requests=0 bytes=0
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpat625n1r\state\20261126T125447Z-7657f73e18ae
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpat625n1r\state\20261126T125447Z-7657f73e18ae
+test_adjacent_boundaries (test_acquire.RetainedResponse) ... ok
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp5tfm1ju3\state\20261126T125448Z-601cebec7bfa
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpat625n1r\exports\20261126T125447Z-7657f73e18ae\manifest.json
+after-manifest None: verified; whole requests=0 bytes=0
+TerminateProcess exit -15 interrupted path C:\Users\local-user\AppData\Local\Temp\tmp5tfm1ju3\exports\20261126T125448Z-601cebec7bfa\blobs\ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+residue bytes 1839817 sha256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp5tfm1ju3\state\20261126T125448Z-601cebec7bfa
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+test_crash_after_blob_install (test_acquire.RetainedResponse) ... ok
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmp5tfm1ju3\exports\20261126T125448Z-601cebec7bfa\manifest.json
+initial whole requests 1 whole bytes 1839817 all requests 1 all bytes 1839817
+restart whole requests 0 whole bytes 0 all requests 7 all bytes 1842149
+recovered whole SHA-256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 expected ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 whole requests after restart 0 total 7
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpxsgza4y6\state\20261126T125449Z-41194bfe08de
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpxsgza4y6\state\20261126T125449Z-41194bfe08de
+same-length: failed closed: size or SHA-256 mismatch: whole 2026-10-01
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpdvid4dhb\state\20261126T125449Z-b434eebff3c1
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpdvid4dhb\state\20261126T125449Z-b434eebff3c1
+wrong-body: failed closed: size or SHA-256 mismatch: whole 2026-10-01
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpgfw0x6aj\state\20261126T125449Z-6ac0a3df4790
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpgfw0x6aj\state\20261126T125449Z-6ac0a3df4790
+foreign-run: failed closed: acquisition mismatch in whole-2026-10-01.json
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpr33foxq2\state\20261126T125449Z-162fc47bbe8c
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpr33foxq2\state\20261126T125449Z-162fc47bbe8c
+wrong-request: failed closed: query metadata mismatch: whole 2026-10-01
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpe9t9mzqm\state\20261126T125449Z-a42691e1127c
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpe9t9mzqm\state\20261126T125449Z-a42691e1127c
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+test_rejection_or_authenticated_refetch (test_acquire.RetainedResponse) ... ok
+test_history (unittest.loader._FailedTest) ... ERROR
+test_available_ram (test_preflight.PreflightFailures) ... ok
+test_disk_budget (test_preflight.PreflightFailures) ... ok
+test_python_mismatch (test_preflight.PreflightFailures) ... ok
+test_ram_fraction (test_preflight.PreflightFailures) ... ok
+test_repository_path (test_preflight.PreflightFailures) ... ok
+test_resolved_onedrive_path (test_preflight.PreflightFailures) ... ok
+test_sqlite_mismatch (test_preflight.PreflightFailures) ... ok
+test_publish (unittest.loader._FailedTest) ... ERROR
+test_changed_magnitude (test_reconcile.ReconcileFaults) ... ok
+test_cross_file_duplicate (test_reconcile.ReconcileFaults) ... ok
+test_equal_count_replacement (test_reconcile.ReconcileFaults) ... ok
+test_extra_id (test_reconcile.ReconcileFaults) ... ok
+test_invalid_manifest_fails_closed (test_reconcile.ReconcileFaults) ... ok
+test_omission (test_reconcile.ReconcileFaults) ... ok
+test_restart (unittest.loader._FailedTest) ... ERROR
+
+======================================================================
+ERROR: test_history (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_history
+Traceback (most recent call last):
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\local-user\workspace\catalog\earthquake\test_history.py", line 8, in <module>
+    from . import history, ingest
+ImportError: attempted relative import with no known parent package
+
+
+======================================================================
+ERROR: test_publish (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_publish
+Traceback (most recent call last):
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\local-user\workspace\catalog\earthquake\test_publish.py", line 3, in <module>
+    from . import history, publish_drill
+ImportError: attempted relative import with no known parent package
+
+
+======================================================================
+ERROR: test_restart (unittest.loader._FailedTest)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_restart
+Traceback (most recent call last):
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 436, in _find_test_path
+    module = self._get_module_from_name(name)
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\unittest\loader.py", line 377, in _get_module_from_name
+    __import__(name)
+  File "C:\Users\local-user\workspace\catalog\earthquake\test_restart.py", line 8, in <module>
+    from . import ingest, restart
+ImportError: attempted relative import with no known parent package
+
+
+----------------------------------------------------------------------
+Ran 21 tests in 6.904s
+
+FAILED (errors=3)
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpe9t9mzqm\exports\20261126T125449Z-a42691e1127c\manifest.json
+after-body no-receipt: verified; whole requests=1 bytes=1839817
+controlled exit=1 | FAIL: available RAM 671.00 MiB; design requires 672 MiB
+controlled exit=1 | FAIL: free disk 895.00 MiB on C:\Users\local-user\AppData\Local\Temp\tmp67us09u1\local\D2\state; design requires 896 MiB
+controlled exit=1 | FAIL: Python 3.11.0; ADR-0003 requires 3.10.11
+controlled exit=1 | FAIL: visible RAM 800.00 MiB; 672 MiB exceeds the 75% ceiling
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpk2f8fgd0\repo\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpk2f8fgd0\repo
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpqsyl3u2o\OneDrive\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpqsyl3u2o\OneDrive
+controlled exit=1 | FAIL: SQLite 3.40.0; ADR-0003 requires 3.40.1
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+test_changed_magnitude {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [{"daily": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 3, "row": 1, "source_updated": 1791912940905}], "field": "magnitude", "id": "aka2026tkfzmc", "reference": [{"event_time": 1790812821945, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}]}], "missing": {}}
+test_cross_file_duplicate {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2570, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tmcdbt": [{"event_time": 1790899429208, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": "1.5", "row": 408, "source_updated": 1792448153355}, {"event_time": 1790899429208, "file": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson", "magnitude": "1.5", "row": 1, "source_updated": 1792448153355}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+test_equal_count_replacement {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2569, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tkfzmc": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}, {"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 407, "source_updated": 1791912940905}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": false,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 1,
+      "excess": 1,
+      "raw": 2569,
+      "unique": 2568
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {
+      "aka2026tkfzmc": [
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 1,
+          "source_updated": 1791912940905
+        },
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 407,
+          "source_updated": 1791912940905
+        }
+      ]
+    },
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {
+    "uw714114281": [
+      {
+        "event_time": 1790898462960,
+        "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson",
+        "magnitude": "1.03",
+        "row": 407,
+        "source_updated": 1790913790190
+      }
+    ]
+  }
+}
+Missing IDs=1; extra IDs=0; field mismatches=0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_extra_id {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2570, "unique": 2570}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {"aka2026tkfzmc-controlled-extra": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 408, "source_updated": 1791912940905}]}, "mismatches": [], "missing": {}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+Fixture error: expected 8 responses; got 0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_omission {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2568, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+exit=1
+26 November 2026 | Pre-fix process kill after first export rename, before manifest. Staging held all 8 HTTP bodies and URL/time/status attempt logs. The exported whole body had its digest as filename. No durable record bound that digest to its acquisition and query. From the eight successful one-attempt replay response sizes in each phase: initial whole 1 request / 1839817 bytes, all 8 / 3681966; restart whole 1 / 1839817, all 8 / 3681966. Pre-fix red regression command: python -m unittest earthquake.test_acquire.RetainedResponse. Earlier discovery attempts above include an unrelated missing hypothesis dependency and standalone-module import errors. Running the project's package-qualified tests below.
+python -m unittest -v earthquake.test_acquire earthquake.test_history earthquake.test_preflight earthquake.test_publish earthquake.test_reconcile earthquake.test_restart
+test_damaged_body_blocks_seal (earthquake.test_acquire.AcquisitionFaults) ... ok
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp_7aopbih\state\20261126T125556Z-0b9ad4c0ea19
+attempt 1: injected disconnect
+attempt 2: injected disconnect
+attempt 3: injected disconnect
+test_interrupted_read_never_exports (earthquake.test_acquire.AcquisitionFaults) ... ok
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpnd0sk5k_\state\20261126T125556Z-5a1e9a4f5289
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpnd0sk5k_\state\20261126T125556Z-5a1e9a4f5289
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpnd0sk5k_\exports\20261126T125556Z-5a1e9a4f5289\manifest.json
+before-receipt None: verified; whole requests=1 bytes=1839817
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpihozjds4\state\20261126T125557Z-10ca03f692b0
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpihozjds4\state\20261126T125557Z-10ca03f692b0
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpihozjds4\exports\20261126T125557Z-10ca03f692b0\manifest.json
+after-receipt None: verified; whole requests=0 bytes=0
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpmqh724m9\state\20261126T125558Z-2b78dfb22aca
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpmqh724m9\state\20261126T125558Z-2b78dfb22aca
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpmqh724m9\exports\20261126T125558Z-2b78dfb22aca\manifest.json
+before-manifest None: verified; whole requests=0 bytes=0
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpfwt5tvah\state\20261126T125559Z-e80675404d5b
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpfwt5tvah\state\20261126T125559Z-e80675404d5b
+test_adjacent_boundaries (earthquake.test_acquire.RetainedResponse) ... ok
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp955w7eqv\state\20261126T125600Z-b7076a7921ec
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpfwt5tvah\exports\20261126T125559Z-e80675404d5b\manifest.json
+after-manifest None: verified; whole requests=0 bytes=0
+TerminateProcess exit -15 interrupted path C:\Users\local-user\AppData\Local\Temp\tmp955w7eqv\exports\20261126T125600Z-b7076a7921ec\blobs\ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+residue bytes 1839817 sha256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp955w7eqv\state\20261126T125600Z-b7076a7921ec
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+test_crash_after_blob_install (earthquake.test_acquire.RetainedResponse) ... ok
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmp955w7eqv\exports\20261126T125600Z-b7076a7921ec\manifest.json
+initial whole requests 1 whole bytes 1839817 all requests 1 all bytes 1839817
+restart whole requests 0 whole bytes 0 all requests 7 all bytes 1842149
+recovered whole SHA-256 ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 expected ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 whole requests after restart 0 total 7
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp0u0ufzm2\state\20261126T125601Z-b15a233ab187
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmp0u0ufzm2\state\20261126T125601Z-b15a233ab187
+same-length: failed closed: size or SHA-256 mismatch: whole 2026-10-01
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpi4bw9p9j\state\20261126T125601Z-2ff7ad829fb4
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpi4bw9p9j\state\20261126T125601Z-2ff7ad829fb4
+wrong-body: failed closed: size or SHA-256 mismatch: whole 2026-10-01
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpcfgrkxsx\state\20261126T125601Z-4eaf30133c6e
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpcfgrkxsx\state\20261126T125601Z-4eaf30133c6e
+foreign-run: failed closed: acquisition mismatch in whole-2026-10-01.json
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpxhdw1t_g\state\20261126T125602Z-2d36ef67cd23
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpxhdw1t_g\state\20261126T125602Z-2d36ef67cd23
+wrong-request: failed closed: query metadata mismatch: whole 2026-10-01
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpo8blopoh\state\20261126T125602Z-96975d6c35de
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpo8blopoh\state\20261126T125602Z-96975d6c35de
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+test_rejection_or_authenticated_refetch (earthquake.test_acquire.RetainedResponse) ... ok
+test_damaged_staging_cannot_change_published_values (earthquake.test_history.HistoryTests) ... ok
+test_empty_history (earthquake.test_history.HistoryTests) ... ok
+test_incomplete_window_blocks_pointer_change (earthquake.test_history.HistoryTests) ... ok
+test_older_lookup_after_new_publication (earthquake.test_history.HistoryTests) ... ok
+test_unknown_id (earthquake.test_history.HistoryTests) ... ok
+test_available_ram (earthquake.test_preflight.PreflightFailures) ... ok
+test_disk_budget (earthquake.test_preflight.PreflightFailures) ... ok
+test_python_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+test_ram_fraction (earthquake.test_preflight.PreflightFailures) ... ok
+test_repository_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_resolved_onedrive_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_sqlite_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+test_old_rows_labelled_with_new_id_fail (earthquake.test_publish.ReaderOracleTests) ... ok
+test_changed_magnitude (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_cross_file_duplicate (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_equal_count_replacement (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_extra_id (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_invalid_manifest_fails_closed (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_omission (earthquake.test_reconcile.ReconcileFaults) ... ok
+COMPLETE: C:\Users\local-user\AppData\Local\Temp\tmpo8blopoh\exports\20261126T125602Z-96975d6c35de\manifest.json
+after-body no-receipt: verified; whole requests=1 bytes=1839817
+controlled exit=1 | FAIL: available RAM 671.00 MiB; design requires 672 MiB
+controlled exit=1 | FAIL: free disk 895.00 MiB on C:\Users\local-user\AppData\Local\Temp\tmp9b_35ui_\local\D2\state; design requires 896 MiB
+controlled exit=1 | FAIL: Python 3.11.0; ADR-0003 requires 3.10.11
+controlled exit=1 | FAIL: visible RAM 800.00 MiB; 672 MiB exceeds the 75% ceiling
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpbfzkl_sh\repo\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpbfzkl_sh\repo
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpvzc1b_1b\OneDrive\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpvzc1b_1b\OneDrive
+controlled exit=1 | FAIL: SQLite 3.40.0; ADR-0003 requires 3.40.1
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+test_changed_magnitude {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [{"daily": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 3, "row": 1, "source_updated": 1791912940905}], "field": "magnitude", "id": "aka2026tkfzmc", "reference": [{"event_time": 1790812821945, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}]}], "missing": {}}
+test_cross_file_duplicate {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2570, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tmcdbt": [{"event_time": 1790899429208, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": "1.5", "row": 408, "source_updated": 1792448153355}, {"event_time": 1790899429208, "file": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson", "magnitude": "1.5", "row": 1, "source_updated": 1792448153355}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+test_equal_count_replacement {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2569, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tkfzmc": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}, {"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 407, "source_updated": 1791912940905}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": false,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 1,
+      "excess": 1,
+      "raw": 2569,
+      "unique": 2568
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {
+      "aka2026tkfzmc": [
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 1,
+          "source_updated": 1791912940905
+        },
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 407,
+          "source_updated": 1791912940905
+        }
+      ]
+    },
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {
+    "uw714114281": [
+      {
+        "event_time": 1790898462960,
+        "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson",
+        "magnitude": "1.03",
+        "row": 407,
+        "source_updated": 1790913790190
+      }
+    ]
+  }
+}
+Missing IDs=1; extra IDs=0; field mismatches=0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_extra_id {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2570, "unique": 2570}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {"aka2026tkfzmc-controlled-extra": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 408, "source_updated": 1791912940905}]}, "mismatches": [], "missing": {}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+Fixture error: expected 8 responses; got 0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_omission {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2568, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4853.68 MiB; logical processors 12; free disk 230590.00 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Fresh database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\tmpl0viu1qc\case.sqlite fixture=20261126T064859Z-1bf43bf1e07e boundary=after
+pid=21544 boundary=after target=2026-10-04 method=TerminateProcess exit=-15 events=[["attempt", "2026-10-01"], ["ack", "2026-10-01"], ["attempt", "2026-10-02"], ["ack", "2026-10-02"], ["attempt", "2026-10-03"], ["ack", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-after", "2026-10-04"]]
+Pre-resume checkpoints=['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04'] rows={'2026-10-01': 407, '2026-10-02': 352, '2026-10-03': 331, '2026-10-04': 383} target_checkpoint=True target_rows=383
+pid=4000 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+Resume attempted=['2026-10-05', '2026-10-06', '2026-10-07'] replayed=[] skipped=['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04']
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+pid=19680 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["skip", "2026-10-05"], ["skip", "2026-10-06"], ["skip", "2026-10-07"], ["done", ""]]
+test_after_commit_before_ack (earthquake.test_restart.RecoveryTests) ... ok
+Completed rerun: all seven skipped; exact ordered checkpoint and observation tuples unchanged
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4848.07 MiB; logical processors 12; free disk 230586.88 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Fresh database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\tmpbqpy6mnz\case.sqlite fixture=20261126T064859Z-1bf43bf1e07e boundary=before
+pid=2912 boundary=before target=2026-10-04 method=TerminateProcess exit=-15 events=[["attempt", "2026-10-01"], ["ack", "2026-10-01"], ["attempt", "2026-10-02"], ["ack", "2026-10-02"], ["attempt", "2026-10-03"], ["ack", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-before", "2026-10-04"]]
+Pre-resume checkpoints=['2026-10-01', '2026-10-02', '2026-10-03'] rows={'2026-10-01': 407, '2026-10-02': 352, '2026-10-03': 331} target_checkpoint=False target_rows=0
+pid=9752 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["ack", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+Resume attempted=['2026-10-04', '2026-10-05', '2026-10-06', '2026-10-07'] replayed=['2026-10-04'] skipped=['2026-10-01', '2026-10-02', '2026-10-03']
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+pid=24268 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["skip", "2026-10-05"], ["skip", "2026-10-06"], ["skip", "2026-10-07"], ["done", ""]]
+test_before_commit (earthquake.test_restart.RecoveryTests) ... ok
+test_foreign_checkpoints_cannot_skip_window (earthquake.test_restart.RecoveryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 10.375s
+
+OK
+Completed rerun: all seven skipped; exact ordered checkpoint and observation tuples unchanged
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 4842.10 MiB; logical processors 12; free disk 230586.63 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+exit=0
+python -m earthquake.verify --drill acquire --offline earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json
+OFFLINE PASS: 8 bodies; lengths, SHA-256, queries, shape and counts verified from disk: earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+exit=0
+make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 38 docs checked; both indexes current; 3 ADRs valid
+exit=0
+make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-096ji70a'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:31: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-096ji70a'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-096ji70a'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-096ji70a'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-096ji70a'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-096ji70a'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0
+Final M07 register: 10 PASS / 0 FAIL / 0 NOT RUN. Original review: 9 PASS / 1 FAIL. Load results reused from M07-load.txt. M08 NOT RUN.

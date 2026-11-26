@@ -22,6 +22,8 @@ M01 passed local review.
 
 [MEASURED – M06, Windows laptop, 26 November 2026] Publisher crash drill **PASS**. Four CLI reader loops made 36 current reads across one forced pre-commit publisher exit and retry. All returned complete known publications. The first verified new read finished 935.782 ms after kill initiation and 317.162 ms after retry began. Both historical IDs remained readable. [Per-read evidence](evidence/quake-publish.txt) · [Postmortem](postmortems/m06-publisher-crash.md)
 
-[MEASURED – M07, Windows laptop, 26 November 2026] Nine fresh-state trials at 1, 2 and 4 reader loops passed. All 168 timed reads matched the independent publication oracle. Four loops were the highest tested. Register review: **9 PASS, 1 FAIL, 0 NOT RUN**. Acquisition restart refetched the already verified orphan body once, reproducing its hash. The zero-extra-request requirement remains open. [Load summary](benchmarks/README.md) · [Register verdicts](failure-register.md)
+[MEASURED – M07, Windows laptop, 26 November 2026] Nine fresh-state trials at 1, 2 and 4 reader loops passed. All 168 timed reads matched the independent publication oracle. Four loops were the highest tested. Register review: **9 PASS, 1 FAIL, 0 NOT RUN**. Acquisition restart refetched the already verified orphan body once, reproducing its hash. That run left the zero-extra-request requirement open. [Load summary](benchmarks/README.md) · [Register verdicts](failure-register.md)
+
+On 26 November 2026 the orphan rerun passed. Resuming the named acquisition reused the verified whole response and fetched seven outstanding daily responses. Final M07 register totals are **10 PASS, 0 FAIL, 0 NOT RUN**. The original benchmark supplies the publication measurements. [Remediation evidence](evidence/M07-orphan-remediation.txt)
 
 M08, M09 and hosted CI are **NOT RUN**. Next decision is M07 review.
