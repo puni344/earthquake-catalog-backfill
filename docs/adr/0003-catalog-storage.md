@@ -1,8 +1,11 @@
 # ADR-0003 · Publish named generations with Python and local SQLite transactions
 
-Status: Proposed  
-Date / proposed by: 25 November 2026 / Codex  
-Accepted by: pending user review  
+Status: Accepted
+
+Date / proposed by: 25 November 2026 / Codex
+
+Accepted by: puni344 on 25 November 2026
+
 Reversibility: two-way door. Rebuild the local index from frozen inputs to switch stores.
 
 ## Context
@@ -41,7 +44,7 @@ Two writers become necessary or measured reader stalls prevent sampling across t
 
 ## Validation plan
 
-Proposed command: `python -m earthquake.verify --drill publish`. Record complete generation digests for all concurrent reads and recovery time in quake-publish.txt.
+Run `python -m earthquake.verify --drill publish` with concurrent readers. For each successful read, record its timestamp, publication ID and a digest computed in deterministic order from the actual returned rows. Compare the digest with the independent expected digest for that same ID. Require observed reads before the kill, during interruption and after recovery. Record read errors and recovery time, then query both publications by ID again and verify their returned rows. Save observations and timing in `docs/evidence/quake-publish.txt`.
 
 ## Outcome
 

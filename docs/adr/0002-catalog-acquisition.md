@@ -1,8 +1,11 @@
 # ADR-0002 · Freeze independent whole-window and partitioned acquisitions
 
-Status: Proposed  
-Date / proposed by: 25 November 2026 / Codex  
-Accepted by: pending user review  
+Status: Accepted
+
+Date / proposed by: 25 November 2026 / Codex
+
+Accepted by: puni344 on 25 November 2026
+
 Reversibility: two-way door. Reacquire the source and rebuild manifests to change partitioning.
 
 ## Context
@@ -41,7 +44,10 @@ A parent exceeds the documented service limit or a single timestamp cannot be sp
 
 ## Validation plan
 
-Proposed command: `python -m earthquake.verify --drill reconcile`. Require both set differences empty and zero raw duplicates. Capture quake-reconcile.txt.
+Run `python -m earthquake.verify --drill reconcile` and record two named verdicts in `docs/evidence/quake-reconcile.txt`.
+
+1. **Live acquisition agreement.** Preserve the whole-window response bytes and independently acquired daily response bytes for the same fixed UTC interval, with timestamps and hashes. Count duplicate rows on each side before deduplication. List missing IDs and extra IDs separately. Retain the raw discrepancies and block publication until resolved.
+2. **Frozen restart correctness.** Interrupt and resume the backfill offline on those same saved inputs. Independently compare recovered rows against the frozen reference. Report missing IDs, extra IDs, duplicate rows and field mismatches for matched IDs, including magnitude.
 
 ## Outcome
 

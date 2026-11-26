@@ -1,0 +1,2 @@
+# Preserve the exact downloaded bytes on Windows and Linux checkouts.
+docs/evidence/usgs/* -text

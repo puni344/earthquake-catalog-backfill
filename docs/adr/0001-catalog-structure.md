@@ -1,8 +1,11 @@
 # ADR-0001 · Keep one catalog project with three review paths
 
-Status: Proposed  
-Date / proposed by: 25 November 2026 / Codex  
-Accepted by: pending user review  
+Status: Accepted
+
+Date / proposed by: 25 November 2026 / Codex
+
+Accepted by: puni344 on 25 November 2026
+
 Reversibility: two-way door. Dropping a review path costs its demo and tests.
 
 ## Context
@@ -41,7 +44,7 @@ Review effort exceeds 30 hours or the application deadline cannot accommodate th
 
 ## Validation plan
 
-Proposed command: `python -m earthquake.verify`. All drills pass offline in one command. Capture quake-verify.txt.
+In one offline invocation of `python -m earthquake.verify`, interrupt a backfill, resume it, compare the recovered extract with the independent frozen reference, and retrieve both previous and new publications by ID. Save the command and result in `docs/evidence/quake-verify.txt`.
 
 ## Outcome
 
