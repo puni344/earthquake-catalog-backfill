@@ -1,32 +1,55 @@
 # D2 · Restartable earthquake catalog backfill
 
-Run the offline demonstration from this checkout on the Windows build laptop:
+A stopped backfill can leave an earthquake report missing events even when its row count looks right.<br>
+Analysts comparing reports and engineers recovering the pipeline need to reproduce the exact extract a reader saw.<br>
+This offline demo kills the ingestion worker, verifies the recovered week against a separate USGS capture and retrieves both published extracts by ID.
+
+```text
+USGS whole-week response ──► independent reference reader ────────────────┐
+Seven daily responses ────► SQLite rows + per-day checkpoints ───────────┤ compare
+                                                                        ▼
+                                     immutable publications ◄── verified extract
+                                        │              │
+                                 current pointer     explicit ID
+                                        └──── reader CLI ────► hash returned rows
+```
+
+### Run from a local clone in five minutes
+
+Use Windows 11 x64 with PowerShell, Git for Windows, native 64-bit CPython **3.10.11** on PATH with its bundled SQLite **3.40.1**, and GNU Make **4.4.1**. The demo uses Python's standard library. Allow a writable fixed local volume under `%LOCALAPPDATA%\D2EarthquakeCatalog\state` outside the checkout and OneDrive, 896 MiB free there and 672 MiB available RAM within 75% of visible RAM. [Resource budget and checks](docs/evidence/M01-preflight.txt)
+
+One-time setup on a Windows machine with App Installer (WinGet): install Git for Windows and the 64-bit Python 3.10.11 installer with **Add python.exe to PATH** selected if missing. Install GNU Make for the current user with the command below, then open a new PowerShell from the Start menu. These free prerequisites may require internet during setup. The demo itself runs offline. [Python installer](https://www.python.org/downloads/release/python-31011/) · [Git for Windows](https://gitforwindows.org/)
 
 ```powershell
-python -m earthquake.verify
+winget install --id ezwinports.make --exact --version 4.4.1 --source winget --scope user --accept-package-agreements --accept-source-agreements --disable-interactivity
 ```
 
-Expect `Live acquisition agreement: PASS`, `Frozen restart correctness: PASS` and `M08 PASS` with elapsed time and exit status 0. The demo uses one disposable local SQLite database. It publishes October 1–3, kills the October 4 ingestion worker before commit, resumes the week and checks both publication IDs against the frozen whole-week response. [Recorded laptop run](docs/evidence/quake-verify.txt)
+Clone this repository with `git clone https://github.com/puni344/earthquake-catalog-backfill.git`, enter it with `cd earthquake-catalog-backfill`, then check prerequisites and run:
 
-Today a reviewer with GNU Make and Python 3.10 can run `make docs-check` from the checkout root, inspect the three accepted decisions and compare the saved USGS responses. [D2 documentation](docs/00-index.md) · [Evidence](docs/evidence/README.md)
-
-On the Windows build laptop, run `python -m earthquake.verify --drill preflight` to check the pinned runtime, local SQLite state directory and design budget. [M01 measurements](docs/evidence/M01-preflight.txt)
-
-The frozen USGS catalog covers 1–7 October 2026 UTC. Verify all eight saved bodies offline from the checkout root:
-
-```sh
-python -m earthquake.verify --drill acquire --offline earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json
+```powershell
+git --version
+(Get-Command make).Source
+make --version
+python -c "import sys, sqlite3; print(sys.executable, sys.version, sqlite3.sqlite_version)"
+make verify
+$LASTEXITCODE
 ```
 
-[Fixture manifest](earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json) · [Acquisition evidence](docs/evidence/M02-acquire.txt)
+Look for **Live acquisition agreement: PASS**, **Frozen restart correctness: PASS**, **M08 PASS** and exit **0**. Make calls the direct entry point `python -m earthquake.verify`. Each invocation creates a fresh disposable database. Find the `paused-before` worker event, the three surviving checkpoints, zero October 4 rows and the resumed worker's skips. The `WITNESS` lines identify completed current reads during the outage and after commit. The final `BY-ID` lines show the returned counts and digests. [Integrated transcript](docs/evidence/quake-verify.txt)
 
-Run `python -m earthquake.verify --drill reconcile` to compare the accepted weekly and daily captures offline. It reports raw multiplicities, missing and extra IDs, and differences in event time, source update time and magnitude. [M03 results](docs/evidence/M03-reconcile.txt)
+### What the laptop actually demonstrated
 
-Run `python -m earthquake.verify --drill restart` on the Windows build laptop to create fresh local databases and kill the ingestion worker on each side of commit. The drill compares recovered rows with the frozen whole-week reference. [Crash observations](docs/evidence/M04-restart.txt) · [Combined reconciliation verdicts](docs/evidence/quake-reconcile.txt)
+Measurements below are from local-user, Windows 11, i5-1235U, 12 logical processors, on 26 November 2026. Each row identifies the experiment that produced it. [Hardware](docs/evidence/quake-machine.txt)
 
-Run `python -m earthquake.verify --drill publish` for the M06 publisher crash and four-reader recovery drill on a disposable local database. [Reader observations](docs/evidence/quake-publish.txt) · [Incident report](docs/postmortems/m06-publisher-crash.md)
+| Run | Workload and measured result |
+|---|---|
+| [M02/M03 acquisition](docs/evidence/M03-reconcile.txt) | One whole week and seven daily HTTP responses for October 1–7. Both paths yielded 2,569 unique events with zero missing, extra, duplicate or changed projected values. |
+| [M08 integrated worker crash](docs/evidence/quake-verify.txt) | 3.349 s. The October 4 pre-commit kill left zero target rows. Resume skipped three days and recovered 2,569 rows. All 23 current reads verified. Final IDs returned 1,090 and 2,569 rows. |
+| [M06 publisher crash](docs/evidence/quake-publish.txt) | Four reader loops, 36 verified current reads. Forced exit after the pointer update and before commit. First verified new read took 935.782 ms from kill and 317.162 ms from retry. |
+| [M07 normal publication under load](docs/benchmarks/README.md) | Three trials each at 1, 2 and 4 reader loops, eight timed CLI reads per loop. All 168 passed. Four loops delivered 12.73 reads/s, pooled p95 335.77 ms, peak sampled summed working set 125.22 MiB. |
+| [M07 acquisition repair](docs/evidence/M07-orphan-remediation.txt) | After a worker kill, restarting the intact whole response went from one redundant request (1,839,817 bytes) to zero. All ten register entries passed after remediation. |
 
-Run `python -m earthquake.verify --drill load` for the fixed offline publication benchmark. Across three repetitions at each level, four reader loops delivered 12.73 verified reads/s with a pooled p95 of 335.77 ms. The original register review found one redundant download. Same-acquisition recovery now verifies and reuses that response. [Trial results](docs/benchmarks/README.md) · [Failure register](docs/failure-register.md)
+The reference establishes agreement between two query paths for one captured week. The two publications cover different dates. Revision history of individual earthquakes, power-loss durability, multi-host failover, saturation and sustained throughput remain unverified. Hosted CI is **NOT RUN**. [Accepted ADRs](docs/adr/README.md) · [Failure register](docs/failure-register.md) · [Interview materials and score](docs/DEFENCE.md) · [Project state](docs/PROJECT_STATE.md)
 
 ### Read published catalogs
 

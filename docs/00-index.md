@@ -17,4 +17,4 @@
 - [Earthquake catalog threat model](security/THREAT-MODEL.md)
 - [Earthquake catalog cost and CI](cost/COST.md)
 - [Earthquake catalog evidence](evidence/README.md)
-- [Defending the earthquake catalog design](DEFENCE.md)
+- [D2 demo script, résumé bullets, interview answers and scorecard](DEFENCE.md)
