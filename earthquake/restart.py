@@ -67,7 +67,7 @@ def worker_run(db, boundary=None):
         else:
             require(process.exitcode == 0, f"ingestion worker failed: {process.exitcode}")
         method = ("TerminateProcess" if os.name == "nt" else "SIGTERM") if boundary else "normal exit"
-        print(f"pid={process.pid} boundary={boundary} target={TARGET} method={method} "
+        print(f"database={db} pid={process.pid} boundary={boundary} target={TARGET} method={method} "
               f"exit={process.exitcode} events={json.dumps(events)}", flush=True)
         return events, process.exitcode
     finally:
@@ -88,6 +88,20 @@ def snapshot(db):
 
 def days_for(events, kind):
     return [day for event, day in events if event == kind]
+
+
+def verify_recovered(expected, final_rows, keys):
+    observed = []
+    for fixture, day, body, ordinal, event_id, origin, updated, mag in final_rows:
+        require((fixture, day, body) in keys, "unexpected observation source")
+        observed.append((event_id, dict(file=body + ".geojson", row=ordinal, event_time=origin,
+                                        source_updated=updated, magnitude=None if mag is None else Decimal(mag))))
+    result = reconcile.compare_rows(expected, observed)
+    print("Reference vs recovered SQLite rows (daily):", json.dumps(result, default=str, sort_keys=True))
+    print(f"Missing IDs={len(result['missing'])}; extra IDs={len(result['extra'])}; "
+          f"field mismatches={len(result['mismatches'])}")
+    require(result["agreement"], "recovered rows disagree with whole-week reference")
+    return result
 
 
 def crash_case(db, boundary):
@@ -123,16 +137,7 @@ def crash_case(db, boundary):
     final_marks, final_rows = snapshot(db)
     require(final_marks == keys, "incomplete checkpoint set after resume")
     require(final_rows[:len(rows)] == rows, "previously committed observations changed")
-    observed = []
-    for fixture, day, body, ordinal, event_id, origin, updated, mag in final_rows:
-        require((fixture, day, body) in keys, "unexpected observation source")
-        observed.append((event_id, dict(file=body + ".geojson", row=ordinal, event_time=origin,
-                                        source_updated=updated, magnitude=None if mag is None else Decimal(mag))))
-    result = reconcile.compare_rows(expected, observed)
-    print("Reference vs recovered SQLite rows (daily):", json.dumps(result, default=str, sort_keys=True))
-    print(f"Missing IDs={len(result['missing'])}; extra IDs={len(result['extra'])}; "
-          f"field mismatches={len(result['mismatches'])}")
-    require(result["agreement"], "recovered rows disagree with whole-week reference")
+    result = verify_recovered(expected, final_rows, keys)
     rerun, _ = worker_run(db)
     require(rerun == [("skip", day) for day in days] + [("done", "")], "completed rerun performed work")
     require(snapshot(db) == (final_marks, final_rows), "completed rerun changed rows or checkpoints")

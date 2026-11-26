@@ -5,7 +5,7 @@ from contextlib import closing
 from . import acquire, reconcile
 
 
-def ingest(database, notify, synchronize):
+def ingest(database, notify, synchronize, *, through_day=None):
     manifest = reconcile.MANIFEST
     fixture = reconcile.fixture_digest()
     records = acquire.manifest_records(manifest)
@@ -25,6 +25,8 @@ def ingest(database, notify, synchronize):
             if record["role"] != "daily":
                 continue
             day = record["start"][:10]
+            if through_day is not None and day > through_day:
+                continue
             key = fixture, day, record["sha256"]
             # Lock before the skip decision so two workers cannot both claim this window.
             db.execute("BEGIN IMMEDIATE")
