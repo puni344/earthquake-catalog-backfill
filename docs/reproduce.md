@@ -2,7 +2,7 @@
 
 ## Linux and macOS
 
-Clone the repository, enter its root, and run `make verify`. Use Python 3.11 and GNU Make; the Python dependencies are all in the standard library. Make invokes `python3` on these systems. With only Python installed, run `python3 -m earthquake.verify`. To select another interpreter explicitly use `make verify PYTHON=/path/to/python3.11`. The verifier creates a private temporary directory, terminates the paused worker with SIGTERM, inspects the same database after restart, then removes it. The Windows-specific machine preflight and working-set benchmark remain Windows drills.
+Clone the repository, enter its root, and run `make verify`. Use a current CPython 3 release and GNU Make; the Python dependencies are all in the standard library. Make invokes `python3` on these systems. Native CI selects an available Python 3 release on each runner and prints its exact version. Docker pins Python 3.11.14 for reproducibility. With only Python installed, run `python3 -m earthquake.verify`. To select another interpreter explicitly use `make verify PYTHON=/path/to/python3.11`. The verifier creates a private temporary directory, terminates the paused worker with SIGTERM, inspects the same database after restart, then removes it. The Windows-specific machine preflight and working-set benchmark remain Windows drills.
 
 ## Docker
 
