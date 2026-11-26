@@ -1,0 +1,59 @@
+M00 documentation verification
+2026-11-26T12:05:41.431720+05:30
+Machine: Windows-10-10.0.26300-SP0 AMD64
+Directory: C:\Users\local-user\workspace\catalog
+GNU Make executable: C:/Users/local-user/AppData/Local/Temp/quake-m00-gnu-make/tools/install/bin\make.EXE
+
+$ git --version
+git version 2.52.0.windows.1
+exit=0
+
+$ python --version
+Python 3.10.11
+exit=0
+
+$ make --version
+GNU Make 4.4.1
+Built for Windows32
+Copyright (C) 1988-2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+exit=0
+
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 35 docs checked; both indexes current; 3 ADRs valid
+exit=0
+
+$ make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{d9d3193d-f812-4f44-bd54-25a7617befc6}/Temp/tmpat5xqtgz'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:11: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{d9d3193d-f812-4f44-bd54-25a7617befc6}/Temp/tmpat5xqtgz'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{d9d3193d-f812-4f44-bd54-25a7617befc6}/Temp/tmpat5xqtgz'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{d9d3193d-f812-4f44-bd54-25a7617befc6}/Temp/tmpat5xqtgz'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{d9d3193d-f812-4f44-bd54-25a7617befc6}/Temp/tmpat5xqtgz'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{d9d3193d-f812-4f44-bd54-25a7617befc6}/Temp/tmpat5xqtgz'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0
