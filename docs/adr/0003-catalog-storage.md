@@ -48,4 +48,6 @@ Run `python -m earthquake.verify --drill publish` with concurrent readers. For e
 
 ## Outcome
 
-MVP validation NOT RUN. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.
+[MEASURED – Windows laptop, 26 November 2026] M01 verified both accepted pins in the executing interpreter and reopened a committed SQLite row under the resolved local state directory. [Preflight evidence](../evidence/M01-preflight.txt)
+
+Publisher crash, concurrent-reader and recovery validation **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.

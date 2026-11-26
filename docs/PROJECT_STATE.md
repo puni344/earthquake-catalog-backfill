@@ -6,4 +6,8 @@ The 23 November 2026 20:00 IST D1 gate expired without a qualifying captured pai
 
 [SOURCE: puni344, 25 November 2026] The three [architecture decisions](adr/README.md) were accepted with validation amendments. The [Turn 4 plan](D2-Turn-4-Milestone-Plan.md) was accepted for implementation one milestone at a time.
 
-M00 establishes the documentation skeleton and CI definition. [MEASURED – 26 November 2026, local Windows checkout] `make docs-check` passed. Disposable copies with a broken link, missing validation heading and omitted ADR index entry each failed with a file-specific diagnostic. Commands and exit codes are in the [M00 transcript](evidence/M00-docs.txt). Hosted CI is **NOT RUN**. M01 through M09, including live agreement, frozen restart, publication history and the integrated demo, are **NOT RUN**. Next decision is M00 review.
+M00 establishes the documentation skeleton and CI definition. [MEASURED – 26 November 2026, local Windows checkout] `make docs-check` passed. Disposable copies with a broken link, missing validation heading and omitted ADR index entry each failed with a file-specific diagnostic. Commands and exit codes are in the [M00 transcript](evidence/M00-docs.txt). Hosted CI is **NOT RUN**. M00 passed local review.
+
+[MEASURED – Windows laptop, 26 November 2026] M01 preflight passed. The native interpreter matched both pins, the resolved state directory passed the configured-root and SQLite checks, and the measured RAM and disk met the design estimates. Seven controlled failures returned nonzero. GNU Make was absent from the fresh shell's PATH. The M00 portable executable was used for the documentation checks. [Raw M01 transcript](evidence/M01-preflight.txt) · [Resource budget](design/DESIGN-DOC.md)
+
+M02 through M09, including D2 catalog acquisition, are **NOT RUN**. Next decision is M01 review.

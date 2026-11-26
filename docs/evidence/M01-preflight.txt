@@ -1,0 +1,98 @@
+M01 D2 laptop preflight
+2026-11-26T12:12:32.9844296+05:30
+Machine: local-user | AMD64 | Windows build 10.0.26300.0
+Working directory: C:\Users\local-user\workspace\catalog
+$ python -m earthquake.verify --drill preflight
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 3520.49 MiB; logical processors 12; free disk 231854.48 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+exit=0
+
+2026-11-26T12:12:44.8516937+05:30
+Controlled failures in disposable directories
+$ python -m unittest -v earthquake.test_preflight
+test_available_ram (earthquake.test_preflight.PreflightFailures) ... ok
+test_disk_budget (earthquake.test_preflight.PreflightFailures) ... ok
+test_python_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+test_ram_fraction (earthquake.test_preflight.PreflightFailures) ... ok
+test_repository_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_resolved_onedrive_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_sqlite_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.046s
+
+OK
+controlled exit=1 | FAIL: available RAM 671.00 MiB; design requires 672 MiB
+controlled exit=1 | FAIL: free disk 895.00 MiB on C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{91e720d6-18b9-4cad-84bc-df115a35fecd}\Temp\tmpjoidql5k\local\D2\state; design requires 896 MiB
+controlled exit=1 | FAIL: Python 3.11.0; ADR-0003 requires 3.10.11
+controlled exit=1 | FAIL: visible RAM 800.00 MiB; 672 MiB exceeds the 75% ceiling
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{91e720d6-18b9-4cad-84bc-df115a35fecd}\Temp\tmpy4l0dms4\repo\state lies inside disallowed root C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{91e720d6-18b9-4cad-84bc-df115a35fecd}\Temp\tmpy4l0dms4\repo
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{91e720d6-18b9-4cad-84bc-df115a35fecd}\Temp\tmpgssln8_j\OneDrive\state lies inside disallowed root C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{91e720d6-18b9-4cad-84bc-df115a35fecd}\Temp\tmpgssln8_j\OneDrive
+controlled exit=1 | FAIL: SQLite 3.40.0; ADR-0003 requires 3.40.1
+exit=0
+
+2026-11-26T12:13:32.2810589+05:30
+Fresh shell
+$ where.exe make
+INFO: Could not find files for the given pattern(s).
+exit=1
+Using M00 portable GNU Make from C:/Users/local-user/AppData/Local/Temp/quake-m00-gnu-make/tools/install/bin
+$ make --version
+GNU Make 4.4.1
+Built for Windows32
+Copyright (C) 1988-2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+exit=0
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 35 docs checked; both indexes current; 3 ADRs valid
+exit=0
+$ make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{66a7a086-77dc-4671-be00-31838b3f3cd8}/Temp/tmp_v0mi521'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:15: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{66a7a086-77dc-4671-be00-31838b3f3cd8}/Temp/tmp_v0mi521'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{66a7a086-77dc-4671-be00-31838b3f3cd8}/Temp/tmp_v0mi521'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{66a7a086-77dc-4671-be00-31838b3f3cd8}/Temp/tmp_v0mi521'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{66a7a086-77dc-4671-be00-31838b3f3cd8}/Temp/tmp_v0mi521'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/AppData/Local/Packages/openai.codex_2p2nqsd0c76g0/AC/#!sandbox.{66a7a086-77dc-4671-be00-31838b3f3cd8}/Temp/tmp_v0mi521'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0

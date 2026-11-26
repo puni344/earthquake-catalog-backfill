@@ -36,6 +36,12 @@ An analyst needs a complete catalog for a fixed period. An operator needs to res
 
 The estimated total is below 75% of measured RAM and below observed free RAM. Keep the MVP on native Python with local disk. Stop acquisition at the configured byte cap. [ESTIMATE – five hours/day, includes rehearsal] Acquisition and reconciliation 10–14 hours, publication and crash drill 6–9, history and review 4–7. Total 20–30 hours over 4–6 working days. Stretch only after acceptance: larger windows, a web API or a containerized replay. Cloud allocation ₹0. Use existing hardware and connection, no cloud signup, deployment, credits or teardown dependency; mobile data allowance unverified.
 
+### M01 capacity and state directory
+
+[MEASURED – Windows laptop, 26 November 2026] `python -m earthquake.verify --drill preflight` measured 16,055.36 MiB visible RAM, 3,520.49 MiB available RAM, 12 logical processors and 231,854.48 MiB free on the fixed C: volume at the state directory. The 672 MiB design estimate fits both available RAM and the 12,041.52 MiB ceiling (75% of visible RAM). The 896 MiB disk estimate fits that volume. CPU is reported as logical processors alongside the design estimate in cores. Application memory use and CPU performance await load measurement. [Preflight transcript](../evidence/M01-preflight.txt)
+
+The Windows default for mutable state is `%LOCALAPPDATA%/D2EarthquakeCatalog/state`. The preflight resolves the path and checks it against the resolved checkout, OneDrive environment roots and current-user OneDrive account registry folders. It identifies the containing volume as fixed and verifies SQLite create, commit, close, read-only reopen and read inside a unique disposable directory. This establishes path exclusion for the roots visible to this account at check time. Other sync software, undiscovered sync roots and future configuration changes are outside the check.
+
 ## Benchmarks and evidence contract
 
 All planned commands below are proposed interfaces, UNVERIFIED / NOT RUN. For baseline and resumed runs use identical frozen bytes and record manifest hash, OS, runtime, free RAM, window count and event count. Use monotonic clocks and record each run separately.
