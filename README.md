@@ -4,6 +4,8 @@ A stopped backfill can leave an earthquake report missing events even when its r
 Analysts comparing reports and engineers recovering the pipeline need to reproduce the exact extract a reader saw.<br>
 This offline demo kills the ingestion worker, verifies the recovered week against a separate USGS capture and retrieves both published extracts by ID.
 
+**Deploy the live visitor demo** using the [free Render Blueprint](https://render.com/deploy?repo=https://github.com/puni344/earthquake-catalog-backfill). Each browser session gets its own temporary SQLite database and real worker. The service supports two active drills at once. Sessions expire ten minutes after starting. The first request after the free instance sleeps may take about a minute. The hosted runtime uses Linux and the frozen fixture. Laptop measurements below came from the Windows CLI.
+
 **Launch the visual walkthrough:** run `python -m earthquake.dashboard` from the checkout root and open [http://127.0.0.1:8765](http://127.0.0.1:8765). Click **Run crash demo**, then **Query current** while the worker is down. Click **Continue recovery** and select the shorter edition from **Publication history**. The server keeps the database for inspection until a rerun or orderly shutdown (Ctrl+C). [Paused screen](docs/evidence/dashboard-interruption.png) · [Recovered screen](docs/evidence/dashboard-history.png)
 
 **Present live:** [Four-minute script](docs/DEFENCE.md#four-minute-recording-script) · [Prerequisites and offline demo](#run-from-a-local-clone-in-five-minutes) · [Inspect both publications](#read-published-catalogs)

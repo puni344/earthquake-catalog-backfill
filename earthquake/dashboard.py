@@ -19,6 +19,7 @@ class Presentation:
         self.root = root
         self.lock = RLock()
         self.release = Event()
+        self.cancel = Event()
         self.folder = self.thread = None
         self.days = [start.date().isoformat() for role, start, end in acquire.windows() if role == "daily"]
         self.state = self.initial("")
@@ -38,6 +39,7 @@ class Presentation:
             self.state = self.initial(uuid4().hex)
             self.state.update(phase="running", detail="Checking the frozen fixture")
             self.release.clear()
+            self.cancel.clear()
             self.thread = Thread(target=self.work)
             self.thread.start()
 
@@ -96,6 +98,8 @@ class Presentation:
                 self.state["days"][target] = "Rolled back"
                 self.state.update(phase="paused", detail=f"Worker terminated before commit · {len(marks)} checkpoints survived · {count} target rows")
             self.release.wait()
+            if self.cancel.is_set():
+                return
             resumed, _ = restart.worker_run(self.db)
             skipped = restart.days_for(resumed, "skip")
             attempted = restart.days_for(resumed, "attempt")
@@ -121,6 +125,7 @@ class Presentation:
                 self.state.update(phase="error", detail=f"{type(exc).__name__}: {exc}")
 
     def close(self):
+        self.cancel.set()
         self.release.set()
         if self.thread:
             self.thread.join()
