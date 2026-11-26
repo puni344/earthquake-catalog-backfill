@@ -1,5 +1,6 @@
 """Offline comparison of the accepted whole-week and daily acquisition paths."""
 import json
+import hashlib
 from collections import defaultdict
 from decimal import Decimal
 
@@ -7,6 +8,13 @@ from . import acquire
 
 MANIFEST = acquire.FIXTURES / "20261126T064859Z-1bf43bf1e07e" / "manifest.json"
 DAILY_FIELDS = {"event_time": "time", "source_updated": "updated", "magnitude": "mag"}
+RESTART_EVIDENCE = acquire.REPO / "docs/evidence/M04-restart.json"
+
+
+def fixture_digest():
+    # Canonical manifest bytes keep the identity stable across Git newline settings.
+    data = json.dumps(json.loads(MANIFEST.read_bytes()), sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(data.encode()).hexdigest()
 
 
 def load_fixture():
@@ -55,8 +63,12 @@ def group(rows):
 
 
 def compare(files):
-    reference, ref_duplicates, ref_counts = group(reference_rows(*files[0]))
-    daily, daily_duplicates, daily_counts = group(daily_rows(files[1:]))
+    return compare_rows(reference_rows(*files[0]), daily_rows(files[1:]))
+
+
+def compare_rows(expected, observed):
+    reference, ref_duplicates, ref_counts = group(expected)
+    daily, daily_duplicates, daily_counts = group(observed)
     missing = {key: reference[key] for key in sorted(reference.keys() - daily.keys())}
     extra = {key: daily[key] for key in sorted(daily.keys() - reference.keys())}
     mismatches = []
@@ -86,5 +98,19 @@ def run():
     print("Live acquisition agreement:", "PASS" if passed else "FAIL")
     if not passed:
         print("Extract ineligible for publication")
-    print("Frozen restart correctness: NOT RUN (M04)")
+    if not RESTART_EVIDENCE.exists():
+        print("Frozen restart correctness: NOT RUN (M04)")
+    else:
+        try:
+            receipt = json.loads(RESTART_EVIDENCE.read_bytes())
+            if (receipt["fixture"] != MANIFEST.parent.name or receipt["manifest_sha256"] != fixture_digest()
+                    or [c["boundary"] for c in receipt["cases"]] != ["before", "after"]
+                    or not all(c["agreement"] is True and c["rerun_unchanged"] is True
+                               and c["termination_exit"] != 0 for c in receipt["cases"])):
+                raise ValueError("M04 receipt does not establish both cases for this fixture")
+            print(f"Frozen restart correctness: PASS (recorded M04 run {receipt['run_id']}, "
+                  f"{receipt['finished_utc']}, {RESTART_EVIDENCE.name}; not rerun here)")
+        except (OSError, KeyError, ValueError, TypeError) as error:
+            print(f"Frozen restart correctness: NOT VERIFIED ({error})")
+            return 1
     return 0 if passed else 1

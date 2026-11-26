@@ -3,12 +3,12 @@ import argparse
 
 from pathlib import Path
 
-from . import acquire, preflight, reconcile
+from . import acquire, preflight, reconcile, restart
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("--drill", required=True, choices=["preflight", "acquire", "reconcile"])
+    parser.add_argument("--drill", required=True, choices=["preflight", "acquire", "reconcile", "restart"])
     parser.add_argument("--offline", type=Path, metavar="MANIFEST")
     args = parser.parse_args(argv)
     if args.drill == "acquire":
@@ -17,6 +17,8 @@ def main(argv=None):
         parser.error("--offline requires --drill acquire")
     if args.drill == "reconcile":
         return reconcile.run()
+    if args.drill == "restart":
+        return restart.run()
     return preflight.run()
 
 
