@@ -35,12 +35,31 @@ def ingest_all(db):
     ingest.ingest(db, lambda *_: None, lambda *_: None)
 
 
+def measured_transport(bodies):
+    calls, transferred = Counter(), Counter()
+
+    def serve(req, **kw):
+        url = req.full_url
+        calls[url] += 1
+
+        class MeteredReplay(Replay):
+            def read(self, size=-1):
+                chunk = super().read(size)
+                transferred[url] += len(chunk)
+                return chunk
+
+        return MeteredReplay(bodies[url])
+
+    return serve, calls, transferred
+
+
 def killed_acquirer(root, case, conn):
     by_url = replay_map()
-    copy_body = shutil.copyfile
+    serve, calls, transferred = measured_transport(by_url)
+    replace = Path.replace
 
     def pause(path):
-        conn.send(str(path))
+        conn.send((str(path), calls, transferred))
         if not conn.poll(35):
             raise TimeoutError("kill barrier expired")
         raise RuntimeError("unexpected release")
@@ -52,15 +71,14 @@ def killed_acquirer(root, case, conn):
             pause(path)
 
     def orphan(source, target):
-        # Inject the exact durable-file state after a raw rename, before the completion manifest.
-        pending = target.with_suffix(".pending")
-        copy_body(source, pending)
-        pending.rename(target)
-        pause(target)
+        result = replace(source, target)
+        if target.suffix == ".geojson":
+            pause(target)
+        return result
 
     injection = (patch.object(acquire, "save_body", partial) if case == "interrupted-fetch"
-                 else patch.object(shutil, "copyfile", orphan))
-    with conn, injection, patch.object(acquire, "urlopen", side_effect=lambda req, **kw: Replay(by_url[req.full_url])):
+                 else patch.object(Path, "replace", orphan))
+    with conn, injection, patch.object(acquire, "urlopen", side_effect=serve):
         acquire.collect(root/"state", root/"exports")
 
 
@@ -72,7 +90,8 @@ def acquisition_restart(root, case):
     child.close()
     try:
         restart.require(parent.poll(25), "worker missed barrier")
-        interrupted = Path(parent.recv())
+        path, initial_calls, initial_bytes = parent.recv()
+        interrupted = Path(path)
         proc.terminate()
         proc.join(10)
         restart.require(proc.exitcode not in (None, 0), "kill unconfirmed")
@@ -89,14 +108,13 @@ def acquisition_restart(root, case):
     residue = interrupted.read_bytes()
     print("residue bytes", len(residue), "sha256", hashlib.sha256(residue).hexdigest())
     restart.require(not list(root.rglob("manifest.json")), "partial acquisition marked complete")
-    calls = Counter()
-
-    def serve(req, **kw):
-        calls[req.full_url] += 1
-        return Replay(by_url[req.full_url])
-
+    serve, calls, transferred = measured_transport(by_url)
+    work, = (root / "state").iterdir()
     with patch.object(acquire, "urlopen", side_effect=serve):
-        acquire.collect(root/"state", root/"exports")
+        acquire.collect(root/"state", root/"exports", resume=work.name)
+    for phase, counts, sizes in [("initial", initial_calls, initial_bytes), ("restart", calls, transferred)]:
+        print(phase, "whole requests", counts[first], "whole bytes", sizes[first],
+              "all requests", sum(counts.values()), "all bytes", sum(sizes.values()))
     manifest, = (root/"exports").glob("*/manifest.json")
     records = acquire.manifest_records(manifest)
     acquire.validate(manifest.parent, records)
@@ -105,7 +123,7 @@ def acquisition_restart(root, case):
     restart.require(records[0]["sha256"] == checksum, "wrong recovered body")
     if case == "orphan-raw":
         restart.require(residue == by_url[first], "orphan corruption")
-        restart.require(calls[first] == 0, "restart fetched the already verified orphan")
+        restart.require(calls[first] == transferred[first] == 0, "restart fetched the already verified orphan")
     else:
         restart.require(residue == by_url[first][:512] and calls[first] == 1, "wrong partial retry")
 

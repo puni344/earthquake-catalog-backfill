@@ -9,12 +9,14 @@ from . import acquire, preflight, reconcile, restart, history_drill, publish_dri
 def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument("--drill", required=True, choices=["preflight", "acquire", "reconcile", "restart", "history", "publish", "load"])
-    parser.add_argument("--offline", type=Path, metavar="MANIFEST")
+    acquisition = parser.add_mutually_exclusive_group()
+    acquisition.add_argument("--resume", metavar="ACQUISITION_ID")
+    acquisition.add_argument("--offline", type=Path, metavar="MANIFEST")
     args = parser.parse_args(argv)
     if args.drill == "acquire":
-        return acquire.run(args.offline)
-    if args.offline is not None:
-        parser.error("--offline requires --drill acquire")
+        return acquire.run(args.offline, args.resume)
+    if args.offline is not None or args.resume is not None:
+        parser.error("--offline and --resume require --drill acquire")
     if args.drill == "reconcile":
         return reconcile.run()
     if args.drill == "restart":

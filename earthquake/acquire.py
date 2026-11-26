@@ -5,6 +5,8 @@ import json
 import math
 import re
 import shutil
+import sqlite3
+from contextlib import closing
 import time
 from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
@@ -153,29 +155,34 @@ def fetch(folder, role, start, end):
         return entry, path
 
 
+def check_response(path, record, role, start, end):
+    if any(record[key] != value for key, value in query(role, start, end).items()):
+        raise ValueError(f"query metadata mismatch: {role} {start.date()}")
+    attempts = record["attempts"]
+    if (not attempts or [a["number"] for a in attempts] != list(range(1, len(attempts)+1))
+            or len(attempts) > 3 or attempts[-1]["http_status"] != record["http_status"]
+            or attempts[-1]["finished_utc"] != record["acquired_utc"]
+            or any(a["url"] != record["url"] for a in attempts)):
+        raise ValueError("invalid request provenance")
+    raw = path.read_bytes()
+    if len(raw) != record["size"] or hashlib.sha256(raw).hexdigest() != record["sha256"]:
+        raise ValueError(f"size or SHA-256 mismatch: {role} {start.date()}")
+    try:
+        count = inspect(raw, record["http_status"], start, end)
+    except (ValueError, KeyError, TypeError) as error:
+        raise ValueError(f"{path.name}: {error}") from error
+    if count != record["features"]:
+        raise ValueError(f"feature count mismatch: {role} {start.date()}")
+    return raw
+
+
 def verified_bodies(folder, records):
     expected = list(windows())
     if len(records) != len(expected):
         raise ValueError(f"expected {len(expected)} responses; got {len(records)}")
     for record, (role, start, end) in zip(records, expected):
-        if any(record[key] != value for key, value in query(role, start, end).items()):
-            raise ValueError(f"query metadata mismatch: {role} {start.date()}")
-        attempts = record["attempts"]
-        if (not attempts or [a["number"] for a in attempts] != list(range(1, len(attempts)+1))
-                or len(attempts) > 3 or attempts[-1]["http_status"] != record["http_status"]
-                or attempts[-1]["finished_utc"] != record["acquired_utc"]
-                or any(a["url"] != record["url"] for a in attempts)):
-            raise ValueError("invalid request provenance")
         path = blob(folder, record["sha256"])
-        raw = path.read_bytes()
-        if len(raw) != record["size"] or hashlib.sha256(raw).hexdigest() != record["sha256"]:
-            raise ValueError(f"size or SHA-256 mismatch: {role} {start.date()}")
-        try:
-            count = inspect(raw, record["http_status"], start, end)
-        except (ValueError, KeyError, TypeError) as error:
-            raise ValueError(f"{path.name}: {error}") from error
-        if count != record["features"]:
-            raise ValueError(f"feature count mismatch: {role} {start.date()}")
+        raw = check_response(path, record, role, start, end)
         yield path, raw
 
 
@@ -194,29 +201,73 @@ def manifest_records(path):
 def seal(folder, records):
     validate(folder, records)
     temp = folder / "manifest.pending"
-    with temp.open("x", encoding="utf-8", newline="\n") as out:
+    with temp.open("w", encoding="utf-8", newline="\n") as out:
         print(json.dumps(dict(schema=1, complete=True, responses=records), indent=2), file=out)
     temp.rename(folder / "manifest.json")
 
 
-def collect(state, exports):
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ-") + uuid4().hex[:12]
+def collect(state, exports, resume=None):
+    run_id = resume or (datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ-") + uuid4().hex[:12])
+    if not re.fullmatch(r"[0-9]{8}T[0-9]{6}Z-[0-9a-f]{12}", run_id):
+        raise ValueError(f"invalid acquisition ID: {run_id!r}")
     work = state / run_id
-    work.mkdir(parents=True, exist_ok=False)
+    if resume is None:
+        work.mkdir(parents=True, exist_ok=False)
+    elif not work.is_dir():
+        raise ValueError(f"unknown acquisition: {run_id}")
     print(f"Staging: {work}", flush=True)
-    completed = [fetch(work, *window) for window in windows()]
     destination = exports / run_id
-    destination.mkdir(parents=True, exist_ok=False)
-    (destination / "blobs").mkdir()
-    for record, path in completed:
-        target = blob(destination, record["sha256"])
-        if not target.exists():
-            shutil.copyfile(path, target)
-    seal(destination, [record for record, _ in completed])
-    print(f"COMPLETE: {destination / 'manifest.json'}")
+    manifest = destination / "manifest.json"
+    # OS releases the SQLite write lock when the collector process exits.
+    with closing(sqlite3.connect(work / "writer.sqlite", timeout=0)) as lock:
+        lock.execute("BEGIN IMMEDIATE")
+        if resume is None:
+            destination.mkdir(parents=True, exist_ok=False)
+        if manifest.exists():
+            records = manifest_records(manifest)
+            validate(destination, records)
+            for record, (role, start, _) in zip(records, windows()):
+                receipt = json.loads((work / f"{role}-{start.date()}.json").read_bytes())
+                if receipt["acquisition"] != run_id or receipt["response"] != record:
+                    raise ValueError(f"completed manifest disagrees with receipt: {role} {start.date()}")
+        else:
+            (destination / "blobs").mkdir(parents=True, exist_ok=True)
+            records = []
+            for role, start, end in windows():
+                receipt = work / f"{role}-{start.date()}.json"
+                if receipt.exists():
+                    saved = json.loads(receipt.read_bytes())
+                    if saved["acquisition"] != run_id:
+                        raise ValueError(f"acquisition mismatch in {receipt.name}")
+                    record = saved["response"]
+                    generation = saved["generation"]
+                    if not re.fullmatch("[0-9a-f]{32}", generation):
+                        raise ValueError(f"invalid staging directory in {receipt.name}")
+                    path = work / generation / f"{role}-{start.date()}-{len(record['attempts'])}.body"
+                    check_response(path, record, role, start, end)
+                else:
+                    # Unreceipted bytes cannot authenticate a request. Preserve them and refetch.
+                    stage = work / uuid4().hex
+                    stage.mkdir()
+                    record, path = fetch(stage, role, start, end)
+                    pending = receipt.with_suffix(".pending")
+                    pending.write_text(json.dumps(dict(acquisition=run_id, generation=stage.name,
+                                                       response=record)), encoding="utf-8")
+                    pending.replace(receipt)
+                target = blob(destination, record["sha256"])
+                if not target.exists():
+                    pending = target.with_suffix(".pending")
+                    shutil.copyfile(path, pending)
+                    check_response(pending, record, role, start, end)
+                    pending.replace(target)
+                else:
+                    check_response(target, record, role, start, end)
+                records.append(record)
+            seal(destination, records)
+    print(f"COMPLETE: {manifest}")
 
 
-def run(offline=None):
+def run(offline=None, resume=None):
     try:
         if offline is not None:
             records = manifest_records(offline)
@@ -227,8 +278,8 @@ def run(offline=None):
             if preflight.run():
                 return 1
             _, state, _, _ = preflight.locations()
-            collect(state.resolve(), FIXTURES)
-    except (OSError, http.client.HTTPException, ValueError, KeyError, TypeError) as error:
+            collect(state.resolve(), FIXTURES, resume)
+    except (sqlite3.Error, OSError, http.client.HTTPException, ValueError, KeyError, TypeError) as error:
         print(f"FAIL acquisition: {error}", flush=True)
         return 1
     return 0
