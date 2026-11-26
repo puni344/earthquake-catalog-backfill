@@ -1,0 +1,301 @@
+M05 offline history drill
+2026-11-26T17:55:22.3589227+05:30
+Machine: local-user | AMD64 | Windows 10.0.26300.0
+Checkout: C:\Users\local-user\workspace\catalog
+$ python -m earthquake.verify --drill history
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 5615.08 MiB; logical processors 12; free disk 231985.08 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+2026-11-26T12:25:22.723Z history database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite fixture=20261126T064859Z-1bf43bf1e07e
+ingest attempt 2026-10-01
+ingest ack 2026-10-01
+ingest attempt 2026-10-02
+ingest ack 2026-10-02
+ingest attempt 2026-10-03
+ingest ack 2026-10-03
+ingest attempt 2026-10-04
+ingest ack 2026-10-04
+ingest attempt 2026-10-05
+ingest ack 2026-10-05
+ingest attempt 2026-10-06
+ingest ack 2026-10-06
+ingest attempt 2026-10-07
+ingest ack 2026-10-07
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+2026-11-26T12:25:23.324Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite list
+exit=0
+2026-11-26T12:25:23.524Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite current
+exit=2
+no current publication
+2026-11-26T12:25:23.981Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite current
+exit=0
+Verified id=ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 coverage=[2026-10-01T00:00:00.000Z,2026-10-04T00:00:00.000Z) rows=1090 returned_rows_sha256=9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3
+2026-11-26T12:25:24.395Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite list
+exit=0
+Listing: [{"count": 1090, "daily_sources": {"2026-10-01": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e", "2026-10-02": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3", "2026-10-03": "825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20"}, "end_exclusive": "2026-10-04T00:00:00.000Z", "fixture": "20261126T064859Z-1bf43bf1e07e", "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451", "manifest_sha256": "44df54d5ec7839b85958bd4e0436186107f515ca8a01a335330b9927f768a0c8", "reference_sha256": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373", "rows_sha256": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3", "schema": 1, "start": "2026-10-01T00:00:00.000Z"}, {"count": 2569, "daily_sources": {"2026-10-01": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e", "2026-10-02": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3", "2026-10-03": "825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20", "2026-10-04": "0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b", "2026-10-05": "8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0", "2026-10-06": "7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8", "2026-10-07": "7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a"}, "end_exclusive": "2026-10-08T00:00:00.000Z", "fixture": "20261126T064859Z-1bf43bf1e07e", "id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15", "manifest_sha256": "44df54d5ec7839b85958bd4e0436186107f515ca8a01a335330b9927f768a0c8", "reference_sha256": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373", "rows_sha256": "e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24", "schema": 1, "start": "2026-10-01T00:00:00.000Z"}]
+2026-11-26T12:25:24.592Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite current
+exit=0
+Verified id=0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15 coverage=[2026-10-01T00:00:00.000Z,2026-10-08T00:00:00.000Z) rows=2569 returned_rows_sha256=e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24
+2026-11-26T12:25:24.782Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite get ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451
+exit=0
+Verified id=ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451 coverage=[2026-10-01T00:00:00.000Z,2026-10-04T00:00:00.000Z) rows=1090 returned_rows_sha256=9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3
+2026-11-26T12:25:24.962Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite get 0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15
+exit=0
+Verified id=0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15 coverage=[2026-10-01T00:00:00.000Z,2026-10-08T00:00:00.000Z) rows=2569 returned_rows_sha256=e031b1169689eafa7cf58a61df6eb8217d096d46d879089b7fd4d05e8e618a24
+2026-11-26T12:25:25.144Z $ C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe -m earthquake.history --db C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\history\513309669f844d108ecdce7188629531\catalog.sqlite get unknown-m05
+exit=2
+unknown publication: unknown-m05
+PASS: shorter publication preserved; current and newer named read agree
+exit=0
+
+2026-11-26T17:55:50.5523098+05:30
+Regression tests in disposable databases
+$ python -m unittest -v earthquake.test_history earthquake.test_restart earthquake.test_reconcile earthquake.test_acquire earthquake.test_preflight
+test_damaged_staging_cannot_change_published_values (earthquake.test_history.HistoryTests) ... ok
+test_empty_history (earthquake.test_history.HistoryTests) ... ok
+test_incomplete_window_blocks_pointer_change (earthquake.test_history.HistoryTests) ... ok
+test_older_lookup_after_new_publication (earthquake.test_history.HistoryTests) ... ok
+test_unknown_id (earthquake.test_history.HistoryTests) ... ok
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 5787.98 MiB; logical processors 12; free disk 231971.00 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Fresh database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\tmp9wucyxrh\case.sqlite fixture=20261126T064859Z-1bf43bf1e07e boundary=after
+pid=22120 boundary=after target=2026-10-04 method=TerminateProcess exit=-15 events=[["attempt", "2026-10-01"], ["ack", "2026-10-01"], ["attempt", "2026-10-02"], ["ack", "2026-10-02"], ["attempt", "2026-10-03"], ["ack", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-after", "2026-10-04"]]
+Pre-resume checkpoints=['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04'] rows={'2026-10-01': 407, '2026-10-02': 352, '2026-10-03': 331, '2026-10-04': 383} target_checkpoint=True target_rows=383
+pid=1996 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+Resume attempted=['2026-10-05', '2026-10-06', '2026-10-07'] replayed=[] skipped=['2026-10-01', '2026-10-02', '2026-10-03', '2026-10-04']
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+pid=12568 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["skip", "2026-10-05"], ["skip", "2026-10-06"], ["skip", "2026-10-07"], ["done", ""]]
+test_after_commit_before_ack (earthquake.test_restart.RecoveryTests) ... ok
+Completed rerun: all seven skipped; exact ordered checkpoint and observation tuples unchanged
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 5800.51 MiB; logical processors 12; free disk 231970.75 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Fresh database=C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\tmpx4jtzqn0\case.sqlite fixture=20261126T064859Z-1bf43bf1e07e boundary=before
+pid=18008 boundary=before target=2026-10-04 method=TerminateProcess exit=-15 events=[["attempt", "2026-10-01"], ["ack", "2026-10-01"], ["attempt", "2026-10-02"], ["ack", "2026-10-02"], ["attempt", "2026-10-03"], ["ack", "2026-10-03"], ["attempt", "2026-10-04"], ["paused-before", "2026-10-04"]]
+Pre-resume checkpoints=['2026-10-01', '2026-10-02', '2026-10-03'] rows={'2026-10-01': 407, '2026-10-02': 352, '2026-10-03': 331} target_checkpoint=False target_rows=0
+pid=21016 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["attempt", "2026-10-04"], ["ack", "2026-10-04"], ["attempt", "2026-10-05"], ["ack", "2026-10-05"], ["attempt", "2026-10-06"], ["ack", "2026-10-06"], ["attempt", "2026-10-07"], ["ack", "2026-10-07"], ["done", ""]]
+Resume attempted=['2026-10-04', '2026-10-05', '2026-10-06', '2026-10-07'] replayed=['2026-10-04'] skipped=['2026-10-01', '2026-10-02', '2026-10-03']
+Reference vs recovered SQLite rows (daily): {"agreement": true, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+Missing IDs=0; extra IDs=0; field mismatches=0
+pid=3520 boundary=None target=2026-10-04 method=normal exit exit=0 events=[["skip", "2026-10-01"], ["skip", "2026-10-02"], ["skip", "2026-10-03"], ["skip", "2026-10-04"], ["skip", "2026-10-05"], ["skip", "2026-10-06"], ["skip", "2026-10-07"], ["done", ""]]
+test_before_commit (earthquake.test_restart.RecoveryTests) ... ok
+test_foreign_checkpoints_cannot_skip_window (earthquake.test_restart.RecoveryTests) ... ok
+test_changed_magnitude (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_cross_file_duplicate (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_equal_count_replacement (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_extra_id (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_invalid_manifest_fails_closed (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_omission (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_damaged_body_blocks_seal (earthquake.test_acquire.AcquisitionFaults) ... ok
+Completed rerun: all seven skipped; exact ordered checkpoint and observation tuples unchanged
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 5783.38 MiB; logical processors 12; free disk 231970.37 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+test_changed_magnitude {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [{"daily": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 3, "row": 1, "source_updated": 1791912940905}], "field": "magnitude", "id": "aka2026tkfzmc", "reference": [{"event_time": 1790812821945, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}]}], "missing": {}}
+test_cross_file_duplicate {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2570, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tmcdbt": [{"event_time": 1790899429208, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": "1.5", "row": 408, "source_updated": 1792448153355}, {"event_time": 1790899429208, "file": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson", "magnitude": "1.5", "row": 1, "source_updated": 1792448153355}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+test_equal_count_replacement {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2569, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tkfzmc": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}, {"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 407, "source_updated": 1791912940905}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": false,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 1,
+      "excess": 1,
+      "raw": 2569,
+      "unique": 2568
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {
+      "aka2026tkfzmc": [
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 1,
+          "source_updated": 1791912940905
+        },
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 407,
+          "source_updated": 1791912940905
+        }
+      ]
+    },
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {
+    "uw714114281": [
+      {
+        "event_time": 1790898462960,
+        "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson",
+        "magnitude": "1.03",
+        "row": 407,
+        "source_updated": 1790913790190
+      }
+    ]
+  }
+}
+Missing IDs=1; extra IDs=0; field mismatches=0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_extra_id {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2570, "unique": 2570}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {"aka2026tkfzmc-controlled-extra": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 408, "source_updated": 1791912940905}]}, "mismatches": [], "missing": {}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+Fixture error: expected 8 responses; got 0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+test_omission {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2568, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Staging: C:\Users\local-user\AppData\Local\Temp\tmpy9bh3oi_\state\20261126T122556Z-86249c0ccffc
+attempt 1: injected disconnect
+attempt 2: injected disconnect
+attempt 3: injected disconnect
+test_interrupted_read_never_exports (earthquake.test_acquire.AcquisitionFaults) ... ok
+test_available_ram (earthquake.test_preflight.PreflightFailures) ... ok
+test_disk_budget (earthquake.test_preflight.PreflightFailures) ... ok
+test_python_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+test_ram_fraction (earthquake.test_preflight.PreflightFailures) ... ok
+test_repository_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_resolved_onedrive_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_sqlite_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 5.924s
+
+OK
+controlled exit=1 | FAIL: available RAM 671.00 MiB; design requires 672 MiB
+controlled exit=1 | FAIL: free disk 895.00 MiB on C:\Users\local-user\AppData\Local\Temp\tmp9hofe8vc\local\D2\state; design requires 896 MiB
+controlled exit=1 | FAIL: Python 3.11.0; ADR-0003 requires 3.10.11
+controlled exit=1 | FAIL: visible RAM 800.00 MiB; 672 MiB exceeds the 75% ceiling
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpd_phqtgt\repo\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpd_phqtgt\repo
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Temp\tmpyxsyic3y\OneDrive\state lies inside disallowed root C:\Users\local-user\AppData\Local\Temp\tmpyxsyic3y\OneDrive
+controlled exit=1 | FAIL: SQLite 3.40.0; ADR-0003 requires 3.40.1
+exit=0
+
+2026-11-26T17:57:02.2702375+05:30
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 35 docs checked; both indexes current; 3 ADRs valid
+exit=0
+
+2026-11-26T17:57:04.4814397+05:30
+$ make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-hafdugvh'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:25: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-hafdugvh'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-hafdugvh'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-hafdugvh'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-hafdugvh'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-hafdugvh'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0

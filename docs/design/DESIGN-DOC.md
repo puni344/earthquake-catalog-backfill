@@ -50,6 +50,14 @@ The estimated total is below 75% of measured RAM and below observed free RAM. Ke
 
 The Windows default for mutable state is `%LOCALAPPDATA%/D2EarthquakeCatalog/state`. The preflight resolves the path and checks it against the resolved checkout, OneDrive environment roots and current-user OneDrive account registry folders. It identifies the containing volume as fixed and verifies SQLite create, commit, close, read-only reopen and read inside a unique disposable directory. This establishes path exclusion for the roots visible to this account at check time. Other sync software, undiscovered sync roots and future configuration changes are outside the check.
 
+### M05 publication identity and reader encoding
+
+A publication covers whole UTC days with an inclusive start and exclusive end. The two M05 scopes end at midnight on 4 and 8 October. Before advancing the pointer, the writer verifies the frozen response bodies, requires every scoped daily checkpoint, checks the staged rows against each daily body and reconciles them against the independently filtered whole-week reference. A single SQLite transaction copies the verified member values into publication-specific rows and advances the singleton current pointer. Repeating an identical publish reuses the ID. Reads resolve the pointer or explicit ID and fetch members within one read transaction.
+
+For the row digest, order the array by case-sensitive event ID (SQLite BINARY). Each object contains event_id, event_time, source_updated and magnitude. Times are integer epoch milliseconds. Magnitudes are null or plain decimal strings with insignificant fractional zeros removed and zero encoded as "0". Encode the array as UTF-8 JSON with sorted object keys, compact separators, literal non-ASCII characters and no trailing newline. Hash those bytes with SHA-256.
+
+The publication ID is the full lowercase SHA-256 of the metadata object under the same encoding. Its keys are schema (1), fixture, manifest_sha256, start, end_exclusive, reference_sha256, daily_sources (UTC date to body SHA-256), count and rows_sha256. The ID itself is added only to returned metadata. The expanded window changes coverage; these two extracts make no claim of a source magnitude revision. [Reader evidence](../evidence/M05-history.txt)
+
 ## Benchmarks and evidence contract
 
 All planned commands below are proposed interfaces, UNVERIFIED / NOT RUN. For baseline and resumed runs use identical frozen bytes and record manifest hash, OS, runtime, free RAM, window count and event count. Use monotonic clocks and record each run separately.

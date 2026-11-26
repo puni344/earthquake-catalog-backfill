@@ -18,4 +18,6 @@ M01 passed local review.
 
 [MEASURED – M04, 26 November 2026, Windows laptop] Frozen restart correctness **PASS**. On 4 October, the before-commit worker kill left zero target rows and no checkpoint. The after-commit kill left 383 target rows and its checkpoint. Independent reference comparison found 2,569 unique IDs and no differences in either recovered extract. Both completed reruns skipped all seven windows and preserved every row and checkpoint. [Crash transcript](evidence/M04-restart.txt) · [Combined verdicts](evidence/quake-reconcile.txt)
 
-Publication, concurrent readers, history queries, later drills and hosted CI are **NOT RUN**. Next decision is M04 review.
+[MEASURED – M05, 26 November 2026, Windows laptop] History drill **PASS**. Both publications were complete for their declared UTC scopes. Independent reference checks passed for current and explicit IDs. After the 2,569-row publication became current, the older ID still returned its original 1,090 rows and digest. Empty history, unknown ID, incomplete candidate and altered staging checks passed. [Publication IDs and history evidence](evidence/M05-history.txt)
+
+Publisher crash and concurrent reads (M06), later drills and hosted CI are **NOT RUN**. Next decision is M05 review.

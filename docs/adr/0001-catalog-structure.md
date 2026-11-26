@@ -48,4 +48,4 @@ In one offline invocation of `python -m earthquake.verify`, interrupt a backfill
 
 ## Outcome
 
-MVP validation NOT RUN. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.
+[MEASURED – M05, 26 November 2026] Both scoped extracts were retrieved by ID after the current pointer advanced. [History drill](../evidence/M05-history.txt). Integrated one-run MVP validation **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.

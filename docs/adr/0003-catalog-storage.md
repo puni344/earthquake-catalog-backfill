@@ -52,4 +52,6 @@ Run `python -m earthquake.verify --drill publish` with concurrent readers. For e
 
 [MEASURED – M04, 26 November 2026] Each window transaction binds its checkpoint to the canonical fixture manifest digest, UTC window start date and source body SHA-256. The pre-commit kill rolled back both rows and checkpoint. The post-commit kill preserved both before acknowledgment. Verification covers forced ingestion-worker termination on this Windows laptop. Power-loss and disk-failure durability are unverified. [Crash transcript](../evidence/M04-restart.txt)
 
+[MEASURED – M05, 26 November 2026] Fresh reader processes retrieved the 1,090-row earlier and 2,569-row current publications. A missing daily checkpoint and altered staging values each blocked publication while the earlier extract remained current. [History and failure tests](../evidence/M05-history.txt)
+
 Publisher crash and concurrent-reader validation **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.
