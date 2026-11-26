@@ -1,0 +1,136 @@
+2026-11-26T12:18:59.1301862+05:30
+Machine: local-user | AMD64 | Windows 10.0.26300.0
+$ python -u -m earthquake.verify --drill acquire
+Executable: C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe
+Python: 3.10.11
+SQLite: 3.40.1
+LOCALAPPDATA: C:\Users\local-user\AppData\Local
+Resolved state: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state
+Repository: C:\Users\local-user\workspace\catalog
+Configured OneDrive roots: C:\Users\local-user\OneDrive
+State volume: C:\ (fixed)
+Measured: visible RAM 16055.36 MiB; available RAM 3499.32 MiB; logical processors 12; free disk 231664.99 MiB
+Design estimates | RAM MiB | CPU cores | disk MiB
+Downloader and raw staging | 128 | 1 | 256
+SQLite writer and indexed generations | 256 | 1 | 384
+Reference checker and concurrent readers | 256 | 2 | 128
+Logs and evidence | 32 | 0.1 | 128
+Total estimate | 672 | 4.1 | 896
+75% of visible RAM: 12041.52 MiB
+SQLite PASS: created, committed, closed, reopened read-only, read D2; probe removed
+PASS: preflight
+Staging: C:\Users\local-user\AppData\Local\D2EarthquakeCatalog\state\20261126T064859Z-1bf43bf1e07e
+whole 2026-10-01 | HTTP 200 | 2569 features | 1839817 bytes | ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373 | attempts=1
+daily 2026-10-01 | HTTP 200 | 407 features | 292351 bytes | 1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e | attempts=1
+daily 2026-10-02 | HTTP 200 | 352 features | 252531 bytes | bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3 | attempts=1
+daily 2026-10-03 | HTTP 200 | 331 features | 237365 bytes | 825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20 | attempts=1
+daily 2026-10-04 | HTTP 200 | 383 features | 274029 bytes | 0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b | attempts=1
+daily 2026-10-05 | HTTP 200 | 315 features | 226272 bytes | 8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0 | attempts=1
+daily 2026-10-06 | HTTP 200 | 359 features | 257299 bytes | 7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8 | attempts=1
+daily 2026-10-07 | HTTP 200 | 422 features | 302302 bytes | 7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a | attempts=1
+COMPLETE: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+exit=0
+
+2026-11-26T12:20:11.5728826+05:30
+Offline verification in network-restricted shell
+$ python -m earthquake.verify --drill acquire --offline earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json
+OFFLINE PASS: 8 bodies; lengths, SHA-256, queries, shape and counts verified from disk: earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+exit=0
+
+2026-11-26T12:20:11.9858662+05:30
+Controlled faults on disposable real bytes
+$ python -m unittest -v earthquake.test_acquire earthquake.test_preflight
+test_damaged_body_blocks_seal (earthquake.test_acquire.AcquisitionFaults) ... ok
+Staging: C:\Users\local-user\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{9cb20159-dfe2-438a-b122-699d0b5a0351}\Temp\tmpewo0og25\state\20261126T065012Z-9806e4a6d6d5
+attempt 1: injected disconnect
+attempt 2: injected disconnect
+attempt 3: injected disconnect
+test_interrupted_read_never_exports (earthquake.test_acquire.AcquisitionFaults) ... ok
+test_available_ram (earthquake.test_preflight.PreflightFailures) ... ok
+test_disk_budget (earthquake.test_preflight.PreflightFailures) ... ok
+test_python_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+test_ram_fraction (earthquake.test_preflight.PreflightFailures) ... ok
+test_repository_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_resolved_onedrive_path (earthquake.test_preflight.PreflightFailures) ... ok
+test_sqlite_mismatch (earthquake.test_preflight.PreflightFailures) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.188s
+
+OK
+controlled exit=1 | FAIL: available RAM 671.00 MiB; design requires 672 MiB
+controlled exit=1 | FAIL: free disk 895.00 MiB on C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{9cb20159-dfe2-438a-b122-699d0b5a0351}\Temp\tmpacs66h03\local\D2\state; design requires 896 MiB
+controlled exit=1 | FAIL: Python 3.11.0; ADR-0003 requires 3.10.11
+controlled exit=1 | FAIL: visible RAM 800.00 MiB; 672 MiB exceeds the 75% ceiling
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{9cb20159-dfe2-438a-b122-699d0b5a0351}\Temp\tmpdg48fmd6\repo\state lies inside disallowed root C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{9cb20159-dfe2-438a-b122-699d0b5a0351}\Temp\tmpdg48fmd6\repo
+controlled exit=1 | FAIL: state C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{9cb20159-dfe2-438a-b122-699d0b5a0351}\Temp\tmpn74s3gkn\OneDrive\state lies inside disallowed root C:\Users\local-user\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\AC\#!sandbox.{9cb20159-dfe2-438a-b122-699d0b5a0351}\Temp\tmpn74s3gkn\OneDrive
+controlled exit=1 | FAIL: SQLite 3.40.0; ADR-0003 requires 3.40.1
+exit=0
+
+2026-11-26T12:21:11.7863036+05:30
+$ Get-Content -Raw earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json | ConvertFrom-Json  # group responses by role and sum features and size
+daily: requests=7 features=2569 bytes=1842149
+whole: requests=1 features=2569 bytes=1839817
+
+2026-11-26T12:21:11.8916168+05:30
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 35 docs checked; both indexes current; 3 ADRs valid
+exit=0
+
+2026-11-26T12:21:12.3427768+05:30
+$ make docs-test
+python earthquake/scripts/test_docs.py
+Traceback (most recent call last):
+  File "C:\Users\local-user\workspace\catalog\earthquake\scripts\test_docs.py", line 53, in <module>
+    main()
+  File "C:\Users\local-user\workspace\catalog\earthquake\scripts\test_docs.py", line 19, in main
+    shutil.copy2(source, target)
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\shutil.py", line 434, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "C:\Users\local-user\AppData\Local\Programs\Python\Python310\lib\shutil.py", line 256, in copyfile
+    with open(dst, 'wb') as fdst:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\local-user\\AppData\\Local\\Packages\\openai.codex_2p2nqsd0c76g0\\AC\\#!sandbox.{1b754236-1494-43dc-ad06-e2f36df3c77f}\\Temp\\tmpmio4xfo1\\earthquake\\fixtures\\20261126T064859Z-1bf43bf1e07e\\blobs\\0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson'
+make: *** [Makefile:7: docs-test] Error 1
+exit=2
+
+Retest after shortening the disposable docs-test path on Windows.
+
+2026-11-26T12:21:44.2684991+05:30
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 35 docs checked; both indexes current; 3 ADRs valid
+exit=0
+
+2026-11-26T12:21:44.5878214+05:30
+$ make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-mqu1itrm'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:19: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-mqu1itrm'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-mqu1itrm'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-mqu1itrm'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-mqu1itrm'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-mqu1itrm'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0

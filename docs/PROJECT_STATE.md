@@ -10,4 +10,8 @@ M00 establishes the documentation skeleton and CI definition. [MEASURED – 26 N
 
 [MEASURED – Windows laptop, 26 November 2026] M01 preflight passed. The native interpreter matched both pins, the resolved state directory passed the configured-root and SQLite checks, and the measured RAM and disk met the design estimates. Seven controlled failures returned nonzero. GNU Make was absent from the fresh shell's PATH. The M00 portable executable was used for the documentation checks. [Raw M01 transcript](evidence/M01-preflight.txt) · [Resource budget](design/DESIGN-DOC.md)
 
-M02 through M09, including D2 catalog acquisition, are **NOT RUN**. Next decision is M01 review.
+M01 passed local review.
+
+[MEASURED – 26 November 2026, Windows laptop] M02 acquired the predeclared interval in eight independent HTTP requests with zero retries. The whole-week body contained 2,569 features in 1,839,817 bytes. The seven daily bodies contained 2,569 features in 1,842,149 bytes in total. All eight passed offline integrity verification. Disposable interruption and byte-corruption tests blocked completion. [Manifest](../earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json) · [M02 transcript](evidence/M02-acquire.txt)
+
+M03 through M09 and hosted CI are **NOT RUN**. The fixture is ready for review. Agreement of event IDs and fields remains untested.

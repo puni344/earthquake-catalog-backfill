@@ -1,6 +1,6 @@
 # Earthquake catalog failure register
 
-Proposed acceptance contract. Each drill uses frozen real responses. Faults are introduced only in a disposable copy. All drills below are NOT RUN. Evidence filenames are relative to docs/evidence/. The proposed runner is `python -m earthquake.verify --drill NAME` from the workspace root.
+Proposed acceptance contract. Each drill uses frozen real responses. Faults are introduced only in a disposable copy. The full recovery drills below are NOT RUN. [M02 acquisition faults](evidence/M02-acquire.txt) exercised the acceptance gate: an injected disconnect after 512 real bytes on each bounded attempt retained partial staging files without a completed manifest. A same-length byte change in a disposable fixture blocked completion on SHA-256 verification. Window resumption is still untested. Evidence filenames are relative to docs/evidence/. The proposed runner is `python -m earthquake.verify --drill NAME` from the workspace root.
 
 | NAME | Injection | Required behaviour | Proof / planned evidence |
 |---|---|---|---|

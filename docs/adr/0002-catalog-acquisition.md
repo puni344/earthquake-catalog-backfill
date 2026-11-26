@@ -51,4 +51,6 @@ Run `python -m earthquake.verify --drill reconcile` and record two named verdict
 
 ## Outcome
 
-MVP validation NOT RUN. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.
+[MEASURED – M02, 26 November 2026] The whole-window and daily response bodies were independently acquired and frozen. Their sizes, hashes and recorded counts passed offline verification. [Acquisition evidence](../evidence/M02-acquire.txt)
+
+Live acquisition agreement and frozen restart correctness remain **NOT RUN**. The [intake evidence](../evidence/quake-machine.txt) and [source spike](../evidence/quake-detail.txt) establish prerequisites only.

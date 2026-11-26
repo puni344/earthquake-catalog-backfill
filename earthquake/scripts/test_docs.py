@@ -7,7 +7,9 @@ from pathlib import Path
 
 def main():
     root = Path(__file__).resolve().parents[2]
-    with tempfile.TemporaryDirectory() as directory:
+    # Keep content-addressed fixture paths below the Windows legacy path limit
+    # in the sandbox, whose default temporary-directory prefix is already long.
+    with tempfile.TemporaryDirectory(dir=root, prefix="docs-test-") as directory:
         copy = Path(directory)
         # Preserve relative link targets, including files from the companion project.
         tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=root)
