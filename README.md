@@ -13,3 +13,5 @@ python -m earthquake.verify --drill acquire --offline earthquake/fixtures/202611
 ```
 
 [Fixture manifest](earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json) · [Acquisition evidence](docs/evidence/M02-acquire.txt)
+
+Run `python -m earthquake.verify --drill reconcile` to compare the accepted weekly and daily captures offline. It reports raw multiplicities, missing and extra IDs, and differences in event time, source update time and magnitude. [M03 results](docs/evidence/M03-reconcile.txt)

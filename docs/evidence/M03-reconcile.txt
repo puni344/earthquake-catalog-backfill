@@ -1,0 +1,184 @@
+M03 offline reconciliation
+2026-11-26T12:28:30.0599510+05:30
+Machine: local-user | AMD64 | Windows 10.0.26300.0
+Checkout: C:\Users\local-user\workspace\catalog
+$ python -c "import platform, sqlite3, sys; print(sys.executable, platform.python_version(), sqlite3.sqlite_version)"
+C:\Users\local-user\AppData\Local\Programs\Python\Python310\python.exe 3.10.11 3.40.1
+exit=0
+
+2026-11-26T12:28:30.2858018+05:30
+$ python -m unittest -v earthquake.test_reconcile earthquake.test_acquire
+test_changed_magnitude (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_cross_file_duplicate (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_equal_count_replacement (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_extra_id (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_invalid_manifest_fails_closed (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_omission (earthquake.test_reconcile.ReconcileFaults) ... ok
+test_damaged_body_blocks_seal (earthquake.test_acquire.AcquisitionFaults) ... ok
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+test_changed_magnitude {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [{"daily": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 3, "row": 1, "source_updated": 1791912940905}], "field": "magnitude", "id": "aka2026tkfzmc", "reference": [{"event_time": 1790812821945, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}]}], "missing": {}}
+test_cross_file_duplicate {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2570, "unique": 2569}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tmcdbt": [{"event_time": 1790899429208, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": "1.5", "row": 408, "source_updated": 1792448153355}, {"event_time": 1790899429208, "file": "bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson", "magnitude": "1.5", "row": 1, "source_updated": 1792448153355}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {}}
+test_equal_count_replacement {"agreement": false, "counts": {"daily": {"duplicate_ids": 1, "excess": 1, "raw": 2569, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {"aka2026tkfzmc": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 1, "source_updated": 1791912940905}, {"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 407, "source_updated": 1791912940905}]}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": false,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 1,
+      "excess": 1,
+      "raw": 2569,
+      "unique": 2568
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {
+      "aka2026tkfzmc": [
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 1,
+          "source_updated": 1791912940905
+        },
+        {
+          "event_time": 1790812821945,
+          "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson",
+          "magnitude": 2,
+          "row": 407,
+          "source_updated": 1791912940905
+        }
+      ]
+    },
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {
+    "uw714114281": [
+      {
+        "event_time": 1790898462960,
+        "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson",
+        "magnitude": "1.03",
+        "row": 407,
+        "source_updated": 1790913790190
+      }
+    ]
+  }
+}
+Missing IDs=1; extra IDs=0; field mismatches=0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: NOT RUN (M04)
+test_extra_id {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2570, "unique": 2570}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {"aka2026tkfzmc-controlled-extra": [{"event_time": 1790812821945, "file": "1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson", "magnitude": 2, "row": 408, "source_updated": 1791912940905}]}, "mismatches": [], "missing": {}}
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+Fixture error: expected 8 responses; got 0
+Live acquisition agreement: FAIL
+Extract ineligible for publication
+Frozen restart correctness: NOT RUN (M04)
+test_omission {"agreement": false, "counts": {"daily": {"duplicate_ids": 0, "excess": 0, "raw": 2568, "unique": 2568}, "reference": {"duplicate_ids": 0, "excess": 0, "raw": 2569, "unique": 2569}}, "duplicates": {"daily": {}, "reference": {}}, "extra": {}, "mismatches": [], "missing": {"uw714114281": [{"event_time": 1790898462960, "file": "ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson", "magnitude": "1.03", "row": 407, "source_updated": 1790913790190}]}}
+Staging: C:\Users\local-user\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{0d71a153-654e-49ae-990c-4770b3b52e8f}\Temp\tmpjv9nrgxa\state\20261126T065831Z-6c86486fa78a
+attempt 1: injected disconnect
+attempt 2: injected disconnect
+attempt 3: injected disconnect
+test_interrupted_read_never_exports (earthquake.test_acquire.AcquisitionFaults) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.941s
+
+OK
+exit=0
+
+2026-11-26T12:28:31.7987308+05:30
+Real fixture, offline
+$ python -m earthquake.verify --drill reconcile
+Fixture: C:\Users\local-user\workspace\catalog\earthquake\fixtures\20261126T064859Z-1bf43bf1e07e\manifest.json
+whole 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:01.615Z file=ad5d99087b2b56127d623062c9b723614ea38751a5766b92ad65b4191fc65373.geojson
+daily 2026-10-01T00:00:00.000Z captured=2026-11-26T06:49:02.781Z file=1ff6dab11b61a3a97e9b823e59cbc8237fb28099977909080a5a0a1a22adc08e.geojson
+daily 2026-10-02T00:00:00.000Z captured=2026-11-26T06:49:03.901Z file=bf620cee745b480033f1abc07e7bef5741579f0c69d23d4ebd7dd3fb5dff58c3.geojson
+daily 2026-10-03T00:00:00.000Z captured=2026-11-26T06:49:04.979Z file=825da7b52185a623648c7b519f26a3402a22ac4ce600617fd61b19f6241baf20.geojson
+daily 2026-10-04T00:00:00.000Z captured=2026-11-26T06:49:06.376Z file=0338d77fb69347abcfde708a19e844cacc285d5737539402610f90fb9729c33b.geojson
+daily 2026-10-05T00:00:00.000Z captured=2026-11-26T06:49:07.451Z file=8044295f15b0de96203b9e9439a13d9dd2547103a33f4f9c1c410d12093676b0.geojson
+daily 2026-10-06T00:00:00.000Z captured=2026-11-26T06:49:08.857Z file=7add7528afe3f866c471ac9484d6f073b174312b47640a0468f1cc23f151d7a8.geojson
+daily 2026-10-07T00:00:00.000Z captured=2026-11-26T06:49:10.279Z file=7fb5ab9f7ae51e5aa3a595c76482c8c3583da93663fe783fb29c78e3474a389a.geojson
+M02 integrity PASS: 8 verified bodies
+{
+  "agreement": true,
+  "counts": {
+    "daily": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    },
+    "reference": {
+      "duplicate_ids": 0,
+      "excess": 0,
+      "raw": 2569,
+      "unique": 2569
+    }
+  },
+  "duplicates": {
+    "daily": {},
+    "reference": {}
+  },
+  "extra": {},
+  "mismatches": [],
+  "missing": {}
+}
+Missing IDs=0; extra IDs=0; field mismatches=0
+Live acquisition agreement: PASS
+Frozen restart correctness: NOT RUN (M04)
+exit=0
+
+2026-11-26T12:29:30.5525627+05:30
+$ make docs-check
+python earthquake/scripts/check_docs.py
+PASS: README and 35 docs checked; both indexes current; 3 ADRs valid
+exit=0
+
+2026-11-26T12:29:31.6681673+05:30
+$ make docs-test
+python earthquake/scripts/test_docs.py
+
+Disposable copy: docs/PROJECT_STATE.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-9ha81cw3'
+python earthquake/scripts/check_docs.py
+docs/PROJECT_STATE.md:21: broken local link: missing-m00.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-9ha81cw3'
+exit=2
+
+Disposable copy: docs/adr/0001-catalog-structure.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-9ha81cw3'
+python earthquake/scripts/check_docs.py
+docs/adr/0001-catalog-structure.md: missing heading: Validation plan
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-9ha81cw3'
+exit=2
+
+Disposable copy: docs/adr/README.md
+$ make docs-check
+make[1]: Entering directory 'C:/Users/local-user/workspace/catalog/docs-test-9ha81cw3'
+python earthquake/scripts/check_docs.py
+docs/adr/README.md: missing index entry: 0001-catalog-structure.md
+make[1]: *** [Makefile:4: docs-check] Error 1
+make[1]: Leaving directory 'C:/Users/local-user/workspace/catalog/docs-test-9ha81cw3'
+exit=2
+PASS: all three defects rejected for their expected reason
+exit=0

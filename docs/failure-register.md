@@ -2,6 +2,8 @@
 
 Proposed acceptance contract. Each drill uses frozen real responses. Faults are introduced only in a disposable copy. The full recovery drills below are NOT RUN. [M02 acquisition faults](evidence/M02-acquire.txt) exercised the acceptance gate: an injected disconnect after 512 real bytes on each bounded attempt retained partial staging files without a completed manifest. A same-length byte change in a disposable fixture blocked completion on SHA-256 verification. Window resumption is still untested. Evidence filenames are relative to docs/evidence/. The proposed runner is `python -m earthquake.verify --drill NAME` from the workspace root.
 
+[MEASURED – M03, offline, 26 November 2026] Disposable copies of verified observations exercised the missing and duplicate detection gates, an extra ID and a magnitude change under the same ID. The equal-count replacement yielded 2,569 daily rows, 2,568 unique IDs, one missing ID and one excess duplicate row. Failed reconciliation marks the extract ineligible. Publication behaviour awaits the publisher implementation. [Fault diagnostics](evidence/M03-reconcile.txt)
+
 | NAME | Injection | Required behaviour | Proof / planned evidence |
 |---|---|---|---|
 | interrupted-fetch | Terminate during response write | Discard partial body and retry that window | Hash of resumed body equals frozen reference, quake-interrupted-fetch.txt |

@@ -14,4 +14,6 @@ M01 passed local review.
 
 [MEASURED – 26 November 2026, Windows laptop] M02 acquired the predeclared interval in eight independent HTTP requests with zero retries. The whole-week body contained 2,569 features in 1,839,817 bytes. The seven daily bodies contained 2,569 features in 1,842,149 bytes in total. All eight passed offline integrity verification. Disposable interruption and byte-corruption tests blocked completion. [Manifest](../earthquake/fixtures/20261126T064859Z-1bf43bf1e07e/manifest.json) · [M02 transcript](evidence/M02-acquire.txt)
 
-M03 through M09 and hosted CI are **NOT RUN**. The fixture is ready for review. Agreement of event IDs and fields remains untested.
+[MEASURED – 26 November 2026, M03 offline drill] Live acquisition agreement **PASS** for the accepted M02 capture. Each side contained 2,569 raw rows and 2,569 unique IDs. Both had zero duplicate IDs and zero excess rows. No missing IDs, extra IDs or projected field mismatches were found. The equal-count fault preserved 2,569 daily rows and produced one missing ID and one duplicate ID. [Reconciliation transcript](evidence/M03-reconcile.txt)
+
+Frozen restart correctness is **NOT RUN** (M04). Publication, later milestones and hosted CI are **NOT RUN**. Next decision is M03 review.
