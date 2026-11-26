@@ -1,10 +1,16 @@
+ifeq ($(OS),Windows_NT)
+PYTHON ?= python
+else
+PYTHON ?= python3
+endif
+
 .PHONY: docs-check docs-test verify
 
 docs-check:
-	python earthquake/scripts/check_docs.py
+	$(PYTHON) earthquake/scripts/check_docs.py
 
 docs-test:
-	python earthquake/scripts/test_docs.py
+	$(PYTHON) earthquake/scripts/test_docs.py
 
 verify:
-	python -m earthquake.verify
+	$(PYTHON) -m earthquake.verify

@@ -1,5 +1,7 @@
 # Defending the D2 earthquake catalog
 
+**Interview introduction.** I built a restartable catalog backfill with versioned releases. My test dataset is one week of 2,569 real events. The two release IDs cover different UTC intervals. Following the revision history of a single earthquake would require earlier and later observations of that same event.
+
 ## Four-minute recording script
 
 | Time | Command or screen | Narration |

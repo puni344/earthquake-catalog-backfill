@@ -2,6 +2,9 @@
 
 ## D2 earthquake catalog
 
+- [Reproduce the crash demo](reproduce.md)
+- [Measured results and limits](results.md)
+
 - [Earthquake project state](PROJECT_STATE.md)
 - [Turn 3 · Restartable USGS earthquake catalog](design/DESIGN-DOC.md)
 - [Earthquake catalog architecture decisions](adr/README.md)

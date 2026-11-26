@@ -3,6 +3,9 @@ from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import json
+import platform
+import sqlite3
+import sys
 import tempfile
 import threading
 import time
@@ -133,7 +136,10 @@ def run():
     start = time.perf_counter()
     verdicts = {"Live acquisition agreement": "NOT RUN", "Frozen restart correctness": "NOT RUN"}
     try:
-        with tempfile.TemporaryDirectory(prefix="demo-", dir=restart.state_directory()) as directory:
+        print(f"Runtime: {platform.system()} {platform.machine()} | Python {platform.python_version()} | SQLite {sqlite3.sqlite_version}")
+        # Preserve the audited Windows volume checks. POSIX uses its private temp directory.
+        parent = restart.state_directory() if sys.platform == "win32" else None
+        with tempfile.TemporaryDirectory(prefix="demo-", dir=parent) as directory:
             demonstrate(Path(directory) / "catalog.sqlite", verdicts)
     except Exception as error:
         print(f"M08 failure: {error}")

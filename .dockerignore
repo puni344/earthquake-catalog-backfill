@@ -1,0 +1,5 @@
+**
+!earthquake/
+!earthquake/**
+**/__pycache__/
+**/*.pyc
