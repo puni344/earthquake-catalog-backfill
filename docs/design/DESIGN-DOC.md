@@ -24,6 +24,12 @@ An analyst needs a complete catalog for a fixed period. An operator needs to res
 
 ## Scope, constraints and resource budget
 
+### M03 comparison contract (specified before the drill)
+
+Key each observation by the exact, case-sensitive GeoJSON feature ID. Compare the observation fields `event_time` (properties.time) and `source_updated` (properties.updated) as integer epoch milliseconds, and `magnitude` (properties.mag) by exact decimal numeric value with no rounding or tolerance. Explicit null magnitude equals only null. Every projected key must exist; a missing key or null timestamp fails input validation. M02 also validates the earthquake type and time-window membership.
+
+Count every feature before grouping. Across all files on each side, report raw rows, distinct IDs, IDs occurring more than once and rows beyond the first per ID. Every duplicate fails. Compare reference-only and daily-only IDs separately. For each shared ID, compare the set of observed values for each projected field, reporting one mismatch per ID and field with all contributing file locations. Duplicate multiplicity has its own check. Row order, request metadata and body hashes are outside field equality; the hashes identify the independently validated source files. A failed verdict blocks eligibility for publication.
+
 [MEASURED – machine log, 25 Nov] 15.68 GiB visible physical RAM, 3.37 GiB free at intake, 10 cores / 12 logical CPUs and 224.42 GiB free on C:. Windows 11, UEFI, Docker Linux engine verified. WSL2 Docker distribution listed. Native dual boot unconfirmed. Hypervisor present; firmware virtualization property returned false. Application deadline and monthly data cap unknown.
 
 [ESTIMATE – one writer, small historical week, offline replay] Proposed ceilings, to measure under load:

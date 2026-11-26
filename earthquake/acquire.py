@@ -153,7 +153,7 @@ def fetch(folder, role, start, end):
         return entry, path
 
 
-def validate(folder, records):
+def verified_bodies(folder, records):
     expected = list(windows())
     if len(records) != len(expected):
         raise ValueError(f"expected {len(expected)} responses; got {len(records)}")
@@ -166,11 +166,29 @@ def validate(folder, records):
                 or attempts[-1]["finished_utc"] != record["acquired_utc"]
                 or any(a["url"] != record["url"] for a in attempts)):
             raise ValueError("invalid request provenance")
-        raw = blob(folder, record["sha256"]).read_bytes()
+        path = blob(folder, record["sha256"])
+        raw = path.read_bytes()
         if len(raw) != record["size"] or hashlib.sha256(raw).hexdigest() != record["sha256"]:
             raise ValueError(f"size or SHA-256 mismatch: {role} {start.date()}")
-        if inspect(raw, record["http_status"], start, end) != record["features"]:
+        try:
+            count = inspect(raw, record["http_status"], start, end)
+        except (ValueError, KeyError, TypeError) as error:
+            raise ValueError(f"{path.name}: {error}") from error
+        if count != record["features"]:
             raise ValueError(f"feature count mismatch: {role} {start.date()}")
+        yield path, raw
+
+
+def validate(folder, records):
+    for _ in verified_bodies(folder, records):
+        pass
+
+
+def manifest_records(path):
+    manifest = json.loads(path.read_bytes())
+    if path.name != "manifest.json" or manifest["schema"] != 1 or manifest["complete"] is not True:
+        raise ValueError("expected completed fixture manifest")
+    return manifest["responses"]
 
 
 def seal(folder, records):
@@ -201,11 +219,9 @@ def collect(state, exports):
 def run(offline=None):
     try:
         if offline is not None:
-            manifest = json.loads(offline.read_bytes())
-            if offline.name != "manifest.json" or manifest["schema"] != 1 or manifest["complete"] is not True:
-                raise ValueError("expected completed fixture manifest")
-            validate(offline.parent, manifest["responses"])
-            print(f"OFFLINE PASS: {len(manifest['responses'])} bodies; lengths, SHA-256, queries, "
+            records = manifest_records(offline)
+            validate(offline.parent, records)
+            print(f"OFFLINE PASS: {len(records)} bodies; lengths, SHA-256, queries, "
                   f"shape and counts verified from disk: {offline}")
         else:
             if preflight.run():
