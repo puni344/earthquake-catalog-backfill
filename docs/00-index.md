@@ -12,6 +12,7 @@
 - [Recover a stopped catalog publisher](runbooks/publisher-recovery.md)
 - [Interrupted publication of the seven-day catalog](postmortems/m06-publisher-crash.md)
 - [Earthquake incident records](postmortems/README.md)
+- [M07 load protocol](benchmarks/m07-protocol.md)
 - [Earthquake benchmarks](benchmarks/README.md)
 - [Earthquake catalog threat model](security/THREAT-MODEL.md)
 - [Earthquake catalog cost and CI](cost/COST.md)

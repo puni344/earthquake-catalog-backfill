@@ -18,4 +18,6 @@ Use this procedure for the frozen October fixture on the local Windows SQLite st
 
 5. Repeat the current-row check in a fresh CLI process and require the 1–7 October ID. For each historic ID, replace `current` in the pipeline with `get <publication-id>` and verify the returned ID equals the requested one. Preserve the elapsed time to the first verified new read and the final results for both scopes.
 
+For a failed acquisition, check for a completed manifest before selecting a fixture. A valid orphan body can still be downloaded again when starting a fresh acquisition. Allow for the full download and retain the interrupted directory for diagnosis. Following a staging-write denial or source discrepancy, verify the prior current ID and resolve the write or input failure before retry. [M07 injections](../evidence/M07-failures.txt)
+
 To rehearse, run `python -m earthquake.verify --drill publish`. It creates its own database, operates four CLI reader loops and removes that database on exit. Missing phase coverage is reported as **NOT VERIFIED**. [Expected IDs, digests and observed recovery](../evidence/quake-publish.txt)

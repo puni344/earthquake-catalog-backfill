@@ -20,6 +20,8 @@ Run `python -m earthquake.verify --drill restart` on the Windows build laptop to
 
 Run `python -m earthquake.verify --drill publish` for the M06 publisher crash and four-reader recovery drill on a disposable local database. [Reader observations](docs/evidence/quake-publish.txt) · [Incident report](docs/postmortems/m06-publisher-crash.md)
 
+Run `python -m earthquake.verify --drill load` for the fixed offline publication benchmark. Across three repetitions at each level, four reader loops delivered 12.73 verified reads/s with a pooled p95 of 335.77 ms. The failure-register review identified one open recovery gap: a complete orphan response was fetched again on restart. [Trial results](docs/benchmarks/README.md) · [Failure register](docs/failure-register.md)
+
 ### Read published catalogs
 
 From the checkout root on the Windows build laptop, the history drill creates a fresh database in local state. These PowerShell commands use the database from that run:
