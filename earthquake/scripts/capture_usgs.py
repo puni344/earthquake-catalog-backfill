@@ -15,7 +15,6 @@ OUT = Path("docs/evidence/usgs")
 
 CAP = 128 * 1024 * 1024
 MAX_RESPONSE = 4 * 1024 * 1024
-OUT.mkdir(parents=True, exist_ok=True)
 
 
 def records(raw):
@@ -83,6 +82,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--minutes", type=int, default=0, help="Observation window; zero fetches once")
     args = parser.parse_args()
+    OUT.mkdir(parents=True, exist_ok=True)
     end = time.time() + max(1, args.minutes * 60)
     used, previous = 0, None
     for path in sorted(OUT.glob("*.geojson")):

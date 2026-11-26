@@ -1,14 +1,18 @@
 # D2 · Restartable earthquake catalog backfill
 
-A stopped backfill can leave an earthquake report missing events even when its row count looks right.<br>
-Analysts comparing reports and engineers recovering the pipeline need to reproduce the exact extract a reader saw.<br>
-This offline demo kills the ingestion worker, verifies the recovered week against a separate USGS capture and retrieves both published extracts by ID.
+**[🟢 Open the live crash demo](https://puni344-earthquake-catalog-backfill.onrender.com/)** · [🎬 Four-minute walkthrough](docs/DEFENCE.md#four-minute-recording-script) · [📊 Measured results](#what-the-laptop-actually-demonstrated)
 
-**Deploy the live visitor demo** using the [free Render Blueprint](https://render.com/deploy?repo=https://github.com/puni344/earthquake-catalog-backfill). Each browser session gets its own temporary SQLite database and real worker. The service supports two active drills at once. Sessions expire ten minutes after starting. The first request after the free instance sleeps may take about a minute. The hosted runtime uses Linux and the frozen fixture. Laptop measurements below came from the Windows CLI.
+A stopped backfill can leave an earthquake report missing events even when its row count looks right. Analysts need to reproduce the exact extract a reader saw. This demo kills a real ingestion worker, compares the recovered week with an independently captured USGS response, and lets you inspect both published editions.
 
-**Launch the visual walkthrough:** run `python -m earthquake.dashboard` from the checkout root and open [http://127.0.0.1:8765](http://127.0.0.1:8765). Click **Run crash demo**, then **Query current** while the worker is down. Click **Continue recovery** and select the shorter edition from **Publication history**. The server keeps the database for inspection until a rerun or orderly shutdown (Ctrl+C). [Paused screen](docs/evidence/dashboard-interruption.png) · [Recovered screen](docs/evidence/dashboard-history.png)
+| 🟠 Interrupt | 🔵 Inspect | 🟢 Recover |
+|---|---|---|
+| Click **Run crash demo**. Watch the October 4 transaction roll back. | Click **Query current** while the worker is down. The three-day edition stays readable. | Click **Continue recovery**, inspect the week, then reopen the earlier edition under **Publication history**. |
 
-**Present live:** [Four-minute script](docs/DEFENCE.md#four-minute-recording-script) · [Prerequisites and offline demo](#run-from-a-local-clone-in-five-minutes) · [Inspect both publications](#read-published-catalogs)
+[![Dashboard after recovery, with the 2,569-event week current and the earlier 1,090-event edition selected](docs/evidence/dashboard-history.png)](https://puni344-earthquake-catalog-backfill.onrender.com/)
+
+The hosted Linux demo gives each visitor a temporary SQLite database. Two drills can run at once and sessions expire after ten minutes. Allow about a minute for the free instance to wake. [Interruption screenshot](docs/evidence/dashboard-interruption.png) · [Deploy your own instance](https://render.com/deploy?repo=https://github.com/puni344/earthquake-catalog-backfill)
+
+**Run locally** with `python -m earthquake.dashboard`, then open [the local dashboard](http://127.0.0.1:8765). A rerun or orderly shutdown removes its temporary database. The [offline CLI](#run-from-a-local-clone-in-five-minutes) and [publication history commands](#read-published-catalogs) use the same frozen fixture.
 
 ```text
 USGS whole-week response ──► independent reference reader ────────────────┐
@@ -45,7 +49,7 @@ Look for **Live acquisition agreement: PASS**, **Frozen restart correctness: PAS
 
 ### What the laptop actually demonstrated
 
-Measurements below are from local-user, Windows 11, i5-1235U, 12 logical processors, on 26 November 2026. Each row identifies the experiment that produced it. [Hardware](docs/evidence/quake-machine.txt)
+Measurements below were taken on a Windows 11 laptop with an i5-1235U and 12 logical processors on 26 November 2026. Each row identifies the experiment that produced it. [Hardware](docs/evidence/quake-machine.txt)
 
 | Run | Workload and measured result |
 |---|---|
@@ -56,7 +60,7 @@ Measurements below are from local-user, Windows 11, i5-1235U, 12 logical process
 | [M07 acquisition repair](docs/evidence/M07-orphan-remediation.txt) | After a worker kill, restarting the intact whole response went from one redundant request (1,839,817 bytes) to zero. All ten register entries passed after remediation. |
 | [M09 clean clone](docs/evidence/M09-clean-clone.txt) | Candidate `a39b613`, fresh Windows PowerShell. Make exited 0 in 3.754 s wall time, including 3.283 s inside the verifier. All 24 current reads and both final lookups verified. |
 
-The reference establishes agreement between two query paths for one captured week. The two publications cover different dates. Revision history of individual earthquakes, power-loss durability, multi-host failover, saturation and sustained throughput remain unverified. Hosted CI is **NOT RUN**. [Accepted ADRs](docs/adr/README.md) · [Failure register](docs/failure-register.md) · [Interview materials and score](docs/DEFENCE.md) · [Project state](docs/PROJECT_STATE.md)
+The reference establishes agreement between two query paths for one captured week. The two publications cover different dates. Revision history of individual earthquakes, power-loss durability, multi-host failover, saturation and sustained throughput remain unverified. [Hosted Linux crash test](https://github.com/puni344/earthquake-catalog-backfill/actions/workflows/hosted.yml) · [Documentation CI](https://github.com/puni344/earthquake-catalog-backfill/actions/workflows/earthquake-docs.yml). [Accepted ADRs](docs/adr/README.md) · [Failure register](docs/failure-register.md) · [Interview materials and score](docs/DEFENCE.md) · [Project state](docs/PROJECT_STATE.md)
 
 ### Read published catalogs
 

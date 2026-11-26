@@ -46,10 +46,11 @@ async function refresh(){
   el("query").disabled=!meta;el("editions").disabled=!meta;
   const ids=s.editions.map(e=>e.id).join(",");
   if(signature!==ids || !meta){
-    signature=ids;el("editions").replaceChildren();
+    el("editions").replaceChildren();
     if(!meta) el("editions").add(new Option("Awaiting first edition",""));
     for(const e of s.editions) el("editions").add(new Option(e.start.slice(5,10)+" → "+e.end_exclusive.slice(5,10)+" exclusive · "+e.count+" rows",e.id));
     if(meta) await read("current");
+    signature=ids;
   }
 }
 function fail(error){el("error").textContent=error.message;}

@@ -11,6 +11,13 @@ from earthquake import acquire
 
 
 class AcquisitionFaults(unittest.TestCase):
+    def test_invalid_response_metadata(self):
+        role, start, end = next(acquire.windows())
+        for metadata in ([], None, {"status": 200, "count": False}):
+            body = json.dumps({"type": "FeatureCollection", "features": [], "metadata": metadata}).encode()
+            with self.subTest(metadata=metadata), self.assertRaisesRegex(ValueError, "metadata"):
+                acquire.inspect(body, 200, start, end)
+
     def test_interrupted_read_never_exports(self):
         raw = next((acquire.REPO / "docs/evidence/usgs").glob("*.geojson")).read_bytes()
 

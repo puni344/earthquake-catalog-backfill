@@ -59,11 +59,14 @@ def inspect(raw, status, start, end):
     if status != 200:
         raise ValueError(f"unexpected HTTP status {status}")
     doc = json.loads(raw)
+    if not isinstance(doc, dict) or not isinstance(doc.get("metadata"), dict):
+        raise ValueError("invalid GeoJSON collection metadata")
     features = doc["features"]
     metadata = doc["metadata"]
     if doc["type"] != "FeatureCollection" or not isinstance(features, list):
         raise ValueError("invalid GeoJSON collection")
-    if metadata.get("status") != 200 or metadata.get("count", len(features)) != len(features):
+    declared = metadata.get("count", len(features))
+    if metadata.get("status") != 200 or type(declared) is not int or declared != len(features):
         raise ValueError("invalid metadata status or feature count")
     if len(features) >= 20000 or metadata.get("warning") or metadata.get("warnings"):
         raise ValueError("result ceiling reached or server warning present")

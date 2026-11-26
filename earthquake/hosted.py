@@ -1,6 +1,6 @@
 """Public WSGI adapter. Each browser owns its own disposable Presentation."""
 from collections import deque
-from http.cookies import SimpleCookie
+from http.cookies import CookieError, SimpleCookie
 import json
 import os
 from pathlib import Path
@@ -26,12 +26,13 @@ class Sessions:
         self.lock = threading.RLock()
 
     def discard_expired(self):
+        now = time.monotonic()
         with self.lock:
-            now = time.monotonic()
-            for key, (app, deadline) in list(self.entries.items()):
-                if now >= deadline:
-                    app.close()
-                    del self.entries[key]
+            expired = [key for key, (_, deadline) in self.entries.items() if now >= deadline]
+            retired = [self.entries.pop(key)[0] for key in expired]
+        # Worker shutdown may wait for a child. Other visitors can continue meanwhile.
+        for app in retired:
+            app.close()
 
     def start(self, key):
         with self.lock:
@@ -62,7 +63,9 @@ class Sessions:
         with self.lock:
             if method == "POST" and path == "/start":
                 return self.start(key)
-            app = self.entries.get(key, (None,))[0]
+            app, deadline = self.entries.get(key, (None, 0))
+            if time.monotonic() >= deadline:
+                app = None
             if method == "GET" and path == "/state":
                 if app:
                     return None, app.snapshot()
@@ -106,7 +109,10 @@ class Hosted:
                 status, data = "403 Forbidden", {"error": "Use the public dashboard to start a run"}
             else:
                 cookie = SimpleCookie()
-                cookie.load(env.get("HTTP_COOKIE", ""))
+                try:
+                    cookie.load(env.get("HTTP_COOKIE", ""))
+                except CookieError:
+                    cookie.clear()
                 key = cookie["d2session"].value if "d2session" in cookie else None
                 issued, data = self.sessions.dispatch(key, method, path)
                 if issued:

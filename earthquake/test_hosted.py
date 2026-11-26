@@ -58,6 +58,8 @@ class HostedTest(unittest.TestCase):
                 app, _ = site.sessions.entries[key]
                 abandoned = app.db.parent
                 site.sessions.entries[key] = app, time.monotonic()-1
+                self.assertEqual(call("/continue/" + other["run"], "POST", b)[0], "409")
+                self.assertEqual(call("/state", cookie=b)[2]["phase"], "idle")
                 site.sessions.discard_expired()
                 self.assertFalse(abandoned.exists())
                 self.assertEqual(call("/state", cookie=b)[2]["phase"], "idle")
