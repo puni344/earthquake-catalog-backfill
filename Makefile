@@ -4,7 +4,7 @@ else
 PYTHON ?= python3
 endif
 
-.PHONY: docs-check docs-test test verify
+.PHONY: evidence-check docs-check docs-test test verify
 
 docs-check:
 	$(PYTHON) earthquake/scripts/check_docs.py
@@ -20,3 +20,6 @@ TESTS := $(basename $(subst /,.,$(wildcard earthquake/test_*.py)))
 
 test:
 	$(PYTHON) -m unittest $(TESTS)
+
+evidence-check:
+	$(PYTHON) -m earthquake.scripts.check_evidence

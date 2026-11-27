@@ -10,3 +10,4 @@
 | 0004 | [Local presentation dashboard](0004-dashboard.md) | Proposed | Pending review | — |
 | 0005 | [Portable scratch state outside Windows](0005-portable-state-directory.md) | Proposed | Pending review | — |
 | 0006 | [Shared hosted demo capacity](0006-hosted-capacity.md) | Proposed | Pending review | — |
+| 0007 | [Local evidence for measured claims](0007-measurement-evidence.md) | Proposed | Pending review | — |

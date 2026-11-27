@@ -1,0 +1,17 @@
+Windows laptop, 27 November 2026. Task 2 command output excerpts.
+make docs-check
+PASS: README and 27 docs checked; both indexes current; 7 ADRs valid
+exit=0
+make docs-test
+PASS: all three defects rejected for their expected reason
+exit=0
+make evidence-check
+PASS: 16 measured claims link to local evidence
+exit=0
+make verify
+M08 PASS elapsed=4.720s
+exit=0
+make test
+Ran 34 tests in 28.003s
+OK
+exit=0

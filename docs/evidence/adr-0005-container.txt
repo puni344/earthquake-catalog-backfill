@@ -1,0 +1,19 @@
+Raw excerpts from GitHub Actions. Timestamped lines below are unchanged.
+
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45970108628/job/140408185707
+gh run view 45970108628 --job 140408185707 --log
+container	Run docker build -t d2-verify .	﻿2026-11-27T09:00:36.3053823Z ##[group]Run docker build -t d2-verify .
+container	Run docker run --rm --network none d2-verify	﻿2026-11-27T09:00:43.0441147Z ##[group]Run docker run --rm --network none d2-verify
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:43.5661821Z Runtime: Linux x86_64 | Python 3.11.14 | SQLite 3.40.1
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:47.9838158Z Live acquisition agreement: PASS
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:47.9838623Z Frozen restart correctness: PASS
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:47.9838994Z M08 PASS elapsed=4.418s
+
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45970120016/job/140408221357
+gh run view 45970120016 --job 140408221357 --log
+container	Run docker build -t d2-verify .	﻿2026-11-27T09:00:38.8339012Z ##[group]Run docker build -t d2-verify .
+container	Run docker run --rm --network none d2-verify	﻿2026-11-27T09:00:45.1485527Z ##[group]Run docker run --rm --network none d2-verify
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:45.5846961Z Runtime: Linux x86_64 | Python 3.11.14 | SQLite 3.40.1
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:48.9699559Z Live acquisition agreement: PASS
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:48.9700028Z Frozen restart correctness: PASS
+container	Run docker run --rm --network none d2-verify	2026-11-27T09:00:48.9700460Z M08 PASS elapsed=3.385s
