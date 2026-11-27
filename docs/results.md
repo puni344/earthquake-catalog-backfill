@@ -25,4 +25,4 @@ Commit `265e739` exercised the same frozen week, worker termination, rollback in
 
 The first native CI attempt stopped at interpreter installation. Selecting the runner's available Python 3 release resolved that portability issue. [Initial CI attempt](https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45877071374)
 
-A separate [annual crash benchmark](benchmarks/year-restart.md) measured a 152,183-event backfill, 51 skipped windows and one replayed window.
+[MEASURED – 27 November 2026, Windows laptop, annual restart benchmark] The recovered 2024 extract matched the independent reference on all 152,183 event IDs, origin times, source update times and magnitudes. The worker skipped 51 committed windows and replayed one. Missing IDs, extra IDs, duplicate rows and records with field differences were all zero. [Annual protocol, frozen inputs and replay commands](benchmarks/year-restart.md) · [Raw transcript](evidence/year-2024-restart.txt)

@@ -1,37 +1,40 @@
 # Earthquake catalog backfill with versioned releases
 
-**[🟢 Run the live crash demo](https://puni344-earthquake-catalog-backfill.onrender.com/)** · [Run the full-year benchmark](https://puni344-earthquake-catalog-backfill.onrender.com/annual) · [🎬 Four-minute walkthrough](docs/DEFENCE.md#four-minute-recording-script)
+A worker can die midway through importing the USGS earthquake catalog.  
+Analysts need to keep reading the last complete release while the import recovers.  
+This demo kills the worker before a SQLite commit, resumes the import, and checks both releases against independent USGS responses. [SOURCE · design](docs/design/DESIGN-DOC.md)
 
-Can an analyst still read yesterday’s release while an interrupted backfill recovers? This project answers that question using **one real USGS week, 2,569 distinct earthquakes and seven daily transactions**. A release ID identifies the events and values published for a declared date range. Individual earthquake revision tracking is outside the project’s scope.
-
-| 🟠 Interrupt | 🔵 Inspect | 🟢 Recover |
-|---|---|---|
-| Click **Run crash demo**. The worker dies before October 4 commits. | Click **Query current**. The October 1–3 release still returns 1,090 events. | Click **Continue recovery**. October 4 replays, the week publishes, and both releases remain readable by ID. |
-
-The full-year dashboard ingests the frozen 2024 release into a fresh database. Click **Run annual benchmark**, inspect the rows and checkpoints that survived the late worker crash, then click **Continue recovery**. The distinct event count appears after comparison with independent reference responses. The host downloads the checksum-pinned release once per service process.
-
-**[SOURCE – hosted dashboard](earthquake/hosted.py)** The free demo has two slots. A weekly run and an annual run can run together. If your page says **Waiting for capacity**, leave it open. The start button becomes available as a slot opens. Each visitor gets a separate temporary database. To resume your paused run, return to its dashboard in the same browser and click **Continue recovery**. [Dashboard screenshot](docs/evidence/dashboard-history.png)
+**[Run the weekly crash demo](https://puni344-earthquake-catalog-backfill.onrender.com/)** · [Run the full-year benchmark](https://puni344-earthquake-catalog-backfill.onrender.com/annual) · [Four-minute walkthrough](docs/DEFENCE.md#four-minute-recording-script)
 
 ```text
-USGS whole-week response ──► independent reference reader ────────────────┐
-Seven daily responses ────► SQLite rows + per-day checkpoints ───────────┤ compare
-                                                                        ▼
-                                     immutable publications ◄── verified extract
-                                        │              │
-                                 current pointer     explicit ID
-                                        └──── reader CLI ────► hash returned rows
+USGS daily responses ──► SQLite rows + checkpoints ───┐
+                                                      ├─ compare ─► publish ─► current or by ID
+USGS whole-week response ──► independent reference ───┘
 ```
 
-### Reproduce it
-
-From the checkout root on Linux, macOS or Windows:
+Run the weekly demo offline from the checkout root on Windows, Linux or macOS:
 
 ```sh
 make verify
 ```
 
-Expect **Live acquisition agreement: PASS**, **Frozen restart correctness: PASS**, and exit **0**. Prefer containers? Run `docker build -t d2-verify .`, then `docker run --rm --network none d2-verify`. [Platform prerequisites and history commands](docs/reproduce.md) · [Native and container CI](https://github.com/puni344/earthquake-catalog-backfill/actions/workflows/verify.yml)
+Look for **Live acquisition agreement: PASS**, **Frozen restart correctness: PASS** and exit code **0**. [SOURCE · prerequisites, Docker and reader commands](docs/reproduce.md)
 
-### What was measured
+## Measured results
 
-The recovered week matched the independent reference on event ID, origin time, update time and magnitude. A separate Windows benchmark verified 168 CLI reads across one, two and four concurrent reader loops. A separate **2024 year-scale backfill** recovered **152,183 distinct earthquakes** after a late worker kill. It skipped 51 committed windows, replayed one, and matched an independently acquired reference with zero differences. Sustained throughput and power-loss recovery remain unmeasured. [Year-scale benchmark and frozen inputs](docs/benchmarks/year-restart.md). [Results and raw evidence](docs/results.md) · [Architecture decisions](docs/adr/README.md) · [Interview materials](docs/DEFENCE.md)
+| Drill | Result | Measurement and evidence |
+|---|---|---|
+| Weekly worker crash | October 4 rolled back. Recovery skipped three completed days. Both release IDs still returned their original rows (1,090 and 2,569). | [MEASURED · Windows laptop, 26 Nov 2026, default verifier](docs/evidence/quake-verify.txt) |
+| Publisher crash | All 36 concurrent reads returned a complete release across termination and retry. | [MEASURED · Windows laptop, 26 Nov 2026, publish drill](docs/evidence/quake-publish.txt) |
+| Reader load | All 168 CLI reads verified at one, two and four concurrent reader loops. | [MEASURED · Windows laptop, 26 Nov 2026, load drill](docs/benchmarks/README.md) |
+| Full-year worker crash | Recovery skipped 51 committed windows and replayed one. All 152,183 distinct earthquakes matched the independent reference. | [MEASURED · Windows laptop, 27 Nov 2026, annual benchmark](docs/benchmarks/year-restart.md) |
+
+## Try the crash yourself
+
+In the weekly demo, click **Run crash demo**. When the worker stops, click **Query current** to inspect the shorter release. Click **Continue recovery**, then use **Publication history** to reopen the earlier release. In the annual demo, inspect the surviving checkpoint and row counts before continuing. [SOURCE · walkthrough](docs/DEFENCE.md) · [Weekly dashboard screenshot](docs/evidence/dashboard-history.png)
+
+If you see **Waiting for capacity**, leave the page open. The start button becomes available when a slot opens. To continue a paused run, return to its dashboard in the same browser. [SOURCE · hosted session handling](earthquake/hosted.py)
+
+## Limitations
+
+Publications preserve catalog extracts for declared date ranges. Individual earthquake revision tracking is outside this project's scope. Power-loss durability, multi-host failover and sustained throughput are **NOT RUN**. [Results, workloads and raw evidence](docs/results.md) · [Architecture decisions](docs/adr/README.md) · [Native and container CI](https://github.com/puni344/earthquake-catalog-backfill/actions/workflows/verify.yml)
