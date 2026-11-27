@@ -24,3 +24,4 @@
 - [D2 demo script, résumé bullets, interview answers and scorecard](DEFENCE.md)
 - [Check a failed catalog publication](runbooks/publication-alert.md)
 - [Incomplete weekly publication drill](postmortems/incomplete-publication.md)
+- [Current portfolio scorecard](scorecard.md)

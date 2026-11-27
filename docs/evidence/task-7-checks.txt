@@ -1,0 +1,12 @@
+Task 7 Windows laptop validation, command output excerpts
+make evidence-check exit=0
+PASS: 37 measured claims link to local evidence; 0 flagged claims
+make docs-check exit=0
+PASS: README and 33 docs checked; both indexes current; 10 ADRs valid
+make docs-test exit=0
+PASS: all three defects rejected for their expected reason
+make verify exit=0
+M08 PASS elapsed=4.252s
+make test exit=0
+Ran 38 tests in 15.415s
+OK
