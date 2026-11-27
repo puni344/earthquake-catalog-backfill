@@ -5,7 +5,7 @@ let state, edition, page=0, selection=0, signature="", busy=false;
 async function api(path,method="GET"){
   const response=await fetch(path,{method});
   const data=await response.json();
-  if(!response.ok) throw Error(data.error || response.statusText);
+  if(!response.ok) throw Object.assign(Error(data.error || response.statusText), {status:response.status});
   return data;
 }
 function node(tag,text){const item=document.createElement(tag);item.textContent=text;return item;}
@@ -29,10 +29,10 @@ async function read(key){
 async function refresh(){
   const s=await api("/state");
   if(state?.run!==s.run){selection++;edition=null;signature="";page=0;renderRows();}
-  state=s;el("run").disabled=busy || !["idle","complete","error"].includes(s.phase);
+  state=s;el("run").disabled=busy || Boolean(s.start_blocker) || !["idle","complete","error"].includes(s.phase);
   el("run").textContent=s.phase==="complete" || s.phase==="error" ? "Run again" : "Run crash demo";
   el("resume").hidden=s.phase!=="paused";el("resume").disabled=busy;
-  el("phase").textContent=phases[s.phase];el("detail").textContent=s.detail;
+  el("phase").textContent=s.phase==="idle" && s.start_blocker ? "Waiting for capacity" : phases[s.phase];el("detail").textContent=["idle","complete","error"].includes(s.phase) && s.start_blocker ? [s.phase==="idle" ? "" : s.detail,s.start_blocker].filter(Boolean).join(" ") : s.detail;
   el("verdict").textContent=s.phase==="complete"?"PASS":s.phase==="error"?"Failed":"Pending";
   el("days").replaceChildren(...Object.entries(s.days).map(([day,status])=>{
     const d=node("div","");d.className="day";d.dataset.state=status;d.append(node("b",day.slice(-2)),node("span",status));return d;
@@ -56,7 +56,7 @@ async function refresh(){
 function fail(error){el("error").textContent=error.message;}
 async function action(path){
   if(busy)return;busy=true;el("error").textContent="";el("run").disabled=el("resume").disabled=true;
-  try{await api(path,"POST");}catch(e){fail(e);}finally{busy=false;}
+  try{await api(path,"POST");}catch(e){if(e.status!==429) fail(e);}finally{busy=false;}
 }
 el("run").onclick=()=>action("/start");el("resume").onclick=()=>action("/continue/"+state.run);
 el("editions").onchange=e=>read(e.target.value).catch(fail);el("query").onclick=()=>read("current").catch(fail);

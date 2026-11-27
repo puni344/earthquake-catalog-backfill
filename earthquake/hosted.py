@@ -91,13 +91,25 @@ class Hosted:
         self.origin = origin
         self.sessions = Sessions(root)
         self.annual = Sessions(root, limit=1, factory=Annual)
-        self.capacity_lock = threading.Lock()
         self.assets = {url: ((ASSETS / name).read_bytes(), mime) for url, name, mime in [
             ("/", "index.html", "text/html"), ("/app.js", "app.js", "text/javascript"),
             ("/annual", "annual.html", "text/html"), ("/annual.js", "annual.js", "text/javascript"),
             ("/style.css", "style.css", "text/css")]}
         html, mime = self.assets["/"]
         self.assets["/"] = html.replace(b"Local session", b"Live session").replace(b"</header>", b'<a href="/annual">Full-year benchmark &#8599;</a></header>'), mime
+
+    def start_blocker(self, registry):
+        # Called with both registries locked so starts and capacity reads agree.
+        def active(sessions):
+            return sum(app.thread.is_alive() for app, _ in sessions.entries.values())
+
+        if registry is self.annual and active(self.annual):
+            return "The annual benchmark is in use. This page checks for an opening automatically."
+        if active(self.sessions) + active(self.annual) >= 2:
+            return "Both demo slots are in use. This page checks for an opening automatically."
+        if len(registry.starts) >= 10 and registry.starts[-10] > time.monotonic() - 60:
+            return "Start limit reached. This page checks for an opening automatically."
+        return None
 
     def __call__(self, env, respond):
         method, path = env["REQUEST_METHOD"], env["PATH_INFO"]
@@ -119,15 +131,18 @@ class Hosted:
                 except CookieError:
                     cookie.clear()
                 annual = path.startswith("/annual/")
-                registry, other = (self.annual, self.sessions) if annual else (self.sessions, self.annual)
+                registry = self.annual if annual else self.sessions
                 cookie_name = "d2annual" if annual else "d2session"
                 key = cookie[cookie_name].value if cookie_name in cookie else None
                 route = path[len("/annual"):] if annual else path
-                if method == "POST" and route == "/start":
-                    with self.capacity_lock, other.lock:
-                        if any(app.thread.is_alive() for app, _ in other.entries.values()):
-                            raise CapacityError("Another demo is active. Finish recovery or try again shortly.")
+                if (method, route) in {("POST", "/start"), ("GET", "/state")}:
+                    with self.sessions.lock, self.annual.lock:
+                        blocker = self.start_blocker(registry)
+                        if method == "POST" and blocker:
+                            raise CapacityError(blocker)
                         issued, data = registry.dispatch(key, method, route)
+                        if method == "GET":
+                            data["start_blocker"] = blocker
                 else:
                     issued, data = registry.dispatch(key, method, route)
                 if issued:

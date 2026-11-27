@@ -9,3 +9,4 @@
 | 0003 | [Transactional SQLite publication](0003-catalog-storage.md) | Accepted | 25 November 2026 | — |
 | 0004 | [Local presentation dashboard](0004-dashboard.md) | Proposed | Pending review | — |
 | 0005 | [Portable scratch state outside Windows](0005-portable-state-directory.md) | Proposed | Pending review | — |
+| 0006 | [Shared hosted demo capacity](0006-hosted-capacity.md) | Proposed | Pending review | — |
