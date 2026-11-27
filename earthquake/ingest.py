@@ -9,6 +9,15 @@ def ingest(database, notify, synchronize, *, through_day=None):
     manifest = reconcile.MANIFEST
     fixture = reconcile.fixture_digest()
     records = acquire.manifest_records(manifest)
+    def windows():
+        for record, (path, raw) in zip(records, acquire.verified_bodies(manifest.parent, records)):
+            if record["role"] == "daily":
+                yield record, path, raw
+
+    ingest_windows(database, fixture, windows(), notify, synchronize, through_day=through_day)
+
+
+def ingest_windows(database, fixture, windows, notify, synchronize, *, through_day=None):
     with closing(sqlite3.connect(database)) as db:
         db.executescript("""
             CREATE TABLE IF NOT EXISTS checkpoints (
@@ -20,10 +29,7 @@ def ingest(database, notify, synchronize, *, through_day=None):
                 PRIMARY KEY(fixture, day, body, ordinal)
             );
         """)
-        for index, (path, raw) in enumerate(acquire.verified_bodies(manifest.parent, records)):
-            record = records[index]
-            if record["role"] != "daily":
-                continue
+        for record, path, raw in windows:
             day = record["start"][:10]
             if through_day is not None and day > through_day:
                 continue

@@ -25,25 +25,25 @@ def state_directory():
     return preflight.locations()[1].resolve()
 
 
-def worker(db, channel, boundary):
+def worker(db, channel, boundary, target, ingestion, inputs):
     def notify(event, day):
         channel.send((event, day))
 
     def synchronize(position, day):
-        if position == boundary and day == TARGET:
+        if position == boundary and day == target:
             notify("paused-" + position, day)
             channel.recv()  # Only the parent can release this barrier. It terminates us here.
             raise RuntimeError("unexpected release of crash barrier")
 
     with channel:
-        ingest.ingest(db, notify, synchronize)
+        ingestion(db, notify, synchronize, *inputs)
         notify("done", "")
 
 
-def worker_run(db, boundary=None):
+def worker_run(db, boundary=None, *, target=TARGET, ingestion=ingest.ingest, inputs=()):
     context = multiprocessing.get_context("spawn")
     parent, child = context.Pipe()
-    process = context.Process(target=worker, args=(db, child, boundary))
+    process = context.Process(target=worker, args=(db, child, boundary, target, ingestion, inputs))
     events = []
     process.start()
     child.close()
@@ -54,7 +54,7 @@ def worker_run(db, boundary=None):
                 event, day = parent.recv()
                 events.append((event, day))
                 if event.startswith("paused-"):
-                    require(event == f"paused-{boundary}" and day == TARGET, "unexpected barrier")
+                    require(event == f"paused-{boundary}" and day == target, "unexpected barrier")
                     process.terminate()
                     break
                 if event == "done":
@@ -67,7 +67,7 @@ def worker_run(db, boundary=None):
         else:
             require(process.exitcode == 0, f"ingestion worker failed: {process.exitcode}")
         method = ("TerminateProcess" if os.name == "nt" else "SIGTERM") if boundary else "normal exit"
-        print(f"database={db} pid={process.pid} boundary={boundary} target={TARGET} method={method} "
+        print(f"database={db} pid={process.pid} boundary={boundary} target={target} method={method} "
               f"exit={process.exitcode} events={json.dumps(events)}", flush=True)
         return events, process.exitcode
     finally:
