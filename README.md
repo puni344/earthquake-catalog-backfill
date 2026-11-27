@@ -10,7 +10,7 @@ Can an analyst still read yesterday’s release while an interrupted backfill re
 
 The full-year dashboard ingests the frozen 2024 release into a fresh database. Click **Run annual benchmark**, inspect the rows and checkpoints that survived the late worker crash, then click **Continue recovery**. The distinct event count appears after comparison with independent reference responses. The host downloads the checksum-pinned release once per service process.
 
-The free instance may take a minute to wake. Each visitor gets a temporary database. [Dashboard screenshot](docs/evidence/dashboard-history.png)
+**[SOURCE – hosted dashboard](earthquake/hosted.py)** The free demo has two slots. A weekly run and an annual run can run together. If your page says **Waiting for capacity**, leave it open. The start button becomes available as a slot opens. Each visitor gets a separate temporary database. To resume your paused run, return to its dashboard in the same browser and click **Continue recovery**. [Dashboard screenshot](docs/evidence/dashboard-history.png)
 
 ```text
 USGS whole-week response ──► independent reference reader ────────────────┐

@@ -5,6 +5,7 @@ from pathlib import Path
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 
 from .hosted import Hosted
 
@@ -62,6 +63,30 @@ class HostedTest(unittest.TestCase):
                 self.assertEqual(call("/state", cookie=b)[2]["phase"], "idle")
                 site.sessions.discard_expired()
                 self.assertFalse(abandoned.exists())
+                # Hold just the annual worker at its operator gate. Weekly HTTP and
+                # database operations still exercise the real worker and reader.
+                def hold_annual(app):
+                    app.interrupted({})
+
+                with patch("earthquake.annual_dashboard.Annual.work", hold_annual):
+                    code, headers, annual = call("/annual/start", "POST")
+                    self.assertEqual(code, "200")
+                    annual_cookie = headers["Set-Cookie"].split(";")[0]
+                    try:
+                        self.assertIsNone(call("/state")[2]["start_blocker"])
+                        weekly = start()
+                        self.assertEqual(call("/start", "POST")[0], "429")
+                        self.assertTrue(call("/state")[2]["start_blocker"])
+                        self.assertEqual(call("/annual/start", "POST")[0], "429")
+                        wait(weekly, "paused")
+                        self.assertEqual(call("/annual/continue/" + annual["run"], "POST", annual_cookie)[0], "200")
+                        app = next(iter(site.annual.entries.values()))[0]
+                        app.thread.join(5)
+                        self.assertIsNone(call("/state")[2]["start_blocker"])
+                    finally:
+                        for app, _ in site.annual.entries.values():
+                            app.close()
+
                 self.assertEqual(call("/state", cookie=b)[2]["phase"], "idle")
             finally:
                 for app, _ in site.sessions.entries.values():
