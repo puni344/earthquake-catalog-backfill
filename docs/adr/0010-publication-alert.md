@@ -31,7 +31,7 @@ An HTTP or CLI success misses stale releases. The offline fixture has no deliver
 
 ## Consequences
 
-Replay trusts the local recorder's reference check and timestamps. It neither authenticates the record nor rechecks rows from a deleted database. The operator supplies a completed attempt to the checker. There is no scheduler, notification channel or calendar-based freshness guarantee.
+Replay trusts the local recorder's reference check and timestamps. It neither authenticates the record nor rechecks rows from a deleted database. The operator supplies a completed attempt to the checker. A job that never starts leaves no record and triggers no alert. If the operator checks a missing file, the command returns INCONCLUSIVE (exit 2). There is no scheduler, notification channel or calendar-based freshness guarantee.
 
 ## Revisit when
 

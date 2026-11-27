@@ -29,4 +29,4 @@ python -m earthquake.publication_alert drill alert-run
 
 This stages three days, publishes that complete scope, then attempts to publish the week early. After recording the rejection and running the check, the drill finishes ingestion and retries. No network connection or separate alert service is needed. [Actual transcript](../evidence/task-5-publication-alert.txt)
 
-The checker evaluates one completed attempt. It cannot detect a publisher that never returns or a recorder that never emits a file unless someone invokes the check on the missing file. Its result describes the recorded read; replay does not poll a live database.
+If the job never starts, no attempt is recorded and no alert fires. Manually checking a missing file returns INCONCLUSIVE (exit 2). The file alone cannot distinguish a missed job from a lost record. The checker runs on demand after a completed attempt and has no schedule or deadline. Replay describes the recorded read.
