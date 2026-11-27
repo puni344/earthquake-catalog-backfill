@@ -1,0 +1,23 @@
+{
+  "schema": "d2-publication-attempt-v1",
+  "expected_id": "0e6fe91c167c42f1db5ff886100d3a86db0c90c3a08eeca7705cc35296b3ba15",
+  "fixture": "20261126T064859Z-1bf43bf1e07e",
+  "outcome": "rejected",
+  "reason": "incomplete scope: missing checkpoint for 2026-10-04",
+  "attempt_finished_ns": 118987496849600,
+  "current_read": {
+    "reader": "current",
+    "command": "C:\\Users\\punit\\AppData\\Local\\Programs\\Python\\Python310\\python.exe -m earthquake.history --db C:\\Users\\punit\\AppData\\Local\\D2EarthquakeCatalog\\state\\alert-11kbx_ff\\catalog.sqlite current",
+    "start_utc": "2026-11-27T17:25:48.766Z",
+    "start_ns": 118987496904900,
+    "exit": 0,
+    "id": "ac6fc0f6d3944fa5adeee43844f380cd8ec4e341d03a345e33d96d1541a53451",
+    "count": 1090,
+    "digest": "9edbcc16b26a017248563da8bf7a4a5ae1846282698e9b89103a1cbca2ada7c3",
+    "error": null,
+    "pid": 17316,
+    "status": "success",
+    "finish_ns": 118987699773200,
+    "finish_utc": "2026-11-27T17:25:48.970Z"
+  }
+}
