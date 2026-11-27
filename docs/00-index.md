@@ -22,3 +22,5 @@
 - [Earthquake catalog cost and CI](cost/COST.md)
 - [Earthquake catalog evidence](evidence/README.md)
 - [D2 demo script, résumé bullets, interview answers and scorecard](DEFENCE.md)
+- [Check a failed catalog publication](runbooks/publication-alert.md)
+- [Incomplete weekly publication drill](postmortems/incomplete-publication.md)
