@@ -44,3 +44,5 @@ Inspect the hosted job's runtime line, actual Make steps and terminal verdicts. 
 ## Outcome
 
 See the [Windows CI workflow](../../.github/workflows/verify.yml).
+
+[MEASURED – GitHub-hosted Windows AMD64 build 26100, 27 November 2026] Python 3.10.11 and SQLite 3.40.1 matched ADR-0003. The offline verifier passed in 3.493 s and the full suite passed all 35 tests. [Archived Windows output](../evidence/task-3-windows-ci.txt) · [PR job](https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45972576230/job/140416334894)
