@@ -1,6 +1,6 @@
 # Earthquake benchmarks
 
-[MEASURED – Windows laptop, 26 November 2026] Four reader loops were the highest tested. All 168 timed responses passed the M06 ID-specific oracle. Every trial observed both publications and overlapped the normal publisher call. The reader counts below refer to complete CLI responses. M06 measures a separate forced crash.
+[MEASURED – Windows laptop, 26 November 2026] Four reader loops were the highest tested. All 168 timed responses passed the M06 ID-specific oracle. Every trial observed both publications and overlapped the normal publisher call. The reader counts below refer to complete CLI responses. M06 measures a separate forced crash. [M07 trial output](../evidence/M07-load.txt) · [M06 crash transcript](../evidence/quake-publish.txt)
 
 | Loops | Timed reads | Successful reads/s | Median ms | P95 ms | Sampled peak MiB |
 |---:|---:|---:|---:|---:|---:|

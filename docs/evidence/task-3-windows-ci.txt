@@ -1,0 +1,12 @@
+Hosted Windows PR job for candidate 1337d2b. Raw log excerpts.
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45972576230/job/140416334894
+gh run view 45972576230 --job 140416334894 --log
+windows	Check the Windows runtime against ADR-0003	2026-11-27T09:19:19.2632437Z Windows-10-10.0.26100-SP0 AMD64 C:\hostedtoolcache\windows\Python\3.10.11\x64\python.EXE
+windows	Check the Windows runtime against ADR-0003	2026-11-27T09:19:19.2632993Z Python 3.10.11, SQLite 3.40.1, pins matched = True
+windows	Run make verify	﻿2026-11-27T09:19:19.2886811Z ##[group]Run make verify
+windows	Run make verify	2026-11-27T09:19:23.3783184Z Live acquisition agreement: PASS
+windows	Run make verify	2026-11-27T09:19:23.3783442Z Frozen restart correctness: PASS
+windows	Run make verify	2026-11-27T09:19:23.3783696Z M08 PASS elapsed=3.493s
+windows	Run make test	﻿2026-11-27T09:19:23.5138620Z ##[group]Run make test
+windows	Run make test	2026-11-27T09:19:42.8338636Z Ran 35 tests in 18.754s
+windows	Run make test	2026-11-27T09:19:42.8339305Z OK

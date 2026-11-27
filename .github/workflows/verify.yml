@@ -28,6 +28,38 @@ jobs:
       - run: python3 -m earthquake.verify --drill history
       - run: python3 -m earthquake.verify --drill publish
       - run: python3 -m earthquake.verify --drill restart
+  windows:
+    if: github.event.repository.visibility == 'public'
+    runs-on: windows-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.10.11'
+          architecture: x64
+      - name: Check the Windows runtime against ADR-0003
+        id: runtime
+        shell: python
+        run: |
+          import os, platform, sqlite3, sys
+          versions = platform.python_version(), sqlite3.sqlite_version
+          matched = versions == ("3.10.11", "3.40.1")
+          print(platform.platform(), platform.machine(), sys.executable)
+          print(f"Python {versions[0]}, SQLite {versions[1]}, pins matched = {matched}")
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+              print(f"matched={str(matched).lower()}", file=out)
+      - if: steps.runtime.outputs.matched == 'true'
+        run: make verify
+      - if: steps.runtime.outputs.matched == 'true'
+        run: make test
+      - name: Runtime mismatch — run fixture and controlled-input tests
+        if: steps.runtime.outputs.matched == 'false'
+        run: |
+          Write-Warning "ADR-0003 pins differ. Full Windows verifier and suite NOT RUN."
+          python -m unittest earthquake.test_acquire earthquake.test_reconcile earthquake.test_preflight earthquake.test_evidence
   container:
     if: github.event.repository.visibility == 'public'
     runs-on: ubuntu-latest

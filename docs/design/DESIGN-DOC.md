@@ -30,7 +30,9 @@ Key each observation by the exact, case-sensitive GeoJSON feature ID. Compare th
 
 Count every feature before grouping. Across all files on each side, report raw rows, distinct IDs, IDs occurring more than once and rows beyond the first per ID. Every duplicate fails. Compare reference-only and daily-only IDs separately. For each shared ID, compare the set of observed values for each projected field, reporting one mismatch per ID and field with all contributing file locations. Duplicate multiplicity has its own check. Row order, request metadata and body hashes are outside field equality; the hashes identify the independently validated source files. A failed verdict blocks eligibility for publication.
 
-[MEASURED – machine log, 25 Nov] 15.68 GiB visible physical RAM, 3.37 GiB free at intake, 10 cores / 12 logical CPUs and 224.42 GiB free on C:. Windows 11, UEFI, Docker Linux engine verified. WSL2 Docker distribution listed. Native dual boot unconfirmed. Hypervisor present; firmware virtualization property returned false. Application deadline and monthly data cap unknown.
+[MEASURED – machine log, 25 Nov] 15.68 GiB visible physical RAM, 3.37 GiB free at intake, 10 cores / 12 logical CPUs and 224.42 GiB free on C:. Windows 11, UEFI, Docker Linux engine verified. WSL2 Docker distribution listed. Hypervisor present. The firmware virtualization property returned false. [Machine and container output](../evidence/quake-machine.txt)
+
+[NOT VERIFIED] Native dual boot, application deadline and monthly data cap.
 
 [ESTIMATE – one writer, small historical week, offline replay] Proposed ceilings, to measure under load:
 

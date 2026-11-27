@@ -23,7 +23,7 @@ Preserve measurements, identify unsupported claims by file and line, and use the
 
 ## Decision
 
-Run `make evidence-check` locally and in documentation CI. It scans README.md and immediate Markdown children of docs. Use the uppercase `[MEASURED ...]` marker and an inline Markdown link on the tag or after it in the same paragraph, list item or table row. Wrapped prose may continue onto the next line. The next tag begins a new claim. The resolved link must name a file under docs/evidence or docs/benchmarks. Code samples are excluded.
+Run `make evidence-check` locally and in documentation CI. It scans README.md and all Markdown files recursively under docs. Use the uppercase `[MEASURED ...]` marker and an inline Markdown link on the tag or after it in the same paragraph, list item or table row. Wrapped prose may continue onto the next line. The next tag begins a new claim. The resolved link must name a file under docs/evidence or docs/benchmarks. Code samples are excluded.
 
 ## Why each alternative was rejected
 
