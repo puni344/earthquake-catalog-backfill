@@ -36,3 +36,13 @@ class EvidenceTest(unittest.TestCase):
         self.assertEqual(count, 5)
         self.assertEqual([s.split(": ")[0] for s in errors],
                          [f"README.md:{line}" for line in (1, 2, 3, 4)])
+
+    def test_nested_claims_include_runbooks_and_postmortems(self):
+        for folder in ("adr", "benchmarks", "runbooks/nested", "postmortems", "evidence"):
+            directory = self.docs / folder
+            directory.mkdir(parents=True, exist_ok=True)
+            (directory / "example.md").write_text("[MEASURED today] unsupported", encoding="utf8")
+        count, errors = check(self.root)
+        self.assertEqual(count, 5)
+        self.assertEqual(len(errors), 5)
+        self.assertIn("docs/runbooks/nested/example.md:1:", "\n".join(errors))

@@ -57,7 +57,7 @@ def check(root):
     roots = (docs / "evidence", docs / "benchmarks")
     errors = []
     count = 0
-    for document in [root / "README.md", *sorted(docs.glob("*.md"))]:
+    for document in [root / "README.md", *sorted(docs.rglob("*.md"))]:
         for number, text in claims(document):
             count += 1
             if not has_evidence(text, document, roots):
