@@ -40,7 +40,9 @@ class HostedTest(unittest.TestCase):
 
             try:
                 self.assertEqual(call("/start", "POST", source="https://elsewhere.example")[0], "403")
-                a, b = start(), start()
+                a = start()
+                self.assertEqual(call("/start", "POST", a)[0], "409")
+                b = start()
                 self.assertNotEqual(a, b)
                 self.assertEqual(call("/start", "POST")[0], "429")
                 old, other = wait(a, "paused"), wait(b, "paused")
