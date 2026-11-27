@@ -52,6 +52,7 @@ def has_evidence(text, document, roots):
 
 
 def check(root):
+    root = root.resolve()
     docs = root / "docs"
     roots = (docs / "evidence", docs / "benchmarks")
     errors = []
