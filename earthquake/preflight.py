@@ -18,6 +18,10 @@ COMPONENTS = (
 )
 
 
+def native_windows():
+    return os.name == "nt"
+
+
 def locations():
     import winreg
 
@@ -94,7 +98,7 @@ def run():
             raise ValueError(f"Python {python}; ADR-0003 requires 3.10.11")
         if sqlite != "3.40.1":
             raise ValueError(f"SQLite {sqlite}; ADR-0003 requires 3.40.1")
-        if os.name != "nt":
+        if not native_windows():
             raise ValueError(f"unsupported OS {sys.platform}; preflight targets native Windows")
 
         local, candidate, repo, roots = locations()

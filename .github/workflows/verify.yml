@@ -24,6 +24,10 @@ jobs:
         with:
           python-version: '3.x'
       - run: make verify
+      - run: make test
+      - run: python3 -m earthquake.verify --drill history
+      - run: python3 -m earthquake.verify --drill publish
+      - run: python3 -m earthquake.verify --drill restart
   container:
     if: github.event.repository.visibility == 'public'
     runs-on: ubuntu-latest

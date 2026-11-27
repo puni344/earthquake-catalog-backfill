@@ -4,9 +4,12 @@ import json
 import multiprocessing
 import os
 import sqlite3
+import sys
+import tempfile
 from collections import Counter
 from contextlib import closing
 from decimal import Decimal
+from pathlib import Path
 from uuid import uuid4
 
 from . import acquire, ingest, preflight, reconcile
@@ -19,10 +22,25 @@ def require(condition, reason):
         raise ValueError(reason)
 
 
+def portable_state_directory():
+    """Private per-user scratch directory for Linux and macOS (EQ_STATE_DIR overrides it)."""
+    override = os.environ.get("EQ_STATE_DIR")
+    uid = os.getuid()
+    base = Path(override) if override else Path(tempfile.gettempdir()) / f"d2-earthquake-catalog-{uid}"
+    base.mkdir(mode=0o700, parents=True, exist_ok=True)
+    base = base.resolve()
+    info = base.stat()
+    require(info.st_uid == uid, f"state directory {base} is owned by another user")
+    require(not info.st_mode & 0o022, f"state directory {base} must not be group- or world-writable")
+    return base
+
+
 def state_directory():
-    if preflight.run():
-        raise ValueError("local state preflight failed")
-    return preflight.locations()[1].resolve()
+    if sys.platform == "win32":  # keep the audited Windows volume, RAM and OneDrive checks
+        if preflight.run():
+            raise ValueError("local state preflight failed")
+        return preflight.locations()[1].resolve()
+    return portable_state_directory()
 
 
 def worker(db, channel, boundary, target, ingestion, inputs):

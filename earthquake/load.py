@@ -4,6 +4,7 @@ import json
 import math
 import os
 import statistics
+import sys
 import tempfile
 import threading
 import time
@@ -134,6 +135,9 @@ def trial(db, level, rep, old, new):
 
 
 def run():
+    if sys.platform != "win32":
+        print("SKIP: the load benchmark samples Windows working sets (kernel32); run it on Windows 11.")
+        return 2
     try:
         state = restart.state_directory()
         old, new = publish_drill.oracles()

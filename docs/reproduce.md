@@ -4,6 +4,20 @@
 
 Clone the repository, enter its root, and run `make verify`. Use a current CPython 3 release and GNU Make; the Python dependencies are all in the standard library. Make invokes `python3` on these systems. Native CI selects an available Python 3 release on each runner and prints its exact version. Docker pins Python 3.11.14 for reproducibility. With only Python installed, run `python3 -m earthquake.verify`. To select another interpreter explicitly use `make verify PYTHON=/path/to/python3.11`. The verifier creates a private temporary directory, terminates the paused worker with SIGTERM, inspects the same database after restart, then removes it. The Windows-specific machine preflight and working-set benchmark remain Windows drills.
 
+Run every unit test, then the published-catalog walkthrough (the Linux and macOS equivalent of the PowerShell commands below). Scratch databases go to a private per-user directory under the system temp directory, or to `EQ_STATE_DIR` if you set it ([ADR-0005](adr/0005-portable-state-directory.md)).
+
+```sh
+make test
+run=$(python3 -m earthquake.verify --drill history)
+db=$(printf '%s\n' "$run" | sed -n 's/.*history database=\(.*\) fixture=.*/\1/p')
+python3 -m earthquake.history --db "$db" list
+python3 -m earthquake.history --db "$db" current | python3 -c "import json,sys; d=json.load(sys.stdin); print(d['id'], len(d['rows']))"
+python3 -m earthquake.verify --drill publish    # publisher crash with concurrent readers
+python3 -m earthquake.verify --drill restart    # worker crash and recovery
+```
+
+`list` shows two releases covering the same start date, 1,090 and 2,569 events. The load drill (`--drill load`) samples Windows working sets, so elsewhere it prints a skip message and exits 2.
+
 ## Docker
 
 Use a Linux-container Docker engine. Build once from the repository root (the first build downloads the Python base image), then run offline:

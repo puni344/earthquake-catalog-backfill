@@ -22,7 +22,8 @@ class PreflightFailures(unittest.TestCase):
     def reject(self, expected, *, python="3.10.11", sqlite="3.40.1", state=None,
                total=8192, available=4096, disk=2048):
         output = io.StringIO()
-        with patch.object(preflight.platform, "python_version", return_value=python), \
+        with patch.object(preflight, "native_windows", return_value=True), \
+             patch.object(preflight.platform, "python_version", return_value=python), \
              patch.object(preflight.sqlite3, "sqlite_version", sqlite), \
              patch.object(preflight, "locations", return_value=(
                  self.base, state or self.state, self.repo, [self.root])), \
