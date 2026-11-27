@@ -9,6 +9,7 @@ import tempfile
 import threading
 import time
 
+from .annual_dashboard import Annual
 from .dashboard import ASSETS, Presentation
 
 
@@ -17,7 +18,8 @@ class CapacityError(Exception):
 
 
 class Sessions:
-    def __init__(self, root, ttl=600, limit=2):
+    def __init__(self, root, ttl=600, limit=2, factory=Presentation):
+        self.factory = factory
         self.root = root
         self.ttl = ttl
         self.limit = limit
@@ -53,7 +55,7 @@ class Sessions:
                     retired = next(k for k, (p, _) in self.entries.items() if not p.thread.is_alive())
                     self.entries.pop(retired)[0].close()
                 key = secrets.token_urlsafe(32)
-                app = Presentation(self.root)
+                app = self.factory(self.root)
             app.start()
             self.starts.append(now)
             self.entries[key] = app, now + self.ttl
@@ -69,7 +71,7 @@ class Sessions:
             if method == "GET" and path == "/state":
                 if app:
                     return None, app.snapshot()
-                state = Presentation(self.root).snapshot()
+                state = self.factory(self.root).snapshot()
                 if key:
                     state["detail"] = "Session expired. Start a fresh demo."
                 return None, state
@@ -79,7 +81,7 @@ class Sessions:
             if method == "POST" and len(parts) == 2 and parts[0] == "continue":
                 app.resume(parts[1])
                 return None, app.snapshot()
-            if method == "GET" and len(parts) == 3 and parts[0] == "edition":
+            if method == "GET" and len(parts) == 3 and parts[0] == "edition" and isinstance(app, Presentation):
                 return None, app.edition(parts[1], parts[2])
             raise LookupError("Unknown route")
 
@@ -88,11 +90,14 @@ class Hosted:
     def __init__(self, origin, root):
         self.origin = origin
         self.sessions = Sessions(root)
+        self.annual = Sessions(root, limit=1, factory=Annual)
+        self.capacity_lock = threading.Lock()
         self.assets = {url: ((ASSETS / name).read_bytes(), mime) for url, name, mime in [
             ("/", "index.html", "text/html"), ("/app.js", "app.js", "text/javascript"),
+            ("/annual", "annual.html", "text/html"), ("/annual.js", "annual.js", "text/javascript"),
             ("/style.css", "style.css", "text/css")]}
         html, mime = self.assets["/"]
-        self.assets["/"] = html.replace(b"Local session", b"Live session"), mime
+        self.assets["/"] = html.replace(b"Local session", b"Live session").replace(b"</header>", b'<a href="/annual">Full-year benchmark &#8599;</a></header>'), mime
 
     def __call__(self, env, respond):
         method, path = env["REQUEST_METHOD"], env["PATH_INFO"]
@@ -113,10 +118,20 @@ class Hosted:
                     cookie.load(env.get("HTTP_COOKIE", ""))
                 except CookieError:
                     cookie.clear()
-                key = cookie["d2session"].value if "d2session" in cookie else None
-                issued, data = self.sessions.dispatch(key, method, path)
+                annual = path.startswith("/annual/")
+                registry, other = (self.annual, self.sessions) if annual else (self.sessions, self.annual)
+                cookie_name = "d2annual" if annual else "d2session"
+                key = cookie[cookie_name].value if cookie_name in cookie else None
+                route = path[len("/annual"):] if annual else path
+                if method == "POST" and route == "/start":
+                    with self.capacity_lock, other.lock:
+                        if any(app.thread.is_alive() for app, _ in other.entries.values()):
+                            raise CapacityError("Another demo is active. Finish recovery or try again shortly.")
+                        issued, data = registry.dispatch(key, method, route)
+                else:
+                    issued, data = registry.dispatch(key, method, route)
                 if issued:
-                    headers.append(("Set-Cookie", f"d2session={issued}; Path=/; Secure; HttpOnly; SameSite=Strict"))
+                    headers.append(("Set-Cookie", f"{cookie_name}={issued}; Path=/; Secure; HttpOnly; SameSite=Strict"))
         except CapacityError as exc:
             status, data = "429 Too Many Requests", {"error": str(exc)}
         except ValueError as exc:
@@ -138,6 +153,7 @@ def main():
         def reap():
             while not stop.wait(5):
                 site.sessions.discard_expired()
+                site.annual.discard_expired()
 
         thread = threading.Thread(target=reap, daemon=True)
         thread.start()
@@ -147,7 +163,7 @@ def main():
         finally:
             stop.set()
             thread.join()
-            for app, _ in site.sessions.entries.values():
+            for app, _ in list(site.sessions.entries.values()) + list(site.annual.entries.values()):
                 app.close()
 
 

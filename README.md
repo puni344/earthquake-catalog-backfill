@@ -1,12 +1,14 @@
 # Earthquake catalog backfill with versioned releases
 
-**[🟢 Run the live crash demo](https://puni344-earthquake-catalog-backfill.onrender.com/)** · [🎬 Four-minute walkthrough](docs/DEFENCE.md#four-minute-recording-script)
+**[🟢 Run the live crash demo](https://puni344-earthquake-catalog-backfill.onrender.com/)** · [Run the full-year benchmark](https://puni344-earthquake-catalog-backfill.onrender.com/annual) · [🎬 Four-minute walkthrough](docs/DEFENCE.md#four-minute-recording-script)
 
 Can an analyst still read yesterday’s release while an interrupted backfill recovers? This project answers that question using **one real USGS week, 2,569 distinct earthquakes and seven daily transactions**. A release ID identifies the events and values published for a declared date range. Individual earthquake revision tracking is outside the project’s scope.
 
 | 🟠 Interrupt | 🔵 Inspect | 🟢 Recover |
 |---|---|---|
 | Click **Run crash demo**. The worker dies before October 4 commits. | Click **Query current**. The October 1–3 release still returns 1,090 events. | Click **Continue recovery**. October 4 replays, the week publishes, and both releases remain readable by ID. |
+
+The full-year dashboard ingests the frozen 2024 release into a fresh database. Click **Run annual benchmark**, inspect the rows and checkpoints that survived the late worker crash, then click **Continue recovery**. The distinct event count appears after comparison with independent reference responses. The host downloads the checksum-pinned release once per service process.
 
 The free instance may take a minute to wake. Each visitor gets a temporary database. [Dashboard screenshot](docs/evidence/dashboard-history.png)
 

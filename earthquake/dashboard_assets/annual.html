@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Annual benchmark · Catalog recovery</title><link href="/style.css" rel="stylesheet">
+<header><div><b class="brand">D2</b> Catalog observatory</div><a href="/">Weekly demo ↗</a></header>
+<main><section class="intro"><div><small>USGS / January–December 2024 UTC</small><h1>Full-year recovery</h1>
+<p>Stop the ingestion worker near year-end, inspect the committed rows, then resume and check the entire catalog.</p></div>
+<button id="start" disabled>Run annual benchmark</button></section>
+<section class="panel"><div class="notice" role="status"><strong id="phase">Connecting</strong><span id="detail"></span>
+<button id="resume" hidden>Continue recovery</button></div></section>
+<div class="cards"><section class="panel"><h2>After the crash</h2><dl id="observation"></dl></section>
+<section class="panel"><h2>Recovered catalog</h2><dl id="result"></dl></section></div>
+<p role="alert" id="error"></p></main><script src="/annual.js"></script></html>

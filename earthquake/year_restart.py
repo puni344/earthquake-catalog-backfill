@@ -28,9 +28,11 @@ def observe_before_resume(database, identity, planned, cut):
         counts = dict(db.execute("SELECT day, count(*) FROM observations GROUP BY day"))
     expected = {r["start"][:10]: r["features"] for r in committed if r["features"]}
     restart.require(counts == expected, "pre-resume rows differ from committed windows")
-    print("PRE_RESUME", json.dumps(dict(checkpoints=len(keys), rows=sum(counts.values()),
+    observed = dict(checkpoints=len(keys), rows=sum(counts.values()),
                                        target_rows=counts.get(planned[cut]["start"][:10], 0),
-                                       target_checkpoint=False)))
+                                       target_checkpoint=False)
+    print("PRE_RESUME", json.dumps(observed))
+    return observed
 
 
 def verify_rows(database, scratch, folder, records):
@@ -70,7 +72,7 @@ def verify_rows(database, scratch, folder, records):
         return stats
 
 
-def benchmark(folder):
+def benchmark(folder, scratch_root=None, on_interrupted=None):
     identity, records = year.read_manifest(folder)
     planned = [r for r in records if r["role"] == "ingest"]
     days = [r["start"][:10] for r in planned]
@@ -78,7 +80,7 @@ def benchmark(folder):
     target = days[cut]
     print(f"UTC={acquire.now()} OS={platform.platform()} Python={platform.python_version()} SQLite={sqlite3.sqlite_version}")
     print(f"CAPTURE manifest_sha256={identity} responses={len(records)} bytes={sum(r['size'] for r in records)}")
-    with TemporaryDirectory(prefix="year-drill-", dir=folder.parent) as directory:
+    with TemporaryDirectory(prefix="year-drill-", dir=scratch_root or folder.parent) as directory:
         database = Path(directory) / "catalog.sqlite"
         args = dict(target=target, ingestion=year_worker, inputs=(folder,))
         first = perf_counter()
@@ -86,7 +88,9 @@ def benchmark(folder):
         kill_seconds = perf_counter()-first
         restart.require(restart.days_for(killed, "attempt") == days[:cut+1]
                         and restart.days_for(killed, "ack") == days[:cut], "wrong initial work")
-        observe_before_resume(database, identity, planned, cut)
+        observed = observe_before_resume(database, identity, planned, cut)
+        if on_interrupted:
+            on_interrupted(dict(target=target, killed_exit=code, **observed))
         first = perf_counter()
         resumed, _ = restart.worker_run(database, **args)
         seconds = perf_counter()-first
@@ -106,3 +110,4 @@ def benchmark(folder):
                       resume_seconds=round(seconds,3), verification_seconds=round(perf_counter()-first,3),
                       database_bytes=size, unique_events=stats["actual"]["unique"])
         print("YEAR PASS", json.dumps(report))
+        return report, stats
