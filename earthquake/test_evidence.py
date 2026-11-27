@@ -46,3 +46,13 @@ class EvidenceTest(unittest.TestCase):
         self.assertEqual(count, 5)
         self.assertEqual(len(errors), 5)
         self.assertIn("docs/runbooks/nested/example.md:1:", "\n".join(errors))
+
+    def test_later_table_does_not_supply_a_paragraph_citation(self):
+        self.readme.write_text(
+            "[MEASURED today] The verifier passed.\n\n"
+            "| Machine | Transcript |\n|---|---|\n"
+            "| Ubuntu | [log](docs/evidence/run.txt) |\n", encoding="utf8")
+        count, errors = check(self.root)
+        self.assertEqual(count, 1)
+        self.assertEqual(len(errors), 1)
+        self.assertTrue(errors[0].startswith("README.md:1:"))

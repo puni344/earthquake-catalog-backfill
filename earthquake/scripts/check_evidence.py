@@ -68,5 +68,5 @@ def check(root):
 
 if __name__ == "__main__":
     count, errors = check(ROOT)
-    print("\n".join(errors) if errors else f"PASS: {count} measured claims link to local evidence")
+    print("\n".join(errors) if errors else f"PASS: {count} measured claims link to local evidence; 0 flagged claims")
     sys.exit(bool(errors))
