@@ -1,0 +1,36 @@
+Local Windows laptop, 27 November 2026. Source: Task 0 PowerShell terminal transcript
+in the project conversation, before commit a438ded (reported in PR #1).
+Commands and selected output lines; omissions between excerpts. No rerun timings.
+https://github.com/puni344/earthquake-catalog-backfill/pull/1
+
+python -c "import platform,sqlite3; print(platform.platform(),platform.python_version(),sqlite3.sqlite_version)"
+Windows-10-10.0.26300-SP0 3.10.11 3.40.1
+
+make docs-check
+PASS: README and 25 docs checked; both indexes current; 5 ADRs valid
+exit=0
+
+make docs-test
+PASS: all three defects rejected for their expected reason
+exit=0
+
+make verify
+M08 PASS elapsed=4.262s
+exit=0
+
+make test
+Ran 32 tests in 14.725s
+OK
+exit=0
+
+python -m earthquake.verify --drill history
+PASS: shorter publication preserved; current and newer named read agree
+exit=0
+
+python -m earthquake.verify --drill publish
+PASS: publisher process crash, outage reads, retry and both historical IDs verified
+exit=0
+
+python -m earthquake.verify --drill restart
+Frozen restart correctness: PASS
+exit=0

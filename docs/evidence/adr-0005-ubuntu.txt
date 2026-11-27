@@ -1,0 +1,39 @@
+Raw excerpts from GitHub Actions. Timestamped lines below are unchanged.
+
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45970108628/job/140408186011
+gh run view 45970108628 --job 140408186011 --log
+native (ubuntu-latest)	Run make verify	﻿2026-11-27T09:00:36.5540446Z ##[group]Run make verify
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:39.0790686Z Runtime: Linux x86_64 | Python 3.15.2 | SQLite 3.46.1
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:40.7666208Z Live acquisition agreement: PASS
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:40.7666495Z Frozen restart correctness: PASS
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:40.7666755Z M08 PASS elapsed=2.643s
+native (ubuntu-latest)	Run make test	﻿2026-11-27T09:00:40.7736185Z ##[group]Run make test
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:50.1314343Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:50.1320223Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:51.8851517Z Ran 32 tests in 10.254s
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:51.8852155Z OK
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill history	﻿2026-11-27T09:00:51.9171166Z ##[group]Run python3 -m earthquake.verify --drill history
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill history	2026-11-27T09:00:53.3129294Z PASS: shorter publication preserved; current and newer named read agree
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill publish	﻿2026-11-27T09:00:53.3354460Z ##[group]Run python3 -m earthquake.verify --drill publish
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill publish	2026-11-27T09:00:56.3805183Z PASS: publisher process crash, outage reads, retry and both historical IDs verified
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill restart	﻿2026-11-27T09:00:56.3837688Z ##[group]Run python3 -m earthquake.verify --drill restart
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill restart	2026-11-27T09:00:57.8547076Z Frozen restart correctness: PASS
+
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45970120016/job/140408221502
+gh run view 45970120016 --job 140408221502 --log
+native (ubuntu-latest)	Run make verify	﻿2026-11-27T09:00:40.4431265Z ##[group]Run make verify
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:42.8744074Z Runtime: Linux x86_64 | Python 3.15.2 | SQLite 3.46.1
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:44.5954027Z Live acquisition agreement: PASS
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:44.5954507Z Frozen restart correctness: PASS
+native (ubuntu-latest)	Run make verify	2026-11-27T09:00:44.5954940Z M08 PASS elapsed=2.667s
+native (ubuntu-latest)	Run make test	﻿2026-11-27T09:00:44.6011818Z ##[group]Run make test
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:54.0377425Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:54.0383260Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:55.7856003Z Ran 32 tests in 10.357s
+native (ubuntu-latest)	Run make test	2026-11-27T09:00:55.7856542Z OK
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill history	﻿2026-11-27T09:00:55.8175265Z ##[group]Run python3 -m earthquake.verify --drill history
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill history	2026-11-27T09:00:57.2500623Z PASS: shorter publication preserved; current and newer named read agree
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill publish	﻿2026-11-27T09:00:57.2699949Z ##[group]Run python3 -m earthquake.verify --drill publish
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill publish	2026-11-27T09:01:00.4203061Z PASS: publisher process crash, outage reads, retry and both historical IDs verified
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill restart	﻿2026-11-27T09:01:00.4236046Z ##[group]Run python3 -m earthquake.verify --drill restart
+native (ubuntu-latest)	Run python3 -m earthquake.verify --drill restart	2026-11-27T09:01:01.9118012Z Frozen restart correctness: PASS

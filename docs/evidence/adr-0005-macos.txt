@@ -1,0 +1,39 @@
+Raw excerpts from GitHub Actions. Timestamped lines below are unchanged.
+
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45970108628/job/140408185986
+gh run view 45970108628 --job 140408185986 --log
+native (macos-latest)	Run make verify	﻿2026-11-27T09:00:37.9800860Z ##[group]Run make verify
+native (macos-latest)	Run make verify	2026-11-27T09:00:40.4773730Z Runtime: Darwin arm64 | Python 3.15.2 | SQLite 3.53.4
+native (macos-latest)	Run make verify	2026-11-27T09:00:41.7866730Z Live acquisition agreement: PASS
+native (macos-latest)	Run make verify	2026-11-27T09:00:41.7866950Z Frozen restart correctness: PASS
+native (macos-latest)	Run make verify	2026-11-27T09:00:41.7867170Z M08 PASS elapsed=1.998s
+native (macos-latest)	Run make test	﻿2026-11-27T09:00:41.7996750Z ##[group]Run make test
+native (macos-latest)	Run make test	2026-11-27T09:00:48.4504280Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (macos-latest)	Run make test	2026-11-27T09:00:48.4526390Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (macos-latest)	Run make test	2026-11-27T09:00:49.8475970Z Ran 32 tests in 7.802s
+native (macos-latest)	Run make test	2026-11-27T09:00:49.8476230Z OK
+native (macos-latest)	Run python3 -m earthquake.verify --drill history	﻿2026-11-27T09:00:49.8917780Z ##[group]Run python3 -m earthquake.verify --drill history
+native (macos-latest)	Run python3 -m earthquake.verify --drill history	2026-11-27T09:00:51.4634630Z PASS: shorter publication preserved; current and newer named read agree
+native (macos-latest)	Run python3 -m earthquake.verify --drill publish	﻿2026-11-27T09:00:51.4851310Z ##[group]Run python3 -m earthquake.verify --drill publish
+native (macos-latest)	Run python3 -m earthquake.verify --drill publish	2026-11-27T09:00:55.0031000Z PASS: publisher process crash, outage reads, retry and both historical IDs verified
+native (macos-latest)	Run python3 -m earthquake.verify --drill restart	﻿2026-11-27T09:00:55.0412490Z ##[group]Run python3 -m earthquake.verify --drill restart
+native (macos-latest)	Run python3 -m earthquake.verify --drill restart	2026-11-27T09:00:56.2230760Z Frozen restart correctness: PASS
+
+https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45970120016/job/140408220824
+gh run view 45970120016 --job 140408220824 --log
+native (macos-latest)	Run make verify	﻿2026-11-27T09:00:40.5115010Z ##[group]Run make verify
+native (macos-latest)	Run make verify	2026-11-27T09:00:42.2003510Z Runtime: Darwin arm64 | Python 3.15.2 | SQLite 3.53.4
+native (macos-latest)	Run make verify	2026-11-27T09:00:43.4567700Z Live acquisition agreement: PASS
+native (macos-latest)	Run make verify	2026-11-27T09:00:43.4567970Z Frozen restart correctness: PASS
+native (macos-latest)	Run make verify	2026-11-27T09:00:43.4568180Z M08 PASS elapsed=1.779s
+native (macos-latest)	Run make test	﻿2026-11-27T09:00:43.5043700Z ##[group]Run make test
+native (macos-latest)	Run make test	2026-11-27T09:00:48.6168990Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (macos-latest)	Run make test	2026-11-27T09:00:48.6175000Z Frozen restart correctness: PASS (recorded M04 run 0e9802cc5b91483a8bd8764b0ad87693, 2026-11-26T07:06:32.358Z, M04-restart.json; not rerun here)
+native (macos-latest)	Run make test	2026-11-27T09:00:50.4440560Z Ran 32 tests in 6.685s
+native (macos-latest)	Run make test	2026-11-27T09:00:50.4440780Z OK
+native (macos-latest)	Run python3 -m earthquake.verify --drill history	﻿2026-11-27T09:00:50.4677350Z ##[group]Run python3 -m earthquake.verify --drill history
+native (macos-latest)	Run python3 -m earthquake.verify --drill history	2026-11-27T09:00:51.6140990Z PASS: shorter publication preserved; current and newer named read agree
+native (macos-latest)	Run python3 -m earthquake.verify --drill publish	﻿2026-11-27T09:00:51.6278930Z ##[group]Run python3 -m earthquake.verify --drill publish
+native (macos-latest)	Run python3 -m earthquake.verify --drill publish	2026-11-27T09:00:53.6728650Z PASS: publisher process crash, outage reads, retry and both historical IDs verified
+native (macos-latest)	Run python3 -m earthquake.verify --drill restart	﻿2026-11-27T09:00:53.6773180Z ##[group]Run python3 -m earthquake.verify --drill restart
+native (macos-latest)	Run python3 -m earthquake.verify --drill restart	2026-11-27T09:00:54.8433120Z Frozen restart correctness: PASS
