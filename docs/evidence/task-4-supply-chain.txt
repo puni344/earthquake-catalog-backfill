@@ -1,0 +1,42 @@
+Task 4 pin verification, Windows laptop, 27 November 2026. Selected output.
+
+git ls-remote --tags https://github.com/actions/setup-python.git 'refs/tags/v5*' 'refs/tags/v6*'
+a26af69be951a213d495a4c3e4e4022e16d87065  refs/tags/v5
+a26af69be951a213d495a4c3e4e4022e16d87065  refs/tags/v5.6.0
+ece7cb06caefa5fff74198d8649806c4678c61a1  refs/tags/v6
+ece7cb06caefa5fff74198d8649806c4678c61a1  refs/tags/v6.3.0
+
+git ls-remote https://github.com/actions/checkout.git refs/tags/v4.2.2 'refs/tags/v4.2.2^{}'
+11bd71901bbe5b1630ceea73d27597364c9af683  refs/tags/v4.2.2
+
+Python urllib GET https://registry-1.docker.io/v2/library/python/manifests/<ref>
+Anonymous pull scope library/python. For each response, compared hashlib.sha256(body)
+with Docker-Content-Digest and required a linux/amd64 entry. Repeated by digest.
+HTTP status / requested ref / Content-Type / body bytes / computed SHA-256:
+200 3.11.14-slim-bookworm application/vnd.oci.image.index.v1+json 9131 sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d
+200 sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d application/vnd.oci.image.index.v1+json 9131 sha256:65a93d69fa75478d554f4ad27c85c1e69fa184956261b4301ebaf6dbb0a3543d
+
+gh api repos/puni344/earthquake-catalog-backfill/private-vulnerability-reporting --jq .enabled
+false
+
+Local real Waitress request-body probe. Windows laptop, Python 3.10.11.
+Installed waitress==3.0.2 into a disposable directory and called earthquake.hosted.main().
+Only the listener address was replaced with 127.0.0.1. GET /health returned 200.
+Sent POST /unused with the matching Origin and Content-Length using http.client.
+409 is the adapter's missing-session response; 413 is the server's rejection.
+POST /unused 1023 bytes: 409
+POST /unused 1024 bytes: 413
+POST /unused 1025 bytes: 413
+
+Local Windows regression, 27 November 2026. Selected output:
+make evidence-check exit=0
+PASS: 35 measured claims link to local evidence; 0 flagged claims
+make docs-check exit=0
+PASS: README and 29 docs checked; both indexes current; 9 ADRs valid
+make docs-test exit=0
+PASS: all three defects rejected for their expected reason
+make verify exit=0
+M08 PASS elapsed=4.577s
+make test exit=0
+Ran 36 tests in 15.218s
+OK
