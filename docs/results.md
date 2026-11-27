@@ -24,3 +24,5 @@ Commit `265e739` exercised the same frozen week, worker termination, rollback in
 | Docker Linux x86-64, non-root, network disabled | 3.11.14 / 3.40.1 | 3.255 s | 19 | 0 / 0 / 0 |
 
 The first native CI attempt stopped at interpreter installation. Selecting the runner's available Python 3 release resolved that portability issue. [Initial CI attempt](https://github.com/puni344/earthquake-catalog-backfill/actions/runs/45877071374)
+
+A separate [annual crash benchmark](benchmarks/year-restart.md) measured a 152,183-event backfill, 51 skipped windows and one replayed window.

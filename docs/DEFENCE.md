@@ -1,6 +1,6 @@
 # Defending the D2 earthquake catalog
 
-**Interview introduction.** I built a restartable catalog backfill with versioned releases. My test dataset is one week of 2,569 real events. The two release IDs cover different UTC intervals. Following the revision history of a single earthquake would require earlier and later observations of that same event.
+**Interview introduction.** I built a restartable catalog backfill with versioned releases. The live demo covers 2,569 real events. A separate [year-scale recovery benchmark](benchmarks/year-restart.md) covers 152,183 unique events. The two release IDs cover different UTC intervals. Following the revision history of a single earthquake would require earlier and later observations of that same event.
 
 ## Four-minute recording script
 
@@ -15,7 +15,7 @@
 
 ## Three résumé bullets
 
-- Built an offline USGS backfill verifier that compared 2,569 events across independent whole-week and daily captures, killed a SQLite worker before commit and recovered all records with zero projected-field mismatches. [Integrated run](evidence/quake-verify.txt)
+- Built a restartable SQLite backfill for 152,183 real 2024 USGS earthquakes. After a forced pre-commit worker exit, recovery skipped 51 committed windows and replayed one; independent reference checks found zero missing, extra, duplicate or field-mismatched records. [Year-scale drill](benchmarks/year-restart.md)
 - Implemented immutable publication history and exercised four concurrent reader loops across a publisher crash. All 36 current reads matched their ID-specific reference digest, and both historical extracts remained retrievable. [Publisher drill](evidence/quake-publish.txt)
 - Diagnosed a redundant 1,839,817-byte download after an acquisition crash. Persisted request-bound receipts and verified zero repeat requests for the intact body while completing all seven remaining daily requests. [Before and after](evidence/M07-orphan-remediation.txt)
 

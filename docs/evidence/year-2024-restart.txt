@@ -1,0 +1,100 @@
+2024 worldwide ComCat earthquake benchmark | 27 November 2026 IST | Windows i5-1235U laptop
+Capture command: python -u -m earthquake.year capture <local-state>/year-2024-capture
+reference 2024-01-01 | HTTP 200 | 3944 features | 2814367 bytes | 1cdcb51b4a4be4ab3f8c8c9a6db2f02525e9759224fff57e3dade930937ed82f | attempts=1
+reference 2024-01-13 | HTTP 200 | 4776 features | 3402699 bytes | ade7b41d5b916068f8c7aef2aa18245fffc3b54f2733759eecc41edfbcff1147 | attempts=1
+reference 2024-01-25 | HTTP 200 | 6304 features | 4520902 bytes | adace1d110140d88e9acae2d22e3e9026611119c3eeb488948f640deef140078 | attempts=1
+reference 2024-02-06 | HTTP 200 | 6117 features | 4373854 bytes | 759e3f467c4ac4eb87f58e784290c187a8a0f51b96bb83c6e1843cc7edbd38ab | attempts=1
+reference 2024-02-18 | HTTP 200 | 5815 features | 4144595 bytes | 6fc7013c9906466e75886bbbd8685418b8b9691e532d761dd97cab049b44a8c1 | attempts=1
+reference 2024-03-01 | HTTP 200 | 5558 features | 3956373 bytes | c095b5ebda046b2012a35559a474346152d0ba9aa094f6dab454b1313c9f9d37 | attempts=1
+reference 2024-03-13 | HTTP 200 | 5098 features | 3635050 bytes | c1ad5927afaa6931c40027daffce653868e774624053c621a7d378dbcb0d11c7 | attempts=1
+reference 2024-03-25 | HTTP 200 | 5095 features | 3634516 bytes | d385f7579161ce20d6fb7bfc7dfb998669f732ed078496407239d60823e01647 | attempts=1
+reference 2024-04-06 | HTTP 200 | 4832 features | 3444251 bytes | 6fcbb54cefea6e3332563acde3f56ad75413e7d7e53272da39e686368562a3e1 | attempts=1
+reference 2024-04-18 | HTTP 200 | 6126 features | 4368963 bytes | a657036d083963e176b182eb7f5ade144a64823868802f615326cb5583edd576 | attempts=1
+reference 2024-04-30 | HTTP 200 | 5443 features | 3896550 bytes | b28858f385e9dfa647545ffe953b4c76867ab2229279ceb1368c5fdb722dc3e0 | attempts=1
+reference 2024-05-12 | HTTP 200 | 5335 features | 3825655 bytes | 92fd34c8d3e8698b1b67ff431042db67fe57b7c48f4068c82a443d36e4052d8f | attempts=1
+reference 2024-05-24 | HTTP 200 | 4979 features | 3565460 bytes | b40dc95afaa300c079295c7119a89054bfc7c82570e4e223c8244b0ab78db6dd | attempts=1
+reference 2024-06-05 | HTTP 200 | 5297 features | 3796658 bytes | bac19a8357c6b588ebdbd179eff95fe6ddd3d4fd813f59574c740aff171867ec | attempts=1
+reference 2024-06-17 | HTTP 200 | 4775 features | 3419728 bytes | c7d036908518c32014347d0cc642637ae0c7e9009104cc1d58f9e5c35049ef47 | attempts=1
+reference 2024-06-29 | HTTP 200 | 4867 features | 3488252 bytes | de2076d89d468aaa019fa9e92e3e2e533b6933a5a9d365bf2e004ff1269ab219 | attempts=1
+reference 2024-07-11 | HTTP 200 | 4589 features | 3295527 bytes | 9b48c36f4a8a8f1368b5c6f39de4dfcc4ae62f0cb25df7b3ba445b2c72352036 | attempts=1
+reference 2024-07-23 | HTTP 200 | 5606 features | 4023972 bytes | c929e37d229dd2ffea9f8472792a37b693c7a4e487288654617c5f8a50dd9268 | attempts=1
+reference 2024-08-04 | HTTP 200 | 5141 features | 3699896 bytes | 5538378e9ebd0a06057ae40b0135a674cde2029da361447c87f26d764f737593 | attempts=1
+reference 2024-08-16 | HTTP 200 | 4621 features | 3320848 bytes | bce54dc77380d8540c68aff34c5573fbb55a8bbfef1b5786562596ce198d1538 | attempts=1
+reference 2024-08-28 | HTTP 200 | 4896 features | 3514892 bytes | e11f3ed562154f289d8e149be8a9a9f3b57b8525b07986c25d594e3e47ab0b61 | attempts=1
+reference 2024-09-09 | HTTP 200 | 4888 features | 3510084 bytes | b4a04485ee548463c06849ee0a36df3d35b8dd9dd66edeefb72a42aa5257263d | attempts=1
+reference 2024-09-21 | HTTP 200 | 4565 features | 3276604 bytes | 3778b09e8ab453b91b56d94e18dd5f7674e8b933c45da32aa7fc326977de7579 | attempts=1
+reference 2024-10-03 | HTTP 200 | 4559 features | 3272635 bytes | 9b7cbd00657e178a73c35c514899c7afbaa5b44cdbc66a19afb20832a27486b4 | attempts=1
+reference 2024-10-15 | HTTP 200 | 4581 features | 3288267 bytes | c5ff6b48bd980600ccbc39367f3940a8fc0cc52a2a9ac4bedc434ae546f108df | attempts=1
+reference 2024-10-27 | HTTP 200 | 3973 features | 2850618 bytes | 0166e03ae744e5a24bd5f969b23a022e30f3189edf9db49627b2313d1cfc7242 | attempts=1
+reference 2024-11-08 | HTTP 200 | 3727 features | 2677351 bytes | b98857d0fbed8a99ae1c2cab96fd555fbf800fcb875149d0a49f62a258783571 | attempts=1
+reference 2024-11-20 | HTTP 200 | 4279 features | 3077195 bytes | 8c19a505612d0aa0339cd1f24ac1f7fc3745525725bb85d14408a30921482b65 | attempts=1
+reference 2024-12-02 | HTTP 200 | 5649 features | 4070199 bytes | ba5292fd9c5b021c794f62e1297dd87929aff369c916f906f9178dcf60c623b1 | attempts=1
+reference 2024-12-14 | HTTP 200 | 4404 features | 3160690 bytes | 9a49d7e3047eec8548ed3d9b98615c79f29fbc4985253edd8d1183a686c92ff5 | attempts=1
+reference 2024-12-26 | HTTP 200 | 2344 features | 1678181 bytes | e0b573a5cbd6019e58fdd0555af2961ef70163fbe3cf6a66843a4730d164b2b3 | attempts=1
+ingest 2024-01-01 | HTTP 200 | 2424 features | 1729544 bytes | 4caadccd49e1ae5a1ab325641000de27ac201b0448825180cf920875fcde0fae | attempts=1
+ingest 2024-01-08 | HTTP 200 | 2178 features | 1555357 bytes | 3b55e494bbc8ebd8a452f634494beeaa5eaf89be0a257d8509e05f4dc7acefe2 | attempts=1
+ingest 2024-01-15 | HTTP 200 | 2796 features | 1991496 bytes | e1627e07a477252c3713eb0f57fbe8ddbc55bf020e9aa198ced2d284db1eb8d2 | attempts=1
+ingest 2024-01-22 | HTTP 200 | 3160 features | 2254876 bytes | 3197490c17ce9bf539ea44dfb630e3fc508b015865ec26600e24b319fbc2358a | attempts=1
+ingest 2024-01-29 | HTTP 200 | 4126 features | 2964265 bytes | f764a9fbb7cdfcddd4d01100ad98720a513d9b2b07d7ae027a9d26fc5a55c528 | attempts=1
+ingest 2024-02-05 | HTTP 200 | 3186 features | 2277327 bytes | 3973d477414c0029825d73e41f16be38f3e545f15e109ebf252f4944fa499d2e | attempts=1
+ingest 2024-02-12 | HTTP 200 | 3796 features | 2714061 bytes | 85445a6e46655b9ce68b47997302b9041f8c251ca68ac6cc568e00ed4a92bd66 | attempts=1
+ingest 2024-02-19 | HTTP 200 | 3468 features | 2473326 bytes | ac157617246446e9aac621d3b18f4f1117421e86f267fd6a60b8a89191cbdd6f | attempts=1
+ingest 2024-02-26 | HTTP 200 | 3214 features | 2287980 bytes | fcf94760a2a5356872fd122af60a491c39344b9e1334504b710750d15430cffa | attempts=1
+ingest 2024-03-04 | HTTP 200 | 3228 features | 2299300 bytes | c28cd8839e7043f07ac6ba3faba0199451abcc50f6fa4479bee21243dd30d286 | attempts=1
+ingest 2024-03-11 | HTTP 200 | 3135 features | 2232673 bytes | e297c520986fc4fd532964af049d871402d81392e5d3e19bbb9e5ef8c2044b20 | attempts=1
+ingest 2024-03-18 | HTTP 200 | 2901 features | 2069580 bytes | 96eef96c8d955340153a27696456c3f7f2f230652f9a725d92bb17aadc22f5c0 | attempts=1
+ingest 2024-03-25 | HTTP 200 | 2877 features | 2052171 bytes | 1c852fc8ca99d41d229e16071e485646eb3ff9e74c34fb82aba19342d5583021 | attempts=1
+ingest 2024-04-01 | HTTP 200 | 3089 features | 2203208 bytes | 952da0e241e94dabc8b07fb84b5afcbb898977daffca82c07b09d4ba9390ab80 | attempts=1
+ingest 2024-04-08 | HTTP 200 | 2665 features | 1898801 bytes | a0bc73a27e2e75a48052c7f8122d85b320d6a54e9047188ee47ebfec82859fcd | attempts=1
+ingest 2024-04-15 | HTTP 200 | 3330 features | 2375258 bytes | 4c526e3d8a2631a2a05d083d00c9cead829b467d46264f4a189f9ab4dcf6ccf7 | attempts=1
+ingest 2024-04-22 | HTTP 200 | 3485 features | 2486163 bytes | 86c34fcbb0e91656d29c84e920304c123fff431e64f81016747160d016c1a821 | attempts=1
+ingest 2024-04-29 | HTTP 200 | 3481 features | 2489799 bytes | 2e5a4f63e8c2f941e927923dcecfce2f2efb2c8df7c7fac548588c30c607afb4 | attempts=1
+ingest 2024-05-06 | HTTP 200 | 3039 features | 2178383 bytes | 80fbd893de7d52b833c7fca21c6d4dcce75665f1986887185940d6c06ac8bad9 | attempts=1
+ingest 2024-05-13 | HTTP 200 | 3447 features | 2471233 bytes | e071e8ba19a47ccfe7771aa21da801d3fd84e2e29a03c37d234c68807d621f00 | attempts=1
+ingest 2024-05-20 | HTTP 200 | 2575 features | 1844218 bytes | 96e429dd7f195685d1fde65b256264a81783c0fdca32f5da7ca774346663a1b5 | attempts=1
+ingest 2024-05-27 | HTTP 200 | 2804 features | 2008706 bytes | 89ffc42ce69b1cbfda31ad1e461c8642b6d7a0149ca0604f0571703f107302d6 | attempts=1
+ingest 2024-06-03 | HTTP 200 | 3457 features | 2480133 bytes | e80214d4c4347bc2605392aa185740d5186c76088b1c681a370e88565e408613 | attempts=1
+ingest 2024-06-10 | HTTP 200 | 2858 features | 2045934 bytes | f8136f7c6cc6bd361065ef40cff8a830377d6b71becd050a74d6bec877c8ac40 | attempts=1
+ingest 2024-06-17 | HTTP 200 | 2830 features | 2025938 bytes | 4e4ce957517f91e0e1be16b85d6f560aafc39bfddede05db5f42fc70f99f0368 | attempts=1
+ingest 2024-06-24 | HTTP 200 | 2881 features | 2065742 bytes | 3543813948df8920bce5b11e1f50025db48c8a0025b702edaf2f7d011c4a4160 | attempts=1
+ingest 2024-07-01 | HTTP 200 | 2730 features | 1955139 bytes | f547e878d95ef5765ecc7bf71a5286ee6261c66ef78f33f0b96a9ef5930a3e57 | attempts=1
+ingest 2024-07-08 | HTTP 200 | 2623 features | 1881976 bytes | 917546d8df64f1d13dbee6cd18f9975da0a97c503b1b5086722913a8ef98ae13 | attempts=1
+ingest 2024-07-15 | HTTP 200 | 2693 features | 1934299 bytes | e88cc7f51e71d80604b0fe3eeb4f37cd0742feba35c9420e0aa73309f6e9f867 | attempts=1
+ingest 2024-07-22 | HTTP 200 | 3676 features | 2639304 bytes | ef9cbe1a4173f9e532c3bd305df77927dfd30db368d30011ae7a519f58d51624 | attempts=1
+ingest 2024-07-29 | HTTP 200 | 2750 features | 1974670 bytes | 37c8789e0c7921adc64797620c140b356f8a7ddc809398cc1f7d0aa2761469fe | attempts=1
+ingest 2024-08-05 | HTTP 200 | 3117 features | 2245108 bytes | 29dbdd4e591d3338be538457638cbab1e67127bc7671066dbc2c18895d23ae2d | attempts=1
+ingest 2024-08-12 | HTTP 200 | 2714 features | 1951981 bytes | d1cd431a4c889233e8dc65839597323474f135ba8e4456d11798c2a761b214c0 | attempts=1
+ingest 2024-08-19 | HTTP 200 | 2880 features | 2068651 bytes | 725d0c95fb62feb0b2183f30efb2fc4fbcb1c1d519bce2e6e886497307fd4749 | attempts=1
+ingest 2024-08-26 | HTTP 200 | 2761 features | 1982449 bytes | 3583ef274a33c52ff4b6c7b6b310204550f171f54e32394f5b14ca5690bbebab | attempts=1
+ingest 2024-09-02 | HTTP 200 | 2840 features | 2039809 bytes | 75d42d2157e483ac409223e1e201975cf942b00fc30022868ef6fe10736333fb | attempts=1
+ingest 2024-09-09 | HTTP 200 | 2962 features | 2128109 bytes | b55a145c84bd9ce8477ef04daed496464d2683e0de766140fa29a04c06dde629 | attempts=1
+ingest 2024-09-16 | HTTP 200 | 2761 features | 1981946 bytes | 1dd497d959d9e6e56bccf1997dcab7a72e59555627e6886299eca262bdfce64c | attempts=1
+ingest 2024-09-23 | HTTP 200 | 2570 features | 1844295 bytes | 4669528b3f352f1d1b20dacf8325c4871333c30c82bb5ca67c6f738b8e40a668 | attempts=1
+ingest 2024-09-30 | HTTP 200 | 2592 features | 1862967 bytes | 47acb3196291e810dc67720df29cde6f2cdc4ece7873cbedd2171de713d7141c | attempts=1
+ingest 2024-10-07 | HTTP 200 | 2758 features | 1978784 bytes | f6d084550170400310a9eab1c8b9f4a71d9559f47cab033859bb60435b3e4e27 | attempts=1
+ingest 2024-10-14 | HTTP 200 | 2609 features | 1868547 bytes | 9e8c13136ae790a86f3fc38d56154d5dd2eae2de22c9b4ce74aceda85b88a79e | attempts=1
+ingest 2024-10-21 | HTTP 200 | 2714 features | 1951862 bytes | 3876394bf82bbbc910674db5a73efac4023b17167dca81938f0d5a0c54641c7e | attempts=1
+ingest 2024-10-28 | HTTP 200 | 2451 features | 1759062 bytes | 2630cec6eb9d0db755dfac716e7b59e1947e4c6352bd5c51b8b5a3567e9191a8 | attempts=1
+ingest 2024-11-04 | HTTP 200 | 2124 features | 1524498 bytes | 69465c4ab65a067c9b8657a690b55c9bfe3e561cfb6d74be516829fc309657fe | attempts=1
+ingest 2024-11-11 | HTTP 200 | 2124 features | 1526150 bytes | 0f3268fea5a103792f8a33d521ebdc284632d6f12f7ad5bad8190acb27a5cef5 | attempts=1
+ingest 2024-11-18 | HTTP 200 | 2170 features | 1557957 bytes | 21954b55e913abf6417cde859122a397dd10937ac21992961f8fa6501868d96b | attempts=1
+ingest 2024-11-25 | HTTP 200 | 2737 features | 1970529 bytes | a758034ca8e26b8cf771a9ccb9324ab2201d5c039fd4e638aeb6556e2d11c720 | attempts=1
+ingest 2024-12-02 | HTTP 200 | 3288 features | 2375396 bytes | a64f85091b77f34bb711184692fcba0ca6ce68ca4ee0c9bb1a05402e0f578fa8 | attempts=1
+ingest 2024-12-09 | HTTP 200 | 3179 features | 2283129 bytes | 17807d6d7035d2f1312480829444378b35c3f54686f5bbf78ba3aacc04aaaa8f | attempts=1
+ingest 2024-12-16 | HTTP 200 | 2622 features | 1882360 bytes | 25e9183ffe607a87fb8daad06981942a0044423f075d00536148ce73d732f707 | attempts=1
+ingest 2024-12-23 | HTTP 200 | 2584 features | 1850171 bytes | 93971010fd82668e15d6f59d172592a3a39b9ad85df35083232f6bc37e272c0a | attempts=1
+ingest 2024-12-30 | HTTP 200 | 724 features | 518795 bytes | 7d97dd7c5d71797b5169634e2516e6617ea3af4675651c2bb19e2da7c3c988d5 | attempts=1
+Sealed 84 independent response bodies
+exit=0
+
+Frozen archive: comcat-2024.zip | 26208986 bytes | SHA-256 1ab2db61a9b851cd63de14113468143368f4575cc7374fbcad33678509cb8a51
+Offline command after extracting the archive: python -u -m earthquake.year verify <local-state>/year-2024-replay
+Local user path abbreviated.
+UTC=2026-11-27T03:32:55.119Z OS=Windows-10-10.0.26300-SP0 Python=3.10.11 SQLite=3.40.1
+CAPTURE manifest_sha256=35b7a1522eda736d1116ff77f1a2b620c2ebdc36ad018882fa5ee3e9d243ca52 responses=84 bytes=218018247
+database=%LOCALAPPDATA%\D2EarthquakeCatalog\year-drill-3tcytfr7\catalog.sqlite pid=3276 boundary=before target=2024-12-23 method=TerminateProcess exit=-15 events=[["attempt", "2024-01-01"], ["ack", "2024-01-01"], ["attempt", "2024-01-08"], ["ack", "2024-01-08"], ["attempt", "2024-01-15"], ["ack", "2024-01-15"], ["attempt", "2024-01-22"], ["ack", "2024-01-22"], ["attempt", "2024-01-29"], ["ack", "2024-01-29"], ["attempt", "2024-02-05"], ["ack", "2024-02-05"], ["attempt", "2024-02-12"], ["ack", "2024-02-12"], ["attempt", "2024-02-19"], ["ack", "2024-02-19"], ["attempt", "2024-02-26"], ["ack", "2024-02-26"], ["attempt", "2024-03-04"], ["ack", "2024-03-04"], ["attempt", "2024-03-11"], ["ack", "2024-03-11"], ["attempt", "2024-03-18"], ["ack", "2024-03-18"], ["attempt", "2024-03-25"], ["ack", "2024-03-25"], ["attempt", "2024-04-01"], ["ack", "2024-04-01"], ["attempt", "2024-04-08"], ["ack", "2024-04-08"], ["attempt", "2024-04-15"], ["ack", "2024-04-15"], ["attempt", "2024-04-22"], ["ack", "2024-04-22"], ["attempt", "2024-04-29"], ["ack", "2024-04-29"], ["attempt", "2024-05-06"], ["ack", "2024-05-06"], ["attempt", "2024-05-13"], ["ack", "2024-05-13"], ["attempt", "2024-05-20"], ["ack", "2024-05-20"], ["attempt", "2024-05-27"], ["ack", "2024-05-27"], ["attempt", "2024-06-03"], ["ack", "2024-06-03"], ["attempt", "2024-06-10"], ["ack", "2024-06-10"], ["attempt", "2024-06-17"], ["ack", "2024-06-17"], ["attempt", "2024-06-24"], ["ack", "2024-06-24"], ["attempt", "2024-07-01"], ["ack", "2024-07-01"], ["attempt", "2024-07-08"], ["ack", "2024-07-08"], ["attempt", "2024-07-15"], ["ack", "2024-07-15"], ["attempt", "2024-07-22"], ["ack", "2024-07-22"], ["attempt", "2024-07-29"], ["ack", "2024-07-29"], ["attempt", "2024-08-05"], ["ack", "2024-08-05"], ["attempt", "2024-08-12"], ["ack", "2024-08-12"], ["attempt", "2024-08-19"], ["ack", "2024-08-19"], ["attempt", "2024-08-26"], ["ack", "2024-08-26"], ["attempt", "2024-09-02"], ["ack", "2024-09-02"], ["attempt", "2024-09-09"], ["ack", "2024-09-09"], ["attempt", "2024-09-16"], ["ack", "2024-09-16"], ["attempt", "2024-09-23"], ["ack", "2024-09-23"], ["attempt", "2024-09-30"], ["ack", "2024-09-30"], ["attempt", "2024-10-07"], ["ack", "2024-10-07"], ["attempt", "2024-10-14"], ["ack", "2024-10-14"], ["attempt", "2024-10-21"], ["ack", "2024-10-21"], ["attempt", "2024-10-28"], ["ack", "2024-10-28"], ["attempt", "2024-11-04"], ["ack", "2024-11-04"], ["attempt", "2024-11-11"], ["ack", "2024-11-11"], ["attempt", "2024-11-18"], ["ack", "2024-11-18"], ["attempt", "2024-11-25"], ["ack", "2024-11-25"], ["attempt", "2024-12-02"], ["ack", "2024-12-02"], ["attempt", "2024-12-09"], ["ack", "2024-12-09"], ["attempt", "2024-12-16"], ["ack", "2024-12-16"], ["attempt", "2024-12-23"], ["paused-before", "2024-12-23"]]
+PRE_RESUME {"checkpoints": 51, "rows": 148875, "target_rows": 0, "target_checkpoint": false}
+database=%LOCALAPPDATA%\D2EarthquakeCatalog\year-drill-3tcytfr7\catalog.sqlite pid=14728 boundary=None target=2024-12-23 method=normal exit exit=0 events=[["skip", "2024-01-01"], ["skip", "2024-01-08"], ["skip", "2024-01-15"], ["skip", "2024-01-22"], ["skip", "2024-01-29"], ["skip", "2024-02-05"], ["skip", "2024-02-12"], ["skip", "2024-02-19"], ["skip", "2024-02-26"], ["skip", "2024-03-04"], ["skip", "2024-03-11"], ["skip", "2024-03-18"], ["skip", "2024-03-25"], ["skip", "2024-04-01"], ["skip", "2024-04-08"], ["skip", "2024-04-15"], ["skip", "2024-04-22"], ["skip", "2024-04-29"], ["skip", "2024-05-06"], ["skip", "2024-05-13"], ["skip", "2024-05-20"], ["skip", "2024-05-27"], ["skip", "2024-06-03"], ["skip", "2024-06-10"], ["skip", "2024-06-17"], ["skip", "2024-06-24"], ["skip", "2024-07-01"], ["skip", "2024-07-08"], ["skip", "2024-07-15"], ["skip", "2024-07-22"], ["skip", "2024-07-29"], ["skip", "2024-08-05"], ["skip", "2024-08-12"], ["skip", "2024-08-19"], ["skip", "2024-08-26"], ["skip", "2024-09-02"], ["skip", "2024-09-09"], ["skip", "2024-09-16"], ["skip", "2024-09-23"], ["skip", "2024-09-30"], ["skip", "2024-10-07"], ["skip", "2024-10-14"], ["skip", "2024-10-21"], ["skip", "2024-10-28"], ["skip", "2024-11-04"], ["skip", "2024-11-11"], ["skip", "2024-11-18"], ["skip", "2024-11-25"], ["skip", "2024-12-02"], ["skip", "2024-12-09"], ["skip", "2024-12-16"], ["attempt", "2024-12-23"], ["ack", "2024-12-23"], ["attempt", "2024-12-30"], ["ack", "2024-12-30"], ["done", ""]]
+RECONCILIATION {"expected": {"raw": 152183, "unique": 152183, "duplicate_rows": 0}, "actual": {"raw": 152183, "unique": 152183, "duplicate_rows": 0}, "missing": 0, "extra": 0, "mismatched_records": 0}
+YEAR PASS {"target": "2024-12-23", "killed_exit": -15, "initial_worker_seconds": 8.237, "ingestion_bodies_revalidated": 53, "ingestion_bytes_revalidated": 109013415, "skip_windows": 51, "replayed": ["2024-12-23"], "first_attempted": ["2024-12-30"], "replayed_rows": 2584, "previously_pending_rows": 724, "resume_seconds": 1.724, "verification_seconds": 12.278, "database_bytes": 55554048, "unique_events": 152183}
+exit=0

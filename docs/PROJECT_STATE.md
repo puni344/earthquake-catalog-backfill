@@ -33,3 +33,5 @@ M08 passed on 26 November 2026. The default offline command completed in 3.349 s
 The local presentation dashboard pauses after the verified worker termination. Browser checks covered querying the shorter edition during interruption, continuing recovery, reading the week, reopening and paging the older rows, rejecting a duplicate start and rerunning. [Browser observations](evidence/dashboard-browser.txt) · [Presentation decision](adr/0004-dashboard.md)
 
 On 27 November 2026 IST the full offline verification passed on native Ubuntu, macOS arm64 and in an unprivileged Linux container with networking disabled. The native Windows checks still enforce the original laptop pins. All routes use the same one-week fixture. [Platform results](results.md) · [Reproduction guide](reproduce.md)
+
+The separate 2024 benchmark passed on 27 November 2026. The recovered SQLite database matched all 152,183 distinct IDs and their projected fields. [Protocol, frozen inputs and measured scope](benchmarks/year-restart.md)

@@ -17,3 +17,5 @@
 The [integrated offline demonstration](quake-verify.txt) passed. The [M08 transcript and regression checks](M08-verify.txt) document the same invocation.
 
 [M09 clean-clone verification](M09-clean-clone.txt) records the fresh-shell Make route, tested commit, setup and demo timing, CLI observations and final checks.
+
+[2024 benchmark transcript](year-2024-restart.txt) and [protocol, reproduction and frozen archive](../benchmarks/year-restart.md).
