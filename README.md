@@ -28,12 +28,15 @@ Look for **Live acquisition agreement: PASS**, **Frozen restart correctness: PAS
 | Publisher crash | All 36 concurrent reads returned a complete release across termination and retry. | [MEASURED · Windows laptop, 26 Nov 2026, publish drill](docs/evidence/quake-publish.txt) |
 | Reader load | All 168 CLI reads verified at one, two and four concurrent reader loops. | [MEASURED · Windows laptop, 26 Nov 2026, load drill](docs/benchmarks/README.md) |
 | Full-year worker crash | Recovery skipped 51 committed windows and replayed one. All 152,183 distinct earthquakes matched the independent reference. | [MEASURED · Windows laptop, 27 Nov 2026, annual benchmark](docs/benchmarks/year-restart.md) |
+| Incomplete publication | A seven-day publish with three days staged triggered an alert. After retry, the checker verified the expected release and cleared the alert. | [MEASURED · Windows laptop, 27 Nov 2026, publication alert drill](docs/evidence/task-5-publication-alert.txt) |
 
 ## Try the crash yourself
 
 In the weekly demo, click **Run crash demo**. When the worker stops, click **Query current** to inspect the shorter release. Click **Continue recovery**, then use **Publication history** to reopen the earlier release. In the annual demo, inspect the surviving checkpoint and row counts before continuing. [SOURCE · walkthrough](docs/DEFENCE.md) · [Weekly dashboard screenshot](docs/evidence/dashboard-history.png)
 
 If you see **Waiting for capacity**, leave the page open. The start button becomes available when a slot opens. To continue a paused run, return to its dashboard in the same browser. [SOURCE · hosted session handling](earthquake/hosted.py)
+
+To replay the failed publication and its recovery, follow the [alert runbook](docs/runbooks/publication-alert.md). A job that never starts produces no alert. The [portfolio scorecard](docs/scorecard.md) links each assessment to its evidence.
 
 ## Limitations
 

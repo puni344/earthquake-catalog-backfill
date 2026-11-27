@@ -42,7 +42,9 @@
 19. **How does restart now authenticate an orphan?** Before promotion, it installs a receipt binding acquisition, query, attempts, size and SHA-256. The same-run restart checked retained bytes, transferred zero whole bytes and fetched the outstanding daily bodies. Corruption failed closed and absent provenance required refetch. [Repair evidence](evidence/M07-orphan-remediation.txt)
 20. **Where does the evidence stop?** One historical week on a local Windows volume, one writer, worker/publisher process termination and at most four measured reader loops. Power cuts, sustained overload and multi-host failover would require separate experiments. [Failure register](failure-register.md) · [Benchmark](benchmarks/README.md)
 
-## Final evidence-based score · 79/100
+## Historical M09 score · 79/100
+
+For the current assessment and evidence required to raise each category, see the [Task 7 scorecard](scorecard.md).
 
 Local review, 26 November 2026. The six scores are engineering judgments. The caps and evidence for lifting each conditional cap are explicit below.
 
